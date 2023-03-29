@@ -73,7 +73,17 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
 
 
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // AR experiences typically involve moving the device without
+        // touch input for some time, so prevent auto screen dimming.
+        UIApplication.shared.isIdleTimerDisabled = true
+        
+        // "Reset" to run the AR session for the first time.
+        resetTracking()
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -81,6 +91,41 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
         session.pause()
     }
     
+    /// - Tag: ARFaceTrackingSetup
+    func resetTracking() {
+        guard ARFaceTrackingConfiguration.isSupported else { return }
+        let configuration = ARFaceTrackingConfiguration()
+        if #available(iOS 13.0, *) {
+            configuration.maximumNumberOfTrackedFaces = ARFaceTrackingConfiguration.supportedNumberOfTrackedFaces
+        }
+        configuration.isLightEstimationEnabled = true
+        //sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        //faceAnchorsAndContentControllers.removeAll()
+    }
+    
+    // MARK: - Error handling
+    
+    func displayErrorMessage(title: String, message: String) {
+        // Present an alert informing about the error that has occurred.
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let restartAction = UIAlertAction(title: "Restart Session", style: .default) { _ in
+            alertController.dismiss(animated: true, completion: nil)
+            self.resetTracking()
+        }
+        alertController.addAction(restartAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    // Auto-hide the home indicator to maximize immersion in AR experiences.
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
+    
+    // Hide the status bar to maximize immersion in AR experiences.
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     @objc
     func handleTap(gestureRecognize: UITapGestureRecognizer) {
         // Create anchor using the camera's current position
@@ -112,8 +157,19 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
     // MARK: - ARSessionDelegate
     
     func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
+        guard error is ARError else { return }
         
+        let errorWithInfo = error as NSError
+        let messages = [
+            errorWithInfo.localizedDescription,
+            errorWithInfo.localizedFailureReason,
+            errorWithInfo.localizedRecoverySuggestion
+        ]
+        let errorMessage = messages.compactMap({ $0 }).joined(separator: "\n")
+        
+        DispatchQueue.main.async {
+            self.displayErrorMessage(title: "The AR session failed.", message: errorMessage)
+        }
     }
     
     func sessionWasInterrupted(_ session: ARSession) {
