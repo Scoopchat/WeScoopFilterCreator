@@ -37,73 +37,177 @@ let kImagePlaneVertexData: [Float] = [
 ]
 
 
-class Renderer {
-    let session: ARSession
-    let device: MTLDevice
-    let inFlightSemaphore = DispatchSemaphore(value: kMaxBuffersInFlight)
-    var renderDestination: RenderDestinationProvider
+class Renderer: NSObject, ARSessionDelegate  {
+    let session: ARSession //+
+    let device: MTLDevice  //+
+    let inFlightSemaphore = DispatchSemaphore(value: kMaxBuffersInFlight) //+
+    var renderDestination: RenderDestinationProvider //+
     
     // Metal objects
-    var commandQueue: MTLCommandQueue!
-    var sharedUniformBuffer: MTLBuffer!
-    var anchorUniformBuffer: MTLBuffer!
-    var imagePlaneVertexBuffer: MTLBuffer!
-    var capturedImagePipelineState: MTLRenderPipelineState!
-    var capturedImageDepthState: MTLDepthStencilState!
-    var anchorPipelineState: MTLRenderPipelineState!
-    var anchorDepthState: MTLDepthStencilState!
-    var capturedImageTextureY: CVMetalTexture?
-    var capturedImageTextureCbCr: CVMetalTexture?
+    var commandQueue: MTLCommandQueue!//+
+    var sharedUniformBuffer: MTLBuffer!//+
+    var anchorUniformBuffer: MTLBuffer!//+
+    var imagePlaneVertexBuffer: MTLBuffer!//+
+    var capturedImagePipelineState: MTLRenderPipelineState!//+
+    var capturedImageDepthState: MTLDepthStencilState!//+
+    var anchorPipelineState: MTLRenderPipelineState!//++ capturedImagePipelineState
+    var anchorDepthState: MTLDepthStencilState!//++capturedImageDepthState
+    var capturedImageTextureY: CVMetalTexture? //++
+    var capturedImageTextureCbCr: CVMetalTexture?//++
     
     // Captured image texture cache
-    var capturedImageTextureCache: CVMetalTextureCache!
+    var capturedImageTextureCache: CVMetalTextureCache!//+
     
     // Metal vertex descriptor specifying how vertices will by laid out for input into our
     //   anchor geometry render pipeline and how we'll layout our Model IO vertices
-    var geometryVertexDescriptor: MTLVertexDescriptor!
+    var geometryVertexDescriptor: MTLVertexDescriptor!//+
     
     // MetalKit mesh containing vertex data and index buffer for our anchor geometry
-    var cubeMesh: MTKMesh!
+    var cubeMesh: MTKMesh!//-- commented
     
     // Used to determine _uniformBufferStride each frame.
     //   This is the current frame number modulo kMaxBuffersInFlight
-    var uniformBufferIndex: Int = 0
+    var uniformBufferIndex: Int = 0 //+
     
     // Offset within _sharedUniformBuffer to set for the current frame
-    var sharedUniformBufferOffset: Int = 0
+    var sharedUniformBufferOffset: Int = 0//+
     
     // Offset within _anchorUniformBuffer to set for the current frame
-    var anchorUniformBufferOffset: Int = 0
+    var anchorUniformBufferOffset: Int = 0//+
     
     // Addresses to write shared uniforms to each frame
-    var sharedUniformBufferAddress: UnsafeMutableRawPointer!
+    var sharedUniformBufferAddress: UnsafeMutableRawPointer! //+
     
     // Addresses to write anchor uniforms to each frame
-    var anchorUniformBufferAddress: UnsafeMutableRawPointer!
+    var anchorUniformBufferAddress: UnsafeMutableRawPointer!  //+
     
     // The number of anchor instances to render
-    var anchorInstanceCount: Int = 0
+    var anchorInstanceCount: Int = 0 //-- commented
     
     // The current viewport size
-    var viewportSize: CGSize = CGSize()
+    var viewportSize: CGSize = CGSize() //+
     
     // Flag for viewport size changes
-    var viewportSizeDidChange: Bool = false
-    
-    
-    init(session: ARSession, metalDevice device: MTLDevice, renderDestination: RenderDestinationProvider) {
+    var viewportSizeDidChange: Bool = false //+
+    //.... add now from ARMetal proj
+    var viewport : CGRect = CGRect(x: 0, y: 0, width: 1125, height: 2436)
+    var sceneRenderer: SCNRenderer
+    let ciContext: CIContext
+    // MARK: Nodes
+    let scene: SCNScene
+    var worldNode : SCNNode?
+    let cameraNode: SCNNode
+    let lightNode : SCNNode!
+    let ambientLightNode : SCNNode!
+    var lastFaceTransform : matrix_float4x4?
+
+    //..end.. add now from ARMetal proj
+    // MARK: Functionality
+
+    init(session: ARSession, metalDevice device: MTLDevice, renderDestination: RenderDestinationProvider, sceneKitScene scene: SCNScene ) {
+
+   // init(session: ARSession, metalDevice device: MTLDevice, renderDestination: RenderDestinationProvider) {
         self.session = session
         self.device = device
         self.renderDestination = renderDestination
+        //..from ARMetal proj
+        self.ciContext = CIContext(mtlDevice:self.device)
+        self.scene = scene
+
+        self.sceneRenderer = SCNRenderer(device: self.device, options: nil)
+        self.sceneRenderer.autoenablesDefaultLighting = false
+        self.sceneRenderer.isPlaying = true
+        self.sceneRenderer.scene = self.scene
+        let light = SCNLight()
+        light.type = .directional
+        light.color = UIColor.lightGray
+        light.intensity = 1000
+        
+        self.lightNode = SCNNode()
+        
+        self.lightNode.light = light
+        
+        self.lightNode.position = SCNVector3Make(5.0, 5.0, 5.0)
+        
+        self.scene.rootNode.addChildNode(lightNode)
+        
+        
+        let ambientLight = SCNLight()
+        ambientLight.type = .ambient
+        ambientLight.color = UIColor.white
+        ambientLight.intensity = 1000
+        
+        self.ambientLightNode = SCNNode()
+        
+        self.ambientLightNode.light = light
+        
+        self.ambientLightNode.position = SCNVector3Make(0.0, 5.0, 0)
+        
+        self.scene.rootNode.addChildNode(self.ambientLightNode)
+        
+        
+        self.cameraNode = SCNNode()
+        
+        self.cameraNode.camera = SCNCamera()
+        
+        self.scene.rootNode.addChildNode(self.cameraNode)
+        self.sceneRenderer.pointOfView = self.cameraNode
+
+        //..end from ...
+        super.init()
         loadMetal()
         loadAssets()
     }
     
     func drawRectResized(size: CGSize) {
         viewportSize = size
+        viewport = CGRect(x: 0, y:0, width:size.width  , height: size.height )
         viewportSizeDidChange = true
+        configurePointOfView()
     }
-    
+    func configurePointOfView()
+    {
+        /*sceneRenderer.pointOfView?.camera?.focalLength = 20.784610748291
+        sceneRenderer.pointOfView?.camera?.sensorHeight = 24.0
+        sceneRenderer.pointOfView?.camera?.fieldOfView = 60
+        
+        
+        
+        var newMatrix = SCNMatrix4Identity
+        newMatrix.m11 = 3.223367
+        newMatrix.m22 = 1.48860991
+        newMatrix.m31 = 0.000830888748
+        newMatrix.m32 = -0.00301241875
+        newMatrix.m33 = -1.00000191
+        newMatrix.m34 = -1.0
+        newMatrix.m41 = 0.0
+        newMatrix.m42 = 0.0
+        newMatrix.m43 = -0.00200000196
+        newMatrix.m44 = 0.0
+        
+        
+        
+        sceneRenderer.pointOfView?.camera?.projectionTransform = newMatrix
+        
+        var simdMatrix = matrix_float4x4()
+        simdMatrix.columns.0 = float4(1, 0, 0, 0.0)
+        simdMatrix.columns.1 = float4(0, 1, 0, 0.0)
+        simdMatrix.columns.2 = float4(0, 0, 1, 0.0)
+        simdMatrix.columns.3 = float4(0.0, 0.0, 0.0, 1.0)
+        
+        sceneRenderer.pointOfView?.simdTransform = simdMatrix
+        
+        sceneRenderer.pointOfView?.camera?.focalLength = 20.784610748291
+        sceneRenderer.pointOfView?.camera?.sensorHeight = 24.0
+        sceneRenderer.pointOfView?.camera?.fieldOfView = 60
+        
+        sceneRenderer.pointOfView?.camera?.automaticallyAdjustsZRange = true
+        
+        
+        
+        pointOfViewConfigured = true*/
+    }
+
     func update() {
         // Wait to ensure only kMaxBuffersInFlight are getting processed by any stage in the Metal
         //   pipeline (App, Metal, Drivers, GPU, etc)

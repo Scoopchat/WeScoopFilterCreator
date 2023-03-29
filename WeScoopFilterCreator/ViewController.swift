@@ -17,28 +17,39 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
     
     var session: ARSession!
     var renderer: Renderer!
-    
+    //..inject from ARMetal project
+    //var maskRecords = [MaskInfo]()
+    var device: MTLDevice!
+    var scene: SCNScene!
+    var currentFaceNodeName: String?
+    var isRecording: Bool = false
+    //var assetWriter : RenderedVideoWriter?
+    //.. end inject
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set the view's delegate
         session = ARSession()
         session.delegate = self
-        
+        scene = SCNScene()
+        //.... inject
+        //Utilities.clearCacheDirectory()
+
         // Set the view to use the default device
-        if let view = self.view as? MTKView {
-            view.device = MTLCreateSystemDefaultDevice()
-            view.backgroundColor = UIColor.clear
-            view.delegate = self
+        if let mtkView = self.view as? MTKView {
+            mtkView.device = MTLCreateSystemDefaultDevice()
+            mtkView.backgroundColor = UIColor.clear
+            mtkView.delegate = self
             
-            guard view.device != nil else {
+            guard mtkView.device != nil else {
                 print("Metal is not supported on this device")
                 return
             }
-            
+            self.device = mtkView.device!
             // Configure the renderer to draw to the view
-            renderer = Renderer(session: session, metalDevice: view.device!, renderDestination: view)
-            
+            //renderer = Renderer(session: session, metalDevice: view.device!, renderDestination: view)
+            renderer = Renderer(session: session, metalDevice: mtkView.device!, renderDestination: mtkView, sceneKitScene: scene)
+
             renderer.drawRectResized(size: view.bounds.size)
         }
         
