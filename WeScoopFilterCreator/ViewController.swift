@@ -61,10 +61,17 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
         super.viewWillAppear(animated)
         
         // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
-
+       // let configuration = ARWorldTrackingConfiguration()
         // Run the view's session
-        session.run(configuration)
+       // session.run(configuration)
+        guard ARFaceTrackingConfiguration.isSupported else { return }
+        let configuration = ARFaceTrackingConfiguration()
+        configuration.isLightEstimationEnabled = true
+        configuration.providesAudioData = true
+        configuration.worldAlignment = .gravity
+        session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
