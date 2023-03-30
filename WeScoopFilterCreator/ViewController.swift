@@ -22,6 +22,8 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
     var device: MTLDevice!
     var scene: SCNScene!
     var currentFaceNodeName: String?
+    var currentFaceNode: VirtualFaceNode?
+
     var isRecording: Bool = false
     //var assetWriter : RenderedVideoWriter?
     //.. end inject
@@ -47,6 +49,20 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
             }
             self.device = mtkView.device!
             // Configure the renderer to draw to the view
+            //....
+            
+           // let faceNode = Overlay(named: "Models",subdirectory: "Models.scnassets", device: self.device)
+            
+          //  let faceNode = FaceMask(named: "mask",subdirectory: "Bowie2.scnassets", device: self.device)
+           let faceNode = Overlay(named: "Aviator",subdirectory: "Aviator.scnassets", device: self.device)
+
+            currentFaceNodeName = faceNode.name
+            
+            currentFaceNode = faceNode
+            // Configure the renderer to draw to the view
+
+            
+            //....
             //renderer = Renderer(session: session, metalDevice: view.device!, renderDestination: view)
             renderer = Renderer(session: session, metalDevice: mtkView.device!, renderDestination: mtkView, sceneKitScene: scene)
 

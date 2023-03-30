@@ -59,4 +59,11 @@ typedef struct {
     matrix_float4x4 modelMatrix;
 } InstanceUniforms;
 
+
+
+typedef struct {
+    float contrastIntensity;
+    float saturationIntensity;
+    float lutIntensity;
+} ColorProcessingParameters;
 #endif /* ShaderTypes_h */

@@ -17,6 +17,12 @@
 		984E75CB29D4299600C6B7F2 /* WeScoopFilterCreatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E75CA29D4299600C6B7F2 /* WeScoopFilterCreatorTests.swift */; };
 		984E75D529D4299600C6B7F2 /* WeScoopFilterCreatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E75D429D4299600C6B7F2 /* WeScoopFilterCreatorUITests.swift */; };
 		984E75D729D4299600C6B7F2 /* WeScoopFilterCreatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E75D629D4299600C6B7F2 /* WeScoopFilterCreatorUITestsLaunchTests.swift */; };
+		984E75FB29D4401F00C6B7F2 /* VirtualFaceContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E75FA29D4401F00C6B7F2 /* VirtualFaceContent.swift */; };
+		984E75FD29D58BE500C6B7F2 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E75FC29D58BE500C6B7F2 /* Overlay.swift */; };
+		984E75FF29D58D3C00C6B7F2 /* MaskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E75FE29D58D3C00C6B7F2 /* MaskInfo.swift */; };
+		984E760229D58F2900C6B7F2 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 984E760129D58F2900C6B7F2 /* Models.scnassets */; };
+		984E760629D58F8600C6B7F2 /* SceneKit Asset Catalog.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 984E760529D58F8600C6B7F2 /* SceneKit Asset Catalog.scnassets */; };
+		984E760829D5920600C6B7F2 /* Aviator.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 984E760729D5920600C6B7F2 /* Aviator.scnassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +58,12 @@
 		984E75D029D4299600C6B7F2 /* WeScoopFilterCreatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeScoopFilterCreatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		984E75D429D4299600C6B7F2 /* WeScoopFilterCreatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeScoopFilterCreatorUITests.swift; sourceTree = "<group>"; };
 		984E75D629D4299600C6B7F2 /* WeScoopFilterCreatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeScoopFilterCreatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		984E75FA29D4401F00C6B7F2 /* VirtualFaceContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFaceContent.swift; sourceTree = "<group>"; };
+		984E75FC29D58BE500C6B7F2 /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
+		984E75FE29D58D3C00C6B7F2 /* MaskInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskInfo.swift; sourceTree = "<group>"; };
+		984E760129D58F2900C6B7F2 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
+		984E760529D58F8600C6B7F2 /* SceneKit Asset Catalog.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = "SceneKit Asset Catalog.scnassets"; sourceTree = "<group>"; };
+		984E760729D5920600C6B7F2 /* Aviator.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Aviator.scnassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +114,7 @@
 		984E75AF29D4299400C6B7F2 /* WeScoopFilterCreator */ = {
 			isa = PBXGroup;
 			children = (
+				984E760029D58EC700C6B7F2 /* WeScoopEffects */,
 				984E75EF29D430F900C6B7F2 /* Shaders */,
 				984E75E429D4306F00C6B7F2 /* Render */,
 				984E75B029D4299400C6B7F2 /* AppDelegate.swift */,
@@ -109,6 +122,9 @@
 				984E75B429D4299400C6B7F2 /* ShaderTypes.h */,
 				984E75B529D4299400C6B7F2 /* Renderer.swift */,
 				984E75B729D4299400C6B7F2 /* ViewController.swift */,
+				984E75FA29D4401F00C6B7F2 /* VirtualFaceContent.swift */,
+				984E75FC29D58BE500C6B7F2 /* Overlay.swift */,
+				984E75FE29D58D3C00C6B7F2 /* MaskInfo.swift */,
 				984E75B929D4299400C6B7F2 /* Main.storyboard */,
 				984E75BC29D4299500C6B7F2 /* Assets.xcassets */,
 				984E75BE29D4299500C6B7F2 /* LaunchScreen.storyboard */,
@@ -146,6 +162,16 @@
 			children = (
 			);
 			path = Shaders;
+			sourceTree = "<group>";
+		};
+		984E760029D58EC700C6B7F2 /* WeScoopEffects */ = {
+			isa = PBXGroup;
+			children = (
+				984E760729D5920600C6B7F2 /* Aviator.scnassets */,
+				984E760129D58F2900C6B7F2 /* Models.scnassets */,
+				984E760529D58F8600C6B7F2 /* SceneKit Asset Catalog.scnassets */,
+			);
+			path = WeScoopEffects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,8 +278,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				984E760829D5920600C6B7F2 /* Aviator.scnassets in Resources */,
 				984E75C029D4299500C6B7F2 /* LaunchScreen.storyboard in Resources */,
+				984E760229D58F2900C6B7F2 /* Models.scnassets in Resources */,
 				984E75BD29D4299500C6B7F2 /* Assets.xcassets in Resources */,
+				984E760629D58F8600C6B7F2 /* SceneKit Asset Catalog.scnassets in Resources */,
 				984E75BB29D4299400C6B7F2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,9 +309,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				984E75B329D4299400C6B7F2 /* Shaders.metal in Sources */,
+				984E75FB29D4401F00C6B7F2 /* VirtualFaceContent.swift in Sources */,
 				984E75B629D4299400C6B7F2 /* Renderer.swift in Sources */,
 				984E75B829D4299400C6B7F2 /* ViewController.swift in Sources */,
+				984E75FD29D58BE500C6B7F2 /* Overlay.swift in Sources */,
 				984E75B129D4299400C6B7F2 /* AppDelegate.swift in Sources */,
+				984E75FF29D58D3C00C6B7F2 /* MaskInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

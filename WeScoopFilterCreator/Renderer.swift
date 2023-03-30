@@ -31,10 +31,24 @@ let kAlignedInstanceUniformsSize: Int = ((MemoryLayout<InstanceUniforms>.size * 
 // Vertex data for an image plane
 let kImagePlaneVertexData: [Float] = [
     -1.0, -1.0,  0.0, 1.0,
-    1.0, -1.0,  1.0, 1.0,
-    -1.0,  1.0,  0.0, 0.0,
-    1.0,  1.0,  1.0, 0.0,
+     1.0, -1.0,  1.0, 1.0,
+     -1.0,  1.0,  0.0, 0.0,
+     1.0,  1.0,  1.0, 0.0,
 ]
+//... form ARMetal proj
+
+let kSkinSmoothingFactor : Float = 0.6
+
+let kSmoothingPasses: Int = 6
+
+let kFaceIndexCount : Int = 2304 * 3
+
+let smoothingPassSizes : [CGFloat] = [1.0,0.25,0.2,0.2,0.2]
+
+let smoothingPassInstructions : [(Int, Bool)] = [ (1,true), (2,true), (3,true), (4,true), (2, false), (3,false), (0,true) ]
+
+
+//...end form ARMetal proj
 
 
 class Renderer: NSObject, ARSessionDelegate  {
@@ -91,8 +105,8 @@ class Renderer: NSObject, ARSessionDelegate  {
     var viewportSizeDidChange: Bool = false //+
     //.... add now from ARMetal proj
     var viewport : CGRect = CGRect(x: 0, y: 0, width: 1125, height: 2436)
-    var sceneRenderer: SCNRenderer
-    let ciContext: CIContext
+    var sceneRenderer: SCNRenderer//+
+    let ciContext: CIContext//+
     // MARK: Nodes
     let scene: SCNScene
     var worldNode : SCNNode?
@@ -100,20 +114,127 @@ class Renderer: NSObject, ARSessionDelegate  {
     let lightNode : SCNNode!
     let ambientLightNode : SCNNode!
     var lastFaceTransform : matrix_float4x4?
+    
+    
+    var colorProcessingParameters : ColorProcessingParameters!
+    var lastTimestamp : TimeInterval? //+
+    var alternateFaceUVSource : SCNGeometrySource?//+
+    var capturedImageRenderTextureBuffer : MTLTexture!//+
+    var skinSmoothingTextureBuffers: [MTLTexture]!//+
+    var skinSmoothingDepthBuffer: MTLTexture!//+
 
+    var alternateFaceUVSourceCoords : [float2] = [float2]()//+
+    var isSwappingMasks : Bool = false //+
+
+    var faceContentNode: VirtualFaceNode? {//+
+        willSet(newfaceContentNode) {
+            
+            isSwappingMasks = true
+            self.faceContentNode?.isHidden = true
+        }
+        
+        didSet {
+            
+            DispatchQueue.main.async {
+                // self.worldNode?.removeFromParentNode()
+                oldValue?.removeFromParentNode()
+            }
+            self.worldNode?.isHidden = true
+            self.faceContentNode?.isHidden = true
+            //   self.faceContentNode?.opacity = 0.0
+            // self.worldNode = nil
+            //            if let anchor = self.worldAnchor  {
+            //            self.session.remove(anchor: anchor)
+            //            }
+            
+            if self.faceContentNode != nil  {
+                
+                // var nodes = [SCNNode]()
+                
+                //               if let texCoordSource = self.faceContentNode!.geometry?.sources( for: SCNGeometrySource.Semantic.texcoord ) {
+                //
+                //                    print("found tex coords")
+                //
+                //                }
+                if let overlayScene = self.faceContentNode?.overlaySKScene  {
+                    self.sceneRenderer.overlaySKScene = overlayScene
+                    self.sceneRenderer.overlaySKScene!.scaleMode = .aspectFill
+                    
+                } else {
+                    self.sceneRenderer.overlaySKScene = nil
+                }
+                self.colorProcessingParameters = self.faceContentNode?.colorParameters
+                if let worldNode = self.faceContentNode?.worldNode {
+                    
+                    //                    if  self.worldAnchor == nil {
+                    //
+                    //                        self.worldAnchor = ARAnchor(transform: matrix_identity_float4x4)
+                    //
+                    //                        self.worldAnchorUUID = self.worldAnchor?.identifier
+                    //
+                    //                        self.session.add(anchor: self.worldAnchor!)
+                    //                    }
+                    //self.session.add(anchor: self.worldAnchor!)
+                    
+                    // nodes.append(self.worldNode!)
+                    
+                    if self.worldNode != nil {
+                        self.scene.rootNode.replaceChildNode(self.worldNode!, with: worldNode)
+                    } else {
+                        self.scene.rootNode.addChildNode(worldNode)
+                    }
+                    
+                    self.worldNode = worldNode
+                    
+                    // self.scene.rootNode.addChildNode(self.worldNode!)
+                    
+                }
+                
+                //self.faceContentNode?.opacity = 0.0
+                
+                // nodes.append(self.faceContentNode!)
+                
+                self.scene.rootNode.addChildNode(self.faceContentNode!)
+                //                for node in nodes {
+                //                    self.scene.rootNode.addChildNode(node)
+                //
+                //                }
+                
+                
+                //                sceneRenderer.prepare(nodes, completionHandler: { (result) in
+                //
+                //                    for node in nodes {
+                //                        self.scene.rootNode.addChildNode(node)
+                //
+                //                    }
+                //
+                //                })
+            }
+            
+            self.updateTextures()
+            
+            self.faceContentNode?.loadSpecialMaterials()
+            
+            isSwappingMasks = false
+            
+            self.faceContentNode?.isHidden = false
+            
+            
+        }
+    }
     //..end.. add now from ARMetal proj
     // MARK: Functionality
-
+    
     init(session: ARSession, metalDevice device: MTLDevice, renderDestination: RenderDestinationProvider, sceneKitScene scene: SCNScene ) {
-
-   // init(session: ARSession, metalDevice device: MTLDevice, renderDestination: RenderDestinationProvider) {
+        
+        // init(session: ARSession, metalDevice device: MTLDevice, renderDestination: RenderDestinationProvider) {
         self.session = session
         self.device = device
         self.renderDestination = renderDestination
         //..from ARMetal proj
         self.ciContext = CIContext(mtlDevice:self.device)
         self.scene = scene
-
+        
         self.sceneRenderer = SCNRenderer(device: self.device, options: nil)
         self.sceneRenderer.autoenablesDefaultLighting = false
         self.sceneRenderer.isPlaying = true
@@ -152,7 +273,7 @@ class Renderer: NSObject, ARSessionDelegate  {
         
         self.scene.rootNode.addChildNode(self.cameraNode)
         self.sceneRenderer.pointOfView = self.cameraNode
-
+        
         //..end from ...
         super.init()
         loadMetal()
@@ -168,46 +289,46 @@ class Renderer: NSObject, ARSessionDelegate  {
     func configurePointOfView()
     {
         /*sceneRenderer.pointOfView?.camera?.focalLength = 20.784610748291
-        sceneRenderer.pointOfView?.camera?.sensorHeight = 24.0
-        sceneRenderer.pointOfView?.camera?.fieldOfView = 60
-        
-        
-        
-        var newMatrix = SCNMatrix4Identity
-        newMatrix.m11 = 3.223367
-        newMatrix.m22 = 1.48860991
-        newMatrix.m31 = 0.000830888748
-        newMatrix.m32 = -0.00301241875
-        newMatrix.m33 = -1.00000191
-        newMatrix.m34 = -1.0
-        newMatrix.m41 = 0.0
-        newMatrix.m42 = 0.0
-        newMatrix.m43 = -0.00200000196
-        newMatrix.m44 = 0.0
-        
-        
-        
-        sceneRenderer.pointOfView?.camera?.projectionTransform = newMatrix
-        
-        var simdMatrix = matrix_float4x4()
-        simdMatrix.columns.0 = float4(1, 0, 0, 0.0)
-        simdMatrix.columns.1 = float4(0, 1, 0, 0.0)
-        simdMatrix.columns.2 = float4(0, 0, 1, 0.0)
-        simdMatrix.columns.3 = float4(0.0, 0.0, 0.0, 1.0)
-        
-        sceneRenderer.pointOfView?.simdTransform = simdMatrix
-        
-        sceneRenderer.pointOfView?.camera?.focalLength = 20.784610748291
-        sceneRenderer.pointOfView?.camera?.sensorHeight = 24.0
-        sceneRenderer.pointOfView?.camera?.fieldOfView = 60
-        
-        sceneRenderer.pointOfView?.camera?.automaticallyAdjustsZRange = true
-        
-        
-        
-        pointOfViewConfigured = true*/
+         sceneRenderer.pointOfView?.camera?.sensorHeight = 24.0
+         sceneRenderer.pointOfView?.camera?.fieldOfView = 60
+         
+         
+         
+         var newMatrix = SCNMatrix4Identity
+         newMatrix.m11 = 3.223367
+         newMatrix.m22 = 1.48860991
+         newMatrix.m31 = 0.000830888748
+         newMatrix.m32 = -0.00301241875
+         newMatrix.m33 = -1.00000191
+         newMatrix.m34 = -1.0
+         newMatrix.m41 = 0.0
+         newMatrix.m42 = 0.0
+         newMatrix.m43 = -0.00200000196
+         newMatrix.m44 = 0.0
+         
+         
+         
+         sceneRenderer.pointOfView?.camera?.projectionTransform = newMatrix
+         
+         var simdMatrix = matrix_float4x4()
+         simdMatrix.columns.0 = float4(1, 0, 0, 0.0)
+         simdMatrix.columns.1 = float4(0, 1, 0, 0.0)
+         simdMatrix.columns.2 = float4(0, 0, 1, 0.0)
+         simdMatrix.columns.3 = float4(0.0, 0.0, 0.0, 1.0)
+         
+         sceneRenderer.pointOfView?.simdTransform = simdMatrix
+         
+         sceneRenderer.pointOfView?.camera?.focalLength = 20.784610748291
+         sceneRenderer.pointOfView?.camera?.sensorHeight = 24.0
+         sceneRenderer.pointOfView?.camera?.fieldOfView = 60
+         
+         sceneRenderer.pointOfView?.camera?.automaticallyAdjustsZRange = true
+         
+         
+         
+         pointOfViewConfigured = true*/
     }
-
+    
     func update() {
         // Wait to ensure only kMaxBuffersInFlight are getting processed by any stage in the Metal
         //   pipeline (App, Metal, Drivers, GPU, etc)
@@ -467,7 +588,7 @@ class Renderer: NSObject, ARSessionDelegate  {
         
         uniforms.pointee.viewMatrix = frame.camera.viewMatrix(for: .landscapeRight)
         uniforms.pointee.projectionMatrix = frame.camera.projectionMatrix(for: .landscapeRight, viewportSize: viewportSize, zNear: 0.001, zFar: 1000)
-
+        
         // Set up lighting for the scene using the ambient intensity if provided
         var ambientIntensity: Float = 1.0
         
@@ -540,7 +661,7 @@ class Renderer: NSObject, ARSessionDelegate  {
     func updateImagePlane(frame: ARFrame) {
         // Update the texture coordinates of our image plane to aspect fill the viewport
         let displayToCameraTransform = frame.displayTransform(for: .landscapeRight, viewportSize: viewportSize).inverted()
-
+        
         let vertexData = imagePlaneVertexBuffer.contents().assumingMemoryBound(to: Float.self)
         for index in 0...3 {
             let textureCoordIndex = 4 * index + 2
@@ -608,4 +729,41 @@ class Renderer: NSObject, ARSessionDelegate  {
         
         renderEncoder.popDebugGroup()
     }
+    
+    
+    func updateTextures()
+    {
+        
+        var textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: renderDestination.colorPixelFormat, width: Int(viewport.width), height: Int(viewport.height), mipmapped: renderDestination.sampleCount > 0)
+        
+        textureDescriptor.usage = MTLTextureUsage(rawValue:MTLTextureUsage.shaderRead.rawValue  | MTLTextureUsage.shaderWrite.rawValue  | MTLTextureUsage.renderTarget.rawValue)
+        
+        capturedImageRenderTextureBuffer =  device.makeTexture(descriptor: textureDescriptor)!
+        
+        capturedImageRenderTextureBuffer.label = "capturedImageRenderTextureBuffer"
+        
+        skinSmoothingTextureBuffers = [MTLTexture]()
+
+        
+        for size : CGFloat in smoothingPassSizes {
+            
+            textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: renderDestination.colorPixelFormat, width: Int( Double(viewport.width * size).rounded(.up)), height: Int(Double(viewport.height * size).rounded(.up)), mipmapped: renderDestination.sampleCount > 0)
+            
+            textureDescriptor.usage = MTLTextureUsage(rawValue:MTLTextureUsage.shaderRead.rawValue | MTLTextureUsage.shaderWrite.rawValue | MTLTextureUsage.renderTarget.rawValue)
+            
+            if let smoothingPassBuffer =  device.makeTexture(descriptor: textureDescriptor) {
+                skinSmoothingTextureBuffers.append(smoothingPassBuffer)
+            }
+            
+        }
+        
+        textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: MTLPixelFormat.depth32Float_stencil8, width: Int(viewport.width), height: Int(viewport.height), mipmapped: renderDestination.sampleCount > 0)
+        
+        textureDescriptor.usage = MTLTextureUsage(rawValue:MTLTextureUsage.shaderRead.rawValue | MTLTextureUsage.shaderWrite.rawValue | MTLTextureUsage.renderTarget.rawValue)
+        
+        skinSmoothingDepthBuffer = device.makeTexture(descriptor: textureDescriptor)
+    }
+    
+
+    
 }
