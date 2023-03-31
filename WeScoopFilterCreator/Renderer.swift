@@ -10,13 +10,13 @@ import Metal
 import MetalKit
 import ARKit
 
-protocol RenderDestinationProvider {
+/*protocol RenderDestinationProvider {
     var currentRenderPassDescriptor: MTLRenderPassDescriptor? { get }
     var currentDrawable: CAMetalDrawable? { get }
     var colorPixelFormat: MTLPixelFormat { get set }
     var depthStencilPixelFormat: MTLPixelFormat { get set }
     var sampleCount: Int { get set }
-}
+}*/
 
 // The max number of command buffers in flight
 let kMaxBuffersInFlight: Int = 3
@@ -354,7 +354,7 @@ class Renderer: NSObject, ARSessionDelegate  {
     }
     func configurePointOfView()
     {
-        /*sceneRenderer.pointOfView?.camera?.focalLength = 20.784610748291
+        sceneRenderer.pointOfView?.camera?.focalLength = 20.784610748291
          sceneRenderer.pointOfView?.camera?.sensorHeight = 24.0
          sceneRenderer.pointOfView?.camera?.fieldOfView = 60
          
@@ -392,7 +392,7 @@ class Renderer: NSObject, ARSessionDelegate  {
          
          
          
-         pointOfViewConfigured = true*/
+         pointOfViewConfigured = true
     }
     
     func update() {
@@ -1370,7 +1370,7 @@ class Renderer: NSObject, ARSessionDelegate  {
     
     func updateImagePlane(frame: ARFrame) {
         // Update the texture coordinates of our image plane to aspect fill the viewport
-        let displayToCameraTransform = frame.displayTransform(for: .landscapeRight, viewportSize: viewportSize).inverted()
+        let displayToCameraTransform = frame.displayTransform(for: .portrait, viewportSize: viewportSize).inverted()
         
         let vertexData = imagePlaneVertexBuffer.contents().assumingMemoryBound(to: Float.self)
         for index in 0...3 {
@@ -1944,5 +1944,11 @@ class Renderer: NSObject, ARSessionDelegate  {
         pixelBuffers.removeAll()
         
     }
+    deinit {
+        if(capturedImageTextureCache != nil) {
+            CVMetalTextureCacheFlush(capturedImageTextureCache, 0);
+        }
+    }
+
 
 }

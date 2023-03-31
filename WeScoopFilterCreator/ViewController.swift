@@ -10,8 +10,6 @@ import Metal
 import MetalKit
 import ARKit
 
-extension MTKView : RenderDestinationProvider {
-}
 
 class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
     
@@ -54,7 +52,7 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
            // let faceNode = Overlay(named: "Models",subdirectory: "Models.scnassets", device: self.device)
             
           //  let faceNode = FaceMask(named: "mask",subdirectory: "Bowie2.scnassets", device: self.device)
-           let faceNode = Overlay(named: "Aviator",subdirectory: "Aviator.scnassets", device: self.device)
+           let faceNode = FaceMask(named: "Aviator",subdirectory: "Aviator.scnassets", device: self.device)
 
             currentFaceNodeName = faceNode.name
             
@@ -67,6 +65,8 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
             renderer = Renderer(session: session, metalDevice: mtkView.device!, renderDestination: mtkView, sceneKitScene: scene)
 
             renderer.drawRectResized(size: view.bounds.size)
+            renderer.faceContentNode = faceNode
+
         }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleTap(gestureRecognize:)))

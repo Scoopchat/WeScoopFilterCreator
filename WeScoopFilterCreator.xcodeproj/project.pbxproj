@@ -27,6 +27,8 @@
 		984E760D29D6CF7200C6B7F2 /* ShaderCommon.metal in Sources */ = {isa = PBXBuildFile; fileRef = 984E760C29D6CF7200C6B7F2 /* ShaderCommon.metal */; };
 		984E760F29D6D19600C6B7F2 /* Retouch.metal in Sources */ = {isa = PBXBuildFile; fileRef = 984E760E29D6D19600C6B7F2 /* Retouch.metal */; };
 		984E761129D6D1E900C6B7F2 /* LUT.metal in Sources */ = {isa = PBXBuildFile; fileRef = 984E761029D6D1E900C6B7F2 /* LUT.metal */; };
+		984E761329D6D79800C6B7F2 /* FaceMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E761229D6D79800C6B7F2 /* FaceMask.swift */; };
+		984E761529D6DB4800C6B7F2 /* RenderDestinationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E761429D6DB4800C6B7F2 /* RenderDestinationProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		984E760C29D6CF7200C6B7F2 /* ShaderCommon.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ShaderCommon.metal; sourceTree = "<group>"; };
 		984E760E29D6D19600C6B7F2 /* Retouch.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Retouch.metal; sourceTree = "<group>"; };
 		984E761029D6D1E900C6B7F2 /* LUT.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = LUT.metal; sourceTree = "<group>"; };
+		984E761229D6D79800C6B7F2 /* FaceMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceMask.swift; sourceTree = "<group>"; };
+		984E761429D6DB4800C6B7F2 /* RenderDestinationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderDestinationProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,22 +127,24 @@
 		984E75AF29D4299400C6B7F2 /* WeScoopFilterCreator */ = {
 			isa = PBXGroup;
 			children = (
-				984E760029D58EC700C6B7F2 /* WeScoopEffects */,
-				984E75EF29D430F900C6B7F2 /* Shaders */,
-				984E75E429D4306F00C6B7F2 /* Render */,
-				984E75B029D4299400C6B7F2 /* AppDelegate.swift */,
+				984E761429D6DB4800C6B7F2 /* RenderDestinationProvider.swift */,
+				984E75B529D4299400C6B7F2 /* Renderer.swift */,
+				984E760929D5BB2A00C6B7F2 /* RenderPixelBufferConsumer.swift */,
+				984E761229D6D79800C6B7F2 /* FaceMask.swift */,
+				984E75FC29D58BE500C6B7F2 /* Overlay.swift */,
+				984E75FE29D58D3C00C6B7F2 /* MaskInfo.swift */,
 				984E75B229D4299400C6B7F2 /* Shaders.metal */,
 				984E75B429D4299400C6B7F2 /* ShaderTypes.h */,
 				984E760C29D6CF7200C6B7F2 /* ShaderCommon.metal */,
 				984E760B29D6CF4D00C6B7F2 /* ShaderCommon.h */,
 				984E760E29D6D19600C6B7F2 /* Retouch.metal */,
 				984E761029D6D1E900C6B7F2 /* LUT.metal */,
-				984E75B529D4299400C6B7F2 /* Renderer.swift */,
-				984E760929D5BB2A00C6B7F2 /* RenderPixelBufferConsumer.swift */,
+				984E760029D58EC700C6B7F2 /* WeScoopEffects */,
+				984E75EF29D430F900C6B7F2 /* Shaders */,
+				984E75E429D4306F00C6B7F2 /* Render */,
+				984E75B029D4299400C6B7F2 /* AppDelegate.swift */,
 				984E75B729D4299400C6B7F2 /* ViewController.swift */,
 				984E75FA29D4401F00C6B7F2 /* VirtualFaceContent.swift */,
-				984E75FC29D58BE500C6B7F2 /* Overlay.swift */,
-				984E75FE29D58D3C00C6B7F2 /* MaskInfo.swift */,
 				984E75B929D4299400C6B7F2 /* Main.storyboard */,
 				984E75BC29D4299500C6B7F2 /* Assets.xcassets */,
 				984E75BE29D4299500C6B7F2 /* LaunchScreen.storyboard */,
@@ -324,12 +330,14 @@
 			files = (
 				984E75B329D4299400C6B7F2 /* Shaders.metal in Sources */,
 				984E760D29D6CF7200C6B7F2 /* ShaderCommon.metal in Sources */,
+				984E761529D6DB4800C6B7F2 /* RenderDestinationProvider.swift in Sources */,
 				984E75FB29D4401F00C6B7F2 /* VirtualFaceContent.swift in Sources */,
 				984E760A29D5BB2A00C6B7F2 /* RenderPixelBufferConsumer.swift in Sources */,
 				984E75B629D4299400C6B7F2 /* Renderer.swift in Sources */,
 				984E75B829D4299400C6B7F2 /* ViewController.swift in Sources */,
 				984E75FD29D58BE500C6B7F2 /* Overlay.swift in Sources */,
 				984E761129D6D1E900C6B7F2 /* LUT.metal in Sources */,
+				984E761329D6D79800C6B7F2 /* FaceMask.swift in Sources */,
 				984E75B129D4299400C6B7F2 /* AppDelegate.swift in Sources */,
 				984E760F29D6D19600C6B7F2 /* Retouch.metal in Sources */,
 				984E75FF29D58D3C00C6B7F2 /* MaskInfo.swift in Sources */,
@@ -517,7 +525,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "arkit metal";
-				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -551,7 +559,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "arkit metal";
-				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
