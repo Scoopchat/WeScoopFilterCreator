@@ -38,6 +38,8 @@
 		984E762729D6EB6700C6B7F2 /* daz3duv2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 984E762029D6EB6700C6B7F2 /* daz3duv2.plist */; };
 		984E762929D6EFA900C6B7F2 /* Bowie2.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 984E762829D6EFA900C6B7F2 /* Bowie2.scnassets */; };
 		984E762D29D6F05900C6B7F2 /* geo2.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 984E762C29D6F05900C6B7F2 /* geo2.scnassets */; };
+		984E763029D6F25E00C6B7F2 /* reducedIndices.bin in Resources */ = {isa = PBXBuildFile; fileRef = 984E762E29D6F25D00C6B7F2 /* reducedIndices.bin */; };
+		984E763129D6F25E00C6B7F2 /* model_eye in Resources */ = {isa = PBXBuildFile; fileRef = 984E762F29D6F25D00C6B7F2 /* model_eye */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		984E762029D6EB6700C6B7F2 /* daz3duv2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = daz3duv2.plist; sourceTree = "<group>"; };
 		984E762829D6EFA900C6B7F2 /* Bowie2.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Bowie2.scnassets; sourceTree = "<group>"; };
 		984E762C29D6F05900C6B7F2 /* geo2.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = geo2.scnassets; sourceTree = "<group>"; };
+		984E762E29D6F25D00C6B7F2 /* reducedIndices.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = reducedIndices.bin; sourceTree = "<group>"; };
+		984E762F29D6F25D00C6B7F2 /* model_eye */ = {isa = PBXFileReference; lastKnownFileType = folder; path = model_eye; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +222,8 @@
 		984E761929D6EB5500C6B7F2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				984E762F29D6F25D00C6B7F2 /* model_eye */,
+				984E762E29D6F25D00C6B7F2 /* reducedIndices.bin */,
 				984E761D29D6EB6700C6B7F2 /* alternateCoords.plist */,
 				984E761C29D6EB6700C6B7F2 /* daz3duv.plist */,
 				984E762029D6EB6700C6B7F2 /* daz3duv2.plist */,
@@ -337,6 +343,8 @@
 				984E760829D5920600C6B7F2 /* Aviator.scnassets in Resources */,
 				984E75C029D4299500C6B7F2 /* LaunchScreen.storyboard in Resources */,
 				984E762929D6EFA900C6B7F2 /* Bowie2.scnassets in Resources */,
+				984E763129D6F25E00C6B7F2 /* model_eye in Resources */,
+				984E763029D6F25E00C6B7F2 /* reducedIndices.bin in Resources */,
 				984E762529D6EB6700C6B7F2 /* makeupFragment.scnmodifier in Resources */,
 				984E760229D58F2900C6B7F2 /* Models.scnassets in Resources */,
 				984E762729D6EB6700C6B7F2 /* daz3duv2.plist in Resources */,

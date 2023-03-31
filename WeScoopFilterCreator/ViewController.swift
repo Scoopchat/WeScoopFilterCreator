@@ -53,7 +53,7 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
            // let faceNode = Overlay(named: "Models",subdirectory: "Models.scnassets", device: self.device)
             
           //  let faceNode = FaceMask(named: "mask",subdirectory: "Bowie2.scnassets", device: self.device)
-           let faceNode = FaceMask(named: "geo2",subdirectory: "geo2.scnassets", device: self.device)
+           let faceNode = Overlay(named: "Aviator",subdirectory: "Aviator.scnassets", device: self.device)
 
             currentFaceNodeName = faceNode.name
             

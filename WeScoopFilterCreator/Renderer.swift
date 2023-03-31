@@ -1167,6 +1167,49 @@ class Renderer: NSObject, ARSessionDelegate  {
     func updateSharedUniforms(frame: ARFrame) {
         // Update the shared uniforms of the frame
         
+        if self.lastCamera == nil {
+            
+            let projectionMatrix = frame.camera.projectionMatrix(for: .portrait, viewportSize: CGSize(width:self.viewport.width,height:self.viewport.height), zNear: 0.001, zFar: 1000)
+            
+            let  newMatrix = SCNMatrix4(projectionMatrix)
+            
+            sceneRenderer.pointOfView?.camera?.projectionTransform = newMatrix
+            
+        }
+        
+        self.lastCamera = frame.camera
+        
+        
+        
+        let uniforms = sharedUniformBufferAddress.assumingMemoryBound(to: SharedUniforms.self)
+        
+        uniforms.pointee.viewMatrix = frame.camera.viewMatrix(for: .portrait)
+        uniforms.pointee.projectionMatrix = frame.camera.projectionMatrix(for: .portrait, viewportSize: viewportSize, zNear: 0.001, zFar: 1000)
+        
+        // Set up lighting for the scene using the ambient intensity if provided
+        var ambientIntensity: Float = 1.0
+        
+        if let lightEstimate = frame.lightEstimate {
+            ambientIntensity = Float(lightEstimate.ambientIntensity) / 1000.0
+        }
+        
+        let ambientLightColor: vector_float3 = vector3(0.5, 0.5, 0.5)
+        uniforms.pointee.ambientLightColor = ambientLightColor * ambientIntensity
+        
+        var directionalLightDirection : vector_float3 = vector3(0.0, 0.0, -1.0)
+        directionalLightDirection = simd_normalize(directionalLightDirection)
+        uniforms.pointee.directionalLightDirection = directionalLightDirection
+        
+        let directionalLightColor: vector_float3 = vector3(0.6, 0.6, 0.6)
+        uniforms.pointee.directionalLightColor = directionalLightColor * ambientIntensity
+        
+        uniforms.pointee.materialShininess = 30
+        
+        
+    }
+    func updateSharedUniforms_originXcode(frame: ARFrame) {
+        // Update the shared uniforms of the frame
+        
         let uniforms = sharedUniformBufferAddress.assumingMemoryBound(to: SharedUniforms.self)
         
         uniforms.pointee.viewMatrix = frame.camera.viewMatrix(for: .landscapeRight)
