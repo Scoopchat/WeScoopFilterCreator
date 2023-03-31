@@ -29,6 +29,13 @@
 		984E761129D6D1E900C6B7F2 /* LUT.metal in Sources */ = {isa = PBXBuildFile; fileRef = 984E761029D6D1E900C6B7F2 /* LUT.metal */; };
 		984E761329D6D79800C6B7F2 /* FaceMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E761229D6D79800C6B7F2 /* FaceMask.swift */; };
 		984E761529D6DB4800C6B7F2 /* RenderDestinationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E761429D6DB4800C6B7F2 /* RenderDestinationProvider.swift */; };
+		984E762129D6EB6700C6B7F2 /* displacementFragment.scnmodifier in Resources */ = {isa = PBXBuildFile; fileRef = 984E761A29D6EB6700C6B7F2 /* displacementFragment.scnmodifier */; };
+		984E762229D6EB6700C6B7F2 /* defaultCoords.plist in Resources */ = {isa = PBXBuildFile; fileRef = 984E761B29D6EB6700C6B7F2 /* defaultCoords.plist */; };
+		984E762329D6EB6700C6B7F2 /* daz3duv.plist in Resources */ = {isa = PBXBuildFile; fileRef = 984E761C29D6EB6700C6B7F2 /* daz3duv.plist */; };
+		984E762429D6EB6700C6B7F2 /* alternateCoords.plist in Resources */ = {isa = PBXBuildFile; fileRef = 984E761D29D6EB6700C6B7F2 /* alternateCoords.plist */; };
+		984E762529D6EB6700C6B7F2 /* makeupFragment.scnmodifier in Resources */ = {isa = PBXBuildFile; fileRef = 984E761E29D6EB6700C6B7F2 /* makeupFragment.scnmodifier */; };
+		984E762629D6EB6700C6B7F2 /* displacementGeometry.scnmodifier in Resources */ = {isa = PBXBuildFile; fileRef = 984E761F29D6EB6700C6B7F2 /* displacementGeometry.scnmodifier */; };
+		984E762729D6EB6700C6B7F2 /* daz3duv2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 984E762029D6EB6700C6B7F2 /* daz3duv2.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +84,13 @@
 		984E761029D6D1E900C6B7F2 /* LUT.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = LUT.metal; sourceTree = "<group>"; };
 		984E761229D6D79800C6B7F2 /* FaceMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceMask.swift; sourceTree = "<group>"; };
 		984E761429D6DB4800C6B7F2 /* RenderDestinationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderDestinationProvider.swift; sourceTree = "<group>"; };
+		984E761A29D6EB6700C6B7F2 /* displacementFragment.scnmodifier */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = displacementFragment.scnmodifier; sourceTree = "<group>"; };
+		984E761B29D6EB6700C6B7F2 /* defaultCoords.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultCoords.plist; sourceTree = "<group>"; };
+		984E761C29D6EB6700C6B7F2 /* daz3duv.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = daz3duv.plist; sourceTree = "<group>"; };
+		984E761D29D6EB6700C6B7F2 /* alternateCoords.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = alternateCoords.plist; sourceTree = "<group>"; };
+		984E761E29D6EB6700C6B7F2 /* makeupFragment.scnmodifier */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = makeupFragment.scnmodifier; sourceTree = "<group>"; };
+		984E761F29D6EB6700C6B7F2 /* displacementGeometry.scnmodifier */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = displacementGeometry.scnmodifier; sourceTree = "<group>"; };
+		984E762029D6EB6700C6B7F2 /* daz3duv2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = daz3duv2.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +141,7 @@
 		984E75AF29D4299400C6B7F2 /* WeScoopFilterCreator */ = {
 			isa = PBXGroup;
 			children = (
+				984E761929D6EB5500C6B7F2 /* Resources */,
 				984E761429D6DB4800C6B7F2 /* RenderDestinationProvider.swift */,
 				984E75B529D4299400C6B7F2 /* Renderer.swift */,
 				984E760929D5BB2A00C6B7F2 /* RenderPixelBufferConsumer.swift */,
@@ -192,6 +207,20 @@
 				984E760529D58F8600C6B7F2 /* SceneKit Asset Catalog.scnassets */,
 			);
 			path = WeScoopEffects;
+			sourceTree = "<group>";
+		};
+		984E761929D6EB5500C6B7F2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				984E761D29D6EB6700C6B7F2 /* alternateCoords.plist */,
+				984E761C29D6EB6700C6B7F2 /* daz3duv.plist */,
+				984E762029D6EB6700C6B7F2 /* daz3duv2.plist */,
+				984E761B29D6EB6700C6B7F2 /* defaultCoords.plist */,
+				984E761A29D6EB6700C6B7F2 /* displacementFragment.scnmodifier */,
+				984E761F29D6EB6700C6B7F2 /* displacementGeometry.scnmodifier */,
+				984E761E29D6EB6700C6B7F2 /* makeupFragment.scnmodifier */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,12 +327,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				984E762329D6EB6700C6B7F2 /* daz3duv.plist in Resources */,
 				984E760829D5920600C6B7F2 /* Aviator.scnassets in Resources */,
 				984E75C029D4299500C6B7F2 /* LaunchScreen.storyboard in Resources */,
+				984E762529D6EB6700C6B7F2 /* makeupFragment.scnmodifier in Resources */,
 				984E760229D58F2900C6B7F2 /* Models.scnassets in Resources */,
+				984E762729D6EB6700C6B7F2 /* daz3duv2.plist in Resources */,
+				984E762129D6EB6700C6B7F2 /* displacementFragment.scnmodifier in Resources */,
+				984E762229D6EB6700C6B7F2 /* defaultCoords.plist in Resources */,
 				984E75BD29D4299500C6B7F2 /* Assets.xcassets in Resources */,
+				984E762629D6EB6700C6B7F2 /* displacementGeometry.scnmodifier in Resources */,
 				984E760629D58F8600C6B7F2 /* SceneKit Asset Catalog.scnassets in Resources */,
 				984E75BB29D4299400C6B7F2 /* Main.storyboard in Resources */,
+				984E762429D6EB6700C6B7F2 /* alternateCoords.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
