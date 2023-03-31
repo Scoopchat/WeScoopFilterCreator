@@ -47,6 +47,12 @@ let smoothingPassSizes : [CGFloat] = [1.0,0.25,0.2,0.2,0.2]
 
 let smoothingPassInstructions : [(Int, Bool)] = [ (1,true), (2,true), (3,true), (4,true), (2, false), (3,false), (0,true) ]
 
+struct CameraInstrinsics {
+    var fx : Float = 0.0
+    var fy : Float = 0.0
+    var cx : Float = 0.0
+    var cy : Float = 0.0
+}
 
 //...end form ARMetal proj
 
@@ -118,7 +124,8 @@ class Renderer: NSObject, ARSessionDelegate  {
     var lastFaceTransform : matrix_float4x4?
     
     
-    var colorProcessingParameters : ColorProcessingParameters!
+    var colorProcessingParameters : ColorProcessingParameters!//+
+    var cameraInstrinsics: CameraInstrinsics?
     var lastTimestamp : TimeInterval? //+
     var alternateFaceUVSource : SCNGeometrySource?//+
     var capturedImageRenderTextureBuffer : MTLTexture!//+
@@ -129,6 +136,8 @@ class Renderer: NSObject, ARSessionDelegate  {
     var isSwappingMasks : Bool = false //+
     var pointOfViewConfigured: Bool = false//+
     var pixelBufferPool : CVPixelBufferPool?//+
+    var outputFormatDescriptor : CMFormatDescription?//+
+    var colorSpace : CGColorSpace?//+
     var lastCamera : ARCamera?//+
     var faceGeometry : ARFaceGeometry?//+
     var worldAnchor : ARAnchor?//+
@@ -444,9 +453,9 @@ class Renderer: NSObject, ARSessionDelegate  {
             
             
             
-            //  if (renderTargetTexture0 != nil){
-            //      renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: capturedImageTextureY2!, noiseTextureSource: capturedImageTextureY2!)
-            //  }
+              if (renderTargetTexture0 != nil){
+                  renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: capturedImageTextureY!, noiseTextureSource: capturedImageTextureY!)
+              }
             //  if (renderTargetTexture1 != nil){
             //     // renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: capturedImageTextureCbCr2!, noiseTextureSource: renderTargetTexture1!)
             //  }
@@ -1183,7 +1192,7 @@ class Renderer: NSObject, ARSessionDelegate  {
         uniforms.pointee.materialShininess = 30
     }
     
-    func updateAnchors(frame: ARFrame) {
+    func updateAnchors_originXcode(frame: ARFrame) {
         // Update the anchor uniform buffer with transforms of the current frame's anchors
         anchorInstanceCount = min(frame.anchors.count, kMaxAnchorInstanceCount)
         
@@ -1205,7 +1214,131 @@ class Renderer: NSObject, ARSessionDelegate  {
             anchorUniforms.pointee.modelMatrix = modelMatrix
         }
     }
-    
+    func updateAnchors(frame: ARFrame) {
+        
+        /**
+         The camera intrinsics.
+         @discussion The matrix has the following contents:
+         fx 0   px
+         0  fy  py
+         0  0   1
+         fx and fy are the focal length in pixels.
+         px and py are the coordinates of the principal point in pixels.
+         The origin is at the center of the upper-left pixel.
+         */
+        if isSwappingMasks {
+            return
+        }
+        
+        for index in 0..<frame.anchors.count {
+            
+            let anchor = frame.anchors[index]
+            
+            
+            guard let faceAnchor = anchor as? ARFaceAnchor else {
+                
+                if worldNode != nil && worldAnchorUUID != nil && worldAnchorUUID! == anchor.identifier {
+                    var coordinateSpaceTransform = matrix_identity_float4x4
+                    coordinateSpaceTransform.columns.2.z = -1.0
+                    
+                    let modelMatrix = simd_mul(frame.camera.viewMatrix(for: .portrait),anchor.transform);
+                    worldNode?.simdTransform = modelMatrix
+                    // worldNode?.simdTransform =  simd_mul(frame.camera.viewMatrix(for: .portrait),anchor.transform);
+                }
+                continue;
+            }
+            
+            if !faceAnchor.isTracked  {
+                
+                self.isTracking = false
+                
+                faceContentNode?.setTracking(isTracking: false)
+                
+                continue;
+            }
+            
+            if cameraInstrinsics == nil {
+                
+                let intrinsics : matrix_float3x3 = frame.camera.intrinsics
+                
+                cameraInstrinsics = CameraInstrinsics()
+                cameraInstrinsics!.fx = intrinsics[0][0]
+                cameraInstrinsics!.fy = intrinsics[1][1]
+                cameraInstrinsics!.cx = intrinsics[2][0]
+                cameraInstrinsics!.cy = intrinsics[2][1]
+                
+                //  openCVWrapper.setIntrinsics( simd_float4(cameraInstrinsics!.fx,cameraInstrinsics!.fy,cameraInstrinsics!.cx,cameraInstrinsics!.cy) )
+                
+            }
+            
+            
+            //let upVector =   simd_float3( frame.camera.transform[2][1], frame.camera.transform[2][2], frame.camera.transform[2][3] )
+            
+            //  print("upVector: \(upVector)")
+            
+            self.isTracking = true
+            
+            faceContentNode?.setTracking(isTracking: true)
+            
+            //            if let opacity = faceContentNode?.opacity {
+            //
+            //                self.isTracking = true
+            //
+            //                if( opacity == 0.0 )
+            //                {
+            //                    SCNTransaction.begin()
+            //                    SCNTransaction.animationDuration = 0.3
+            //                    faceContentNode?.opacity = 1.0
+            //                    SCNTransaction.commit()
+            //                }
+            //
+            //            }
+            
+            
+            faceContentNode?.updateFaceAnchor(withFaceAnchor: faceAnchor)
+            
+            faceContentNode?.simdTransform = simd_mul(frame.camera.viewMatrix(for: .portrait),faceAnchor.transform);
+            
+            //  worldNode?.simdTransform = simd_mul(frame.camera.viewMatrix(for: .portrait),faceAnchor.transform);
+            
+            faceGeometry = faceAnchor.geometry
+            
+            
+            //            var geometryPtr : SCNGeometry = faceContentNode!.geometry!
+            //
+            //            var sources = geometryPtr.sources
+            //
+            //            var texSource = geometryPtr.sources(for: SCNGeometrySource.Semantic.texcoord)[0]
+            //
+            //            let dataLength = texSource.data.count
+            //
+            //            let testPointer = UnsafeRawBufferPointer(start: faceGeometry!.textureCoordinates, count: faceGeometry!.textureCoordinates.count * MemoryLayout<float2>.size )
+            //
+            //            var uvPointer = UnsafeRawBufferPointer(start: alternateFaceUVSourceCoords, count: faceGeometry!.textureCoordinates.count * MemoryLayout<float2>.size )
+            //
+            //            let mutablePointer = UnsafeMutableRawBufferPointer(mutating: testPointer)
+            //
+            //            mutablePointer.copyBytes(from: uvPointer)
+            
+            //            var bufferPointer = UnsafeMutableRawBufferPointer(start: &faceGeometry!.textureCoordinates, count: faceGeometry!.textureCoordinates.count * MemoryLayout<float2>.size )
+            //
+            //            var uvPointer = UnsafeRawBufferPointer(start: alternateFaceUVSourceCoords!, count: faceGeometry!.textureCoordinates.count * MemoryLayout<float2>.size )
+            //
+            // bufferPointer.
+            
+            
+            lastFaceTransform = faceAnchor.transform
+            
+            
+            // later needsEyeUpdate ..... if faceContentNode!.needsEyeUpdate
+
+            
+            
+            //    maskNode.boundingBox
+            //   cameraNode.position = cameraPos;
+        }
+    }
+
     func updateCapturedImageTextures(frame: ARFrame) {
         // Create two textures (Y and CbCr) from the provided frame's captured image
         let pixelBuffer = frame.capturedImage
@@ -1603,5 +1736,213 @@ class Renderer: NSObject, ARSessionDelegate  {
             
         }
     }
+    func updateARFrame( currentFrame: ARFrame ) {
+        
+        
+       // lastPixelBuffer = currentFrame.capturedImage
+        
+        lastTimestamp = currentFrame.timestamp
+        
+        updateSharedUniforms(frame: currentFrame)
+        updateAnchors(frame: currentFrame)
+        updateCapturedImageTextures(frame: currentFrame)
+        
+        if( self.pixelBufferPool == nil )
+        {
+            setupPixelBufferPool(frame: currentFrame)
+        }
+        
+        updateLights(frame: currentFrame)
+        
+        if viewportSizeDidChange {
+            viewportSizeDidChange = false
+            updateTextures()
+            updateImagePlane(frame: currentFrame)
+        }
+        
+        
+        
+        // self.overlayNode.simdPosition = self.cameraNode.presentation.simdWorldFront * 0.825
+        
+    }
+    func renderCVPixelBuffer22( commandBuffer : MTLCommandBuffer,  destinationTexture : MTLTexture , noiseTextureSource : MTLTexture) {
+        
+
+        if let computeEncoder = commandBuffer.makeComputeCommandEncoder() {
+            
+            computeEncoder.setComputePipelineState(lutComputePipelineState)
+            
+            var intensity : Float =  Float(1)
+            
+            computeEncoder.setTexture(destinationTexture, index: 1)
+            computeEncoder.setTexture(noiseTextureSource, index: 0)
+            //computeEncoder.setBytes( &intensity, length: MemoryLayout<Float>.size, index: 0)
+            
+            let threadsPerGrid = MTLSize(width: destinationTexture.width,
+                                         height: destinationTexture.height,
+                                         depth: 1)
+            
+            let w = lutComputePipelineState.threadExecutionWidth
+            
+            let threadsPerThreadgroup = MTLSizeMake(w, lutComputePipelineState.maxTotalThreadsPerThreadgroup / w, 1)
+            
+            computeEncoder.dispatchThreads(threadsPerGrid,
+                                           threadsPerThreadgroup: threadsPerThreadgroup)
+            
+            computeEncoder.endEncoding()
+        }
+        
+    }
+    func updateLights( frame: ARFrame ) {
+        
+        
+        let lightEstimate = frame.lightEstimate!
+        
+        if let directionalLightEstimate = lightEstimate as? ARDirectionalLightEstimate {
+            
+            if var data = self.lightNode.light?.sphericalHarmonicsCoefficients {
+                
+                let coeffecients = directionalLightEstimate.sphericalHarmonicsCoefficients
+                
+                data.replaceSubrange(data.indices, with: coeffecients)
+                
+            }
+            
+            self.lightNode.light?.intensity = directionalLightEstimate.primaryLightIntensity
+            
+            self.lightNode.light?.temperature = lightEstimate.ambientColorTemperature
+            
+            
+            self.ambientLightNode.light?.intensity =  directionalLightEstimate.primaryLightIntensity ;
+            self.ambientLightNode.light?.temperature =  lightEstimate.ambientColorTemperature
+            
+            let primaryLightDirection : vector_float3 = normalize(directionalLightEstimate.primaryLightDirection)
+            
+            let lightVector = SCNVector3Make(primaryLightDirection.x, primaryLightDirection.y, primaryLightDirection.z)
+            
+            self.lightNode.eulerAngles =  lightVector
+            
+        }
+        
+        let intensity = lightEstimate.ambientIntensity / 1000.0;
+        self.scene.lightingEnvironment.intensity = intensity
+        
+        
+        
+    }
+
     
+    
+    func setupPixelBufferPool(frame: ARFrame) {
+        
+        let pixelBuffer = frame.capturedImage;
+        
+        let width = CVPixelBufferGetWidth(pixelBuffer)
+        let height = CVPixelBufferGetHeight(pixelBuffer)
+        
+        
+        
+        //  let formatType = CVPixelBufferGetPixelFormatType(pixelBuffer)
+        
+        //let formatDescription = CVPixelFormatDescriptionCreateWithPixelFormatType(kCFAllocatorDefault, formatType)
+        
+        let pixelBufferAttributes : [String : Any] = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA,
+                                                      kCVPixelBufferWidthKey as String: width,
+                                                      kCVPixelBufferHeightKey as String: height,
+                                                      kCVPixelBufferIOSurfacePropertiesKey as String: [:],
+                                                      kCVPixelBufferOpenGLESCompatibilityKey as String: true,
+                                                      kCVPixelBufferIOSurfaceOpenGLESFBOCompatibilityKey as String: true,
+                                                      kCVPixelBufferIOSurfaceCoreAnimationCompatibilityKey as String: true,
+                                                      
+                                                      kCVPixelBufferMetalCompatibilityKey as String: true]
+        
+        var inputFormatDescription : CMFormatDescription?
+        
+        CMVideoFormatDescriptionCreateForImageBuffer(allocator: kCFAllocatorDefault, imageBuffer: frame.capturedImage, formatDescriptionOut: &inputFormatDescription)
+        
+        colorSpace = CGColorSpaceCreateDeviceRGB()
+        
+        if let inputFormatDescriptionExtension = CMFormatDescriptionGetExtensions(inputFormatDescription!) as Dictionary? {
+            let colorPrimaries = inputFormatDescriptionExtension[kCVImageBufferColorPrimariesKey]
+            
+            if let colorPrimaries = colorPrimaries {
+                var colorSpaceProperties: [CFString: Any] = [kCVImageBufferColorPrimariesKey: colorPrimaries]
+                
+                if let yCbCrMatrix = inputFormatDescriptionExtension[kCVImageBufferYCbCrMatrixKey] {
+                    colorSpaceProperties[kCVImageBufferYCbCrMatrixKey] = yCbCrMatrix
+                }
+                
+                if let transferFunction = inputFormatDescriptionExtension[kCVImageBufferTransferFunctionKey] {
+                    colorSpaceProperties[kCVImageBufferTransferFunctionKey] = transferFunction
+                }
+                
+                //   pixelBufferAttributes[kCVBufferPropagatedAttachmentsKey as String] = colorSpaceProperties
+            }
+            
+            if let cvColorSpace = inputFormatDescriptionExtension[kCVImageBufferCGColorSpaceKey] {
+                colorSpace = cvColorSpace as! CGColorSpace
+            } else if (colorPrimaries as? String) == (kCVImageBufferColorPrimaries_P3_D65 as String) {
+                colorSpace = CGColorSpace(name: CGColorSpace.displayP3)!
+            }
+        }
+        
+        
+        
+        
+        let poolOptions : [CFString : Any] = [kCVPixelBufferPoolMinimumBufferCountKey: 3]
+        
+        pixelBufferPool = nil
+        
+        CVPixelBufferPoolCreate(kCFAllocatorDefault, poolOptions as CFDictionary, pixelBufferAttributes as CFDictionary, &pixelBufferPool)
+        
+        guard let pixelBufferPool = pixelBufferPool else {
+            assertionFailure("Allocation failure: Could not allocate pixel buffer pool")
+            return
+        }
+        
+        let poolAuxOptions : [CFString : Any] = [kCVPixelBufferPoolAllocationThresholdKey: 3]
+        
+        var testBuffer : CVPixelBuffer?
+        
+        CVPixelBufferPoolCreatePixelBufferWithAuxAttributes(kCFAllocatorDefault, pixelBufferPool, poolAuxOptions as CFDictionary, &testBuffer)
+        
+        preallocateBuffers(pool: pixelBufferPool, attributes: poolAuxOptions as CFDictionary)
+        
+        
+        
+        outputFormatDescriptor = nil
+        
+        if let testBuffer = testBuffer {
+            CMVideoFormatDescriptionCreateForImageBuffer(allocator: kCFAllocatorDefault, imageBuffer: testBuffer, formatDescriptionOut: &outputFormatDescriptor)
+            
+        }
+        
+        
+        self.outputPixelBufferAttributes = pixelBufferAttributes
+        
+        //pixelBufferPool = CVPixelBufferPool(
+        
+    }
+
+    func preallocateBuffers( pool : CVPixelBufferPool, attributes : CFDictionary ) {
+        
+        var pixelBuffers =  [CVPixelBuffer]()
+        
+        while( true ) {
+            
+            var buffer : CVPixelBuffer? = nil
+            
+            let err : OSStatus = CVPixelBufferPoolCreatePixelBufferWithAuxAttributes(kCFAllocatorDefault, pool, attributes, &buffer)
+            
+            if( err == kCVReturnWouldExceedAllocationThreshold ) {
+                break
+            }
+            
+            pixelBuffers.append(buffer!)
+        }
+        
+        pixelBuffers.removeAll()
+        
+    }
+
 }

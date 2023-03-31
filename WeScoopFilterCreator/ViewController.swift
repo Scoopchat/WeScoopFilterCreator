@@ -197,4 +197,11 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
+    // updateARFrame
+    
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        
+        renderer.updateARFrame(currentFrame: frame)
+        
+    }
 }
