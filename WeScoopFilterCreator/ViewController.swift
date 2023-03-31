@@ -21,6 +21,7 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
     var scene: SCNScene!
     var currentFaceNodeName: String?
     var currentFaceNode: VirtualFaceNode?
+    @IBOutlet weak var mtkview: MTKView!
 
     var isRecording: Bool = false
     //var assetWriter : RenderedVideoWriter?
@@ -36,11 +37,11 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
         //Utilities.clearCacheDirectory()
 
         // Set the view to use the default device
-        if let mtkView = self.view as? MTKView {
+        if let mtkView = self.mtkview as? MTKView {
             mtkView.device = MTLCreateSystemDefaultDevice()
             mtkView.backgroundColor = UIColor.clear
             mtkView.delegate = self
-            
+           // mtkView.isHidden = true
             guard mtkView.device != nil else {
                 print("Metal is not supported on this device")
                 return
@@ -52,7 +53,7 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
            // let faceNode = Overlay(named: "Models",subdirectory: "Models.scnassets", device: self.device)
             
           //  let faceNode = FaceMask(named: "mask",subdirectory: "Bowie2.scnassets", device: self.device)
-           let faceNode = FaceMask(named: "Aviator",subdirectory: "Aviator.scnassets", device: self.device)
+           let faceNode = FaceMask(named: "geo2",subdirectory: "geo2.scnassets", device: self.device)
 
             currentFaceNodeName = faceNode.name
             
