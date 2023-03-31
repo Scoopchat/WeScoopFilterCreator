@@ -66,8 +66,10 @@ class Renderer: NSObject, ARSessionDelegate  {
     var capturedImageDepthState: MTLDepthStencilState!//+
     var anchorPipelineState: MTLRenderPipelineState!//++ capturedImagePipelineState
     var anchorDepthState: MTLDepthStencilState!//++capturedImageDepthState
-    var capturedImageTextureY: CVMetalTexture? //++
-    var capturedImageTextureCbCr: CVMetalTexture?//++
+    //var capturedImageTextureY: CVMetalTexture? //++
+    //var capturedImageTextureCbCr: CVMetalTexture?//++
+    var capturedImageTextureY: MTLTexture? //++
+    var capturedImageTextureCbCr: MTLTexture?//++
     
     // Captured image texture cache
     var capturedImageTextureCache: CVMetalTextureCache!//+
@@ -122,10 +124,34 @@ class Renderer: NSObject, ARSessionDelegate  {
     var capturedImageRenderTextureBuffer : MTLTexture!//+
     var skinSmoothingTextureBuffers: [MTLTexture]!//+
     var skinSmoothingDepthBuffer: MTLTexture!//+
-
+    
     var alternateFaceUVSourceCoords : [float2] = [float2]()//+
     var isSwappingMasks : Bool = false //+
-
+    var pointOfViewConfigured: Bool = false//+
+    var pixelBufferPool : CVPixelBufferPool?//+
+    var lastCamera : ARCamera?//+
+    var faceGeometry : ARFaceGeometry?//+
+    var worldAnchor : ARAnchor?//+
+    var worldAnchorUUID : UUID?//+
+    var isTracking : Bool = false//+
+    var pixelBufferConsumer: RenderPixelBufferConsumer?//+
+    var outputPixelBufferAttributes : [String : Any]?//+
+    var textureLoader : MTKTextureLoader!//+
+    var faceMaskTexture : MTLTexture!//+
+    var faceVertexBuffer: MTLBuffer!//+
+    var faceTexCoordBuffer: MTLBuffer!//+
+    var faceIndexBuffer: MTLBuffer!//+
+    var cvPipelineState: MTLRenderPipelineState!//+
+    var skinSmoothingPipelineState: MTLRenderPipelineState!//+
+    var skinSmoothingDepthState: MTLDepthStencilState!//+
+    var lutComputePipelineState: MTLComputePipelineState!//+
+    var compositePipelineState: MTLRenderPipelineState!//+
+    var colorProcessingPipelineState: MTLRenderPipelineState!//+
+    var draw2DPipelineState: MTLRenderPipelineState!//+
+    var scenePipelineState: MTLRenderPipelineState!//+
+    var renderTargetTexture0 : MTLTexture?//++
+    //var renderTargetTexture1 : MTLTexture?
+    
     var faceContentNode: VirtualFaceNode? {//+
         willSet(newfaceContentNode) {
             
@@ -233,6 +259,8 @@ class Renderer: NSObject, ARSessionDelegate  {
         self.renderDestination = renderDestination
         //..from ARMetal proj
         self.ciContext = CIContext(mtlDevice:self.device)
+        self.textureLoader = MTKTextureLoader(device: device)
+        
         self.scene = scene
         
         self.sceneRenderer = SCNRenderer(device: self.device, options: nil)
@@ -273,6 +301,35 @@ class Renderer: NSObject, ARSessionDelegate  {
         
         self.scene.rootNode.addChildNode(self.cameraNode)
         self.sceneRenderer.pointOfView = self.cameraNode
+        self.colorProcessingParameters = ColorProcessingParameters()
+        
+        self.worldAnchor = ARAnchor(transform: matrix_identity_float4x4)
+        
+        self.worldAnchorUUID = self.worldAnchor!.identifier
+        
+        self.session.add(anchor: self.worldAnchor!)
+        
+        if let uvPath = Bundle.main.url(forResource: "daz3duv", withExtension: "plist", subdirectory: nil) {
+            
+            let allValues =  NSArray(contentsOfFile: uvPath.path) as? [Float]
+            
+            var newUVCoords = [CGPoint]()
+            
+            let pairs = allValues!.count/2
+            
+            for i in 0..<pairs {
+                
+                let offset = i * 2
+                let x = allValues![offset]
+                let y = allValues![offset+1]
+                
+                alternateFaceUVSourceCoords.append(float2(x:x,y:y))
+                
+                newUVCoords.append(CGPoint(x:CGFloat(x),y:CGFloat(y)))
+            }
+            
+            self.alternateFaceUVSource = SCNGeometrySource(textureCoordinates:newUVCoords)
+        }
         
         //..end from ...
         super.init()
@@ -333,19 +390,50 @@ class Renderer: NSObject, ARSessionDelegate  {
         // Wait to ensure only kMaxBuffersInFlight are getting processed by any stage in the Metal
         //   pipeline (App, Metal, Drivers, GPU, etc)
         let _ = inFlightSemaphore.wait(timeout: DispatchTime.distantFuture)
+        //...inject from proj
         
-        // Create a new command buffer for each renderpass to the current drawable
-        if let commandBuffer = commandQueue.makeCommandBuffer() {
-            commandBuffer.label = "MyCommand"
+        updateBufferStates()
+        
+        if !pointOfViewConfigured {
+            if let _ = sceneRenderer.pointOfView   {
+                self.configurePointOfView()
+            }
+        }
+        
+        var outputPixelBuffer : CVPixelBuffer?
+        
+        //var renderTargetTexture0 : MTLTexture?
+        //var renderTargetTexture1 : MTLTexture?
+        
+        if pixelBufferPool != nil {
+            var newPixelBuffer: CVPixelBuffer?
+            CVPixelBufferPoolCreatePixelBuffer(kCFAllocatorDefault, pixelBufferPool!, &newPixelBuffer)
+            if newPixelBuffer == nil  {
+                print("Allocation failure: Could not get pixel buffer from pool (\(self.description))")
+                return
+            }
             
-            // Add completion handler which signal _inFlightSemaphore when Metal and the GPU has fully
-            //   finished processing the commands we're encoding this frame.  This indicates when the
-            //   dynamic buffers, that we're writing to this frame, will no longer be needed by Metal
-            //   and the GPU.
-            // Retain our CVMetalTextures for the duration of the rendering cycle. The MTLTextures
-            //   we use from the CVMetalTextures are not valid unless their parent CVMetalTextures
-            //   are retained. Since we may release our CVMetalTexture ivars during the rendering
-            //   cycle, we must retain them separately here.
+            outputPixelBuffer = newPixelBuffer
+            
+            
+            
+            if let outputTexture = createTexture(fromPixelBuffer: outputPixelBuffer!, pixelFormat: .bgra8Unorm, planeIndex: 0)
+            {
+                renderTargetTexture0 =    CVMetalTextureGetTexture(outputTexture)
+            }
+            // if let outputTexture = createTexture(fromPixelBuffer: outputPixelBuffer!, pixelFormat: .bgra8Unorm, planeIndex: 1)
+            // {
+            //     renderTargetTexture1 =    CVMetalTextureGetTexture(outputTexture)
+            // }
+            
+            
+        }
+        
+        
+        //.....inject from project
+        if let commandBuffer = commandQueue.makeCommandBuffer() {
+            commandBuffer.label = "MaskCommand"
+            
             var textures = [capturedImageTextureY, capturedImageTextureCbCr]
             commandBuffer.addCompletedHandler{ [weak self] commandBuffer in
                 if let strongSelf = self {
@@ -354,31 +442,211 @@ class Renderer: NSObject, ARSessionDelegate  {
                 textures.removeAll()
             }
             
-            updateBufferStates()
-            updateGameState()
             
-            if let renderPassDescriptor = renderDestination.currentRenderPassDescriptor, let currentDrawable = renderDestination.currentDrawable, let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) {
+            
+            //  if (renderTargetTexture0 != nil){
+            //      renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: capturedImageTextureY2!, noiseTextureSource: capturedImageTextureY2!)
+            //  }
+            //  if (renderTargetTexture1 != nil){
+            //     // renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: capturedImageTextureCbCr2!, noiseTextureSource: renderTargetTexture1!)
+            //  }
+            
+            renderCapturedImage(commandBuffer: commandBuffer)
+            
+            
+            // .. late isSwappingMasks && capturedImageRenderTextureBuffe ,,,,,
+            
+            if let renderPassDescriptor = renderDestination.currentRenderPassDescriptor {
                 
-                renderEncoder.label = "MyRenderEncoder"
+                let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor)!
+                
+                renderEncoder.label = "BaseRenderEncoder"
                 
                 drawCapturedImage(renderEncoder: renderEncoder)
-                drawAnchorGeometry(renderEncoder: renderEncoder)
                 
-                // We're done encoding commands
                 renderEncoder.endEncoding()
                 
-                // Schedule a present once the framebuffer is complete using the current drawable
-                commandBuffer.present(currentDrawable)
+                
+                
+                
+                if lastCamera != nil && faceGeometry != nil && faceContentNode != nil && isTracking  && !isSwappingMasks{
+                    renderSkinSmoothing(commandBuffer: commandBuffer, renderPassDescriptor: renderPassDescriptor)
+                    renderImageComposite( commandBuffer: commandBuffer, destinationTexture:renderPassDescriptor.colorAttachments[0].texture!, compositeTexture: skinSmoothingTextureBuffers[0]   )
+                    
+                }
+                else {
+                    renderImageComposite( commandBuffer: commandBuffer, destinationTexture:renderPassDescriptor.colorAttachments[0].texture!, compositeTexture: capturedImageRenderTextureBuffer   )
+                    
+                }
+                
+                
+                if isTracking && !isSwappingMasks {
+                    renderImageComposite( commandBuffer: commandBuffer,destinationTexture: capturedImageRenderTextureBuffer, compositeTexture: skinSmoothingTextureBuffers[0]   )
+                    faceContentNode?.updateCameraTexture(withCameraTexture: capturedImageRenderTextureBuffer )
+                }
+                
+                
+                if !isSwappingMasks {
+                    let renderScenePassDescriptor = MTLRenderPassDescriptor()
+                    
+                    renderScenePassDescriptor.colorAttachments[0].texture =  renderPassDescriptor.colorAttachments[0].texture
+                    renderScenePassDescriptor.colorAttachments[0].resolveTexture =  renderPassDescriptor.colorAttachments[0].resolveTexture;
+                    renderScenePassDescriptor.colorAttachments[0].loadAction = MTLLoadAction.load;
+                    renderScenePassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.0, 0.0, 0.0, 0.0);
+                    renderScenePassDescriptor.colorAttachments[0].storeAction =  renderPassDescriptor.colorAttachments[0].storeAction;
+                    renderScenePassDescriptor.depthAttachment = renderPassDescriptor.depthAttachment;
+                    renderScenePassDescriptor.stencilAttachment = renderPassDescriptor.stencilAttachment;
+                    
+                    
+                    sceneRenderer.render(atTime: CACurrentMediaTime(), viewport: viewport, commandBuffer: commandBuffer, passDescriptor: renderScenePassDescriptor)
+                    
+                    
+                    if faceContentNode?.lutTextures[LUTType.world] != nil
+                        || ( self.colorProcessingParameters.contrastIntensity != 0.0
+                             && self.colorProcessingParameters.saturationIntensity != 1.0 ) {
+                        renderColorProcessing( commandBuffer: commandBuffer, lutTexture: faceContentNode?.lutTextures[LUTType.world]!)
+                    }
+                    
+                }
+                
+                
+                //               if let lutTexture = faceContentNode?.lookUpTables()?[LUTType.world] {
+                //
+                //                    renderLUT(commandBuffer: commandBuffer, destinationTexture: renderPassDescriptor.colorAttachments[0].texture!, lutTexture: lutTexture, stencilTexture: //renderPassDescriptor.depthAttachment.texture!, lutType: LUTType.world)
+                //
+                //
+                //               }
+                
+                if faceContentNode?.lutTextures[LUTType.world] != nil || ( self.colorProcessingParameters.contrastIntensity != 0.0 && self.colorProcessingParameters.saturationIntensity != 1.0 ) {
+                    renderColorProcessing( commandBuffer: commandBuffer, lutTexture: faceContentNode?.lutTextures[LUTType.world]!)
+                }
+                
+                
+                // if faceContentNode?.lutTextures[LUTType.world] != nil || ( self.colorProcessingParameters.contrastIntensity != 0.0 && //self.colorProcessingParameters.saturationIntensity != 1.0 ) {
+                // if (renderTargetTexture != nil)
+                // {
+                // renderImageCompositeDenois(commandBuffer:commandBuffer, destinationTexture: <#T##MTLTexture#><#T##MTLTexture#>, compositeTexture: <#T##MTLTexture#>)
+                //( commandBuffer: commandBuffer, lutTexture: renderTargetTexture!)
+                // }
+                // }
+                
+                
+                /* old one
+                 if renderTargetTexture != nil {
+                 
+                 
+                 
+                 
+                 //renderCVPixelBuffer(commandBuffer: commandBuffer, destinationTexture: renderTargetTexture!, sourceTexture: //renderPassDescriptor.colorAttachments[0].texture!)
+                 
+                 //if pixelBufferConsumer != nil {
+                 //    pixelBufferConsumer!.renderCallbackQueue.async {
+                 
+                 //        let cmTime : CMTime = CMTimeMakeWithSeconds(self.lastTimestamp!, preferredTimescale: 1000000)
+                 //        self.pixelBufferConsumer?.renderedOutput(didRender: outputPixelBuffer!, atTime: cmTime)
+                 //    }
+                 //}
+                 }*/
+                //...................................
+                if pixelBufferConsumer != nil {
+                    
+                    renderCVPixelBuffer(commandBuffer: commandBuffer, destinationTexture: renderTargetTexture0!, sourceTexture: renderPassDescriptor.colorAttachments[0].texture!)
+                    
+                    pixelBufferConsumer!.renderCallbackQueue.async {
+                        
+                        
+                        if let currentDrawable = self.renderDestination.currentDrawable {
+                            // currentDrawable.texture
+                            print( "hi")
+                            var pixelBuffer: CVPixelBuffer?
+                            
+                            CVPixelBufferCreate( kCFAllocatorDefault,
+                                                 currentDrawable.texture.width,
+                                                 currentDrawable.texture.height,
+                                                 // texture.width,
+                                                 // texture.height,
+                                                 kCVPixelFormatType_32BGRA,
+                                                 nil,
+                                                 &pixelBuffer)
+                            
+                            
+                            CVPixelBufferLockBaseAddress( pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+                            let pixelBufferBytes = CVPixelBufferGetBaseAddress( pixelBuffer! )
+                            let bytesPerRow = CVPixelBufferGetBytesPerRow( pixelBuffer! )
+                            let region = MTLRegionMake2D(0, 0, currentDrawable.texture.width, currentDrawable.texture.height)
+                            //currentDrawable.texture.
+                            currentDrawable.texture.getBytes( pixelBufferBytes!, bytesPerRow: bytesPerRow, from: region, mipmapLevel: 0)
+                            CVPixelBufferUnlockBaseAddress( pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+                            let cmTime : CMTime = CMTimeMakeWithSeconds(self.lastTimestamp!, preferredTimescale: 1000000)
+                            self.pixelBufferConsumer?.renderedOutput(didRender: pixelBuffer!, atTime: cmTime)
+                            
+                        }
+                        
+                    }
+                }
+                
+                
+                
+                
+                //....................................
+                
+                if let currentDrawable = renderDestination.currentDrawable {
+                    commandBuffer.present(currentDrawable)
+                }
             }
             
             // Finalize rendering here & push the command buffer to the GPU
             commandBuffer.commit()
         }
+        
+        
+        
+        //...end ....
+        // Create a new command buffer for each renderpass to the current drawable
+        /* // if let commandBuffer = commandQueue.makeCommandBuffer() {
+         //     commandBuffer.label = "MyCommand"
+         
+         // Add completion handler which signal _inFlightSemaphore when Metal and the GPU has fully
+         //   finished processing the commands we're encoding this frame.  This indicates when the
+         //   dynamic buffers, that we're writing to this frame, will no longer be needed by Metal
+         //   and the GPU.
+         // Retain our CVMetalTextures for the duration of the rendering cycle. The MTLTextures
+         //   we use from the CVMetalTextures are not valid unless their parent CVMetalTextures
+         //   are retained. Since we may release our CVMetalTexture ivars during the rendering
+         //   cycle, we must retain them separately here.
+         //       var textures = [capturedImageTextureY, capturedImageTextureCbCr]
+         //        commandBuffer.addCompletedHandler{ [weak self] commandBuffer in
+         //            if let strongSelf = self {
+         //                strongSelf.inFlightSemaphore.signal()
+         //            }
+         //            textures.removeAll()
+         //        }
+         
+         //       updateBufferStates()
+         //       updateGameState()
+         
+         //       if let renderPassDescriptor = renderDestination.currentRenderPassDescriptor, let currentDrawable = renderDestination.currentDrawable, let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) {
+         
+         //            renderEncoder.label = "MyRenderEncoder"
+         
+         //           drawCapturedImage(renderEncoder: renderEncoder)
+         //           drawAnchorGeometry(renderEncoder: renderEncoder)
+         
+         //            // We're done encoding commands
+         //            renderEncoder.endEncoding()
+         
+         // Schedule a present once the framebuffer is complete using the current drawable
+         //            commandBuffer.present(currentDrawable)
+         }
+         
+         //        // Finalize rendering here & push the command buffer to the GPU
+         //        commandBuffer.commit()
+         //    }*/
     }
     
     // MARK: - Private
     
-    func loadMetal() {
+    func loadMetal_originXcode() {
         // Create and load our basic Metal state objects
         
         // Set the default formats needed to render
@@ -518,8 +786,8 @@ class Renderer: NSObject, ARSessionDelegate  {
         // Create the command queue
         commandQueue = device.makeCommandQueue()
     }
-    
-    func loadAssets() {
+    //...original xCode ...
+    func loadAssets_originXcode() {
         // Create and load our assets into Metal objects including meshes and textures
         
         // Create a MetalKit mesh buffer allocator so that ModelIO will load mesh data directly into
@@ -549,38 +817,344 @@ class Renderer: NSObject, ARSessionDelegate  {
             print("Error creating MetalKit mesh, error \(error)")
         }
     }
+    //end ...original xCode ...
+    // origian from xcode
+    // func updateBufferStates() {
+    //     // Update the location(s) to which we'll write to in our dynamically changing Metal buffers for
+    //     //   the current frame (i.e. update our slot in the ring buffer used for the current frame)
+    //      uniformBufferIndex = (uniformBufferIndex + 1) % kMaxBuffersInFlight
+    //      sharedUniformBufferOffset = kAlignedSharedUniformsSize * uniformBufferIndex
+    //     anchorUniformBufferOffset = kAlignedInstanceUniformsSize * uniformBufferIndex
+    //     sharedUniformBufferAddress = sharedUniformBuffer.contents().advanced(by: sharedUniformBufferOffset)
+    //     anchorUniformBufferAddress = anchorUniformBuffer.contents().advanced(by: anchorUniformBufferOffset)
+    //  }
+    // origian from xcode
+    // func updateGameState() {
+    //     // Update any game state
     
-    func updateBufferStates() {
-        // Update the location(s) to which we'll write to in our dynamically changing Metal buffers for
-        //   the current frame (i.e. update our slot in the ring buffer used for the current frame)
-        
-        uniformBufferIndex = (uniformBufferIndex + 1) % kMaxBuffersInFlight
-        
-        sharedUniformBufferOffset = kAlignedSharedUniformsSize * uniformBufferIndex
-        anchorUniformBufferOffset = kAlignedInstanceUniformsSize * uniformBufferIndex
-        
-        sharedUniformBufferAddress = sharedUniformBuffer.contents().advanced(by: sharedUniformBufferOffset)
-        anchorUniformBufferAddress = anchorUniformBuffer.contents().advanced(by: anchorUniformBufferOffset)
-    }
+    //     guard let currentFrame = session.currentFrame else {
+    //        return
+    //    }
     
-    func updateGameState() {
-        // Update any game state
+    //    updateSharedUniforms(frame: currentFrame)
+    //    updateAnchors(frame: currentFrame)
+    //    updateCapturedImageTextures(frame: currentFrame)
+    
+    //    if viewportSizeDidChange {
+    //        viewportSizeDidChange = false
+    //
+    //        updateImagePlane(frame: currentFrame)
+    //    }
+    // }
+    
+    // MARK: injection
+    
+    
+    func loadMetal() {
         
-        guard let currentFrame = session.currentFrame else {
-            return
+        
+        
+        
+        // Create and load our basic Metal state objects
+        
+        // Set the default formats needed to render
+        renderDestination.depthStencilPixelFormat = .depth32Float_stencil8
+        renderDestination.colorPixelFormat = .bgra8Unorm
+        renderDestination.sampleCount = 1
+        
+        // Calculate our uniform buffer sizes. We allocate kMaxBuffersInFlight instances for uniform
+        //   storage in a single buffer. This allows us to update uniforms in a ring (i.e. triple
+        //   buffer the uniforms) so that the GPU reads from one slot in the ring wil the CPU writes
+        //   to another. Anchor uniforms should be specified with a max instance count for instancing.
+        //   Also uniform storage must be aligned (to 256 bytes) to meet the requirements to be an
+        //   argument in the constant address space of our shading functions.
+        let sharedUniformBufferSize = kAlignedSharedUniformsSize * kMaxBuffersInFlight
+        //  let anchorUniformBufferSize = kAlignedInstanceUniformsSize * kMaxBuffersInFlight
+        
+        // Create and allocate our         let anchorUniformBufferSize = kAlignedInstanceUniformsSize * kMaxBuffersInFlight
+        // uniform buffer objects. Indicate shared storage so that both the
+        //   CPU can access the buffer
+        sharedUniformBuffer = device.makeBuffer(length: sharedUniformBufferSize, options: .storageModeShared)
+        sharedUniformBuffer.label = "SharedUniformBuffer"
+        
+        //        anchorUniformBuffer = device.makeBuffer(length: anchorUniformBufferSize, options: .storageModeShared)
+        //        anchorUniformBuffer.label = "AnchorUniformBuffer"
+        
+        
+        // Create a vertex buffer with our image plane vertex data.
+        let imagePlaneVertexDataCount = kImagePlaneVertexData.count * MemoryLayout<Float>.size
+        imagePlaneVertexBuffer = device.makeBuffer(bytes: kImagePlaneVertexData, length: imagePlaneVertexDataCount, options: [])
+        imagePlaneVertexBuffer.label = "ImagePlaneVertexBuffer"
+        
+        
+        // Load all the shader files with a metal file extension in the project
+        let defaultLibrary = device.makeDefaultLibrary()!
+        
+        let capturedImageVertexFunction = defaultLibrary.makeFunction(name: "capturedImageVertexFunction")!
+        let capturedImageFragmentFunction = defaultLibrary.makeFunction(name: "capturedImageFragmentFunction")!
+        
+        let cvImageVertexFunction = defaultLibrary.makeFunction(name: "cvVertexFunction")!
+        let cvImageFragmentFunction = defaultLibrary.makeFunction(name: "cvFragmentFunction")!
+        
+        //        let lutVertexFunction = defaultLibrary.makeFunction(name: "lutVertexFunction")!
+        //        let lutFragmentFunction = defaultLibrary.makeFunction(name: "lutFragmentFunction")!
+        
+        let compositeVertexFunction = defaultLibrary.makeFunction(name: "compositeVertexFunction")!
+        
+        let compositeFragmentFunction = defaultLibrary.makeFunction(name: "compositeFragmentFunction")
+        
+        let draw2DVertexFunction = defaultLibrary.makeFunction(name: "draw2DVertexFunction")!
+        let draw2DFragmentFunction = defaultLibrary.makeFunction(name: "draw2DFragmentFunction")!
+        
+        let colorProcessingVertexFunction = defaultLibrary.makeFunction(name: "colorProcessingVertexFunction")!
+        let colorProcessingFragmentFunction = defaultLibrary.makeFunction(name: "colorProcessingFragmentFunction")!
+        
+        let  lutKernelFunction = defaultLibrary.makeFunction(name: "lutKernel2" )
+        
+        
+        // Create a vertex descriptor for our image plane vertex buffer
+        let imagePlaneVertexDescriptor = MTLVertexDescriptor()
+        
+        // Positions.
+        imagePlaneVertexDescriptor.attributes[0].format = .float2
+        imagePlaneVertexDescriptor.attributes[0].offset = 0
+        imagePlaneVertexDescriptor.attributes[0].bufferIndex = Int(kBufferIndexMeshPositions.rawValue)
+        
+        // Texture coordinates.
+        imagePlaneVertexDescriptor.attributes[1].format = .float2
+        imagePlaneVertexDescriptor.attributes[1].offset = 8
+        imagePlaneVertexDescriptor.attributes[1].bufferIndex = Int(kBufferIndexMeshPositions.rawValue)
+        
+        // Buffer Layout
+        imagePlaneVertexDescriptor.layouts[0].stride = 16
+        imagePlaneVertexDescriptor.layouts[0].stepRate = 1
+        imagePlaneVertexDescriptor.layouts[0].stepFunction = .perVertex
+        
+        // Create a pipeline state for rendering the captured image
+        let capturedImagePipelineStateDescriptor = MTLRenderPipelineDescriptor()
+        capturedImagePipelineStateDescriptor.label = "CapturedImagePipeline"
+        capturedImagePipelineStateDescriptor.sampleCount = renderDestination.sampleCount
+        capturedImagePipelineStateDescriptor.vertexFunction = capturedImageVertexFunction
+        capturedImagePipelineStateDescriptor.fragmentFunction = capturedImageFragmentFunction
+        capturedImagePipelineStateDescriptor.vertexDescriptor = imagePlaneVertexDescriptor
+        capturedImagePipelineStateDescriptor.colorAttachments[0].pixelFormat = renderDestination.colorPixelFormat
+        capturedImagePipelineStateDescriptor.depthAttachmentPixelFormat = renderDestination.depthStencilPixelFormat
+        capturedImagePipelineStateDescriptor.stencilAttachmentPixelFormat = renderDestination.depthStencilPixelFormat
+        
+        
+        
+        do {
+            try capturedImagePipelineState = device.makeRenderPipelineState(descriptor: capturedImagePipelineStateDescriptor)
+        } catch let error {
+            print("Failed to created captured image pipeline state, error \(error)")
         }
         
-        updateSharedUniforms(frame: currentFrame)
-        updateAnchors(frame: currentFrame)
-        updateCapturedImageTextures(frame: currentFrame)
+        let capturedImageDepthStateDescriptor = MTLDepthStencilDescriptor()
+        capturedImageDepthStateDescriptor.depthCompareFunction = .always
+        capturedImageDepthStateDescriptor.isDepthWriteEnabled = false
+        capturedImageDepthState = device.makeDepthStencilState(descriptor: capturedImageDepthStateDescriptor)
         
-        if viewportSizeDidChange {
-            viewportSizeDidChange = false
-            
-            updateImagePlane(frame: currentFrame)
+        // Create captured image texture cache
+        var textureCache: CVMetalTextureCache?
+        CVMetalTextureCacheCreate(nil, nil, device, nil, &textureCache)
+        capturedImageTextureCache = textureCache
+        
+        
+        let cvPipelineStateDescriptor = MTLRenderPipelineDescriptor()
+        cvPipelineStateDescriptor.label = "CVImagePipeline"
+        cvPipelineStateDescriptor.sampleCount = 1
+        cvPipelineStateDescriptor.vertexFunction = cvImageVertexFunction
+        cvPipelineStateDescriptor.fragmentFunction = cvImageFragmentFunction
+        cvPipelineStateDescriptor.vertexDescriptor = imagePlaneVertexDescriptor
+        cvPipelineStateDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        
+        do {
+            try cvPipelineState = device.makeRenderPipelineState(descriptor: cvPipelineStateDescriptor)
+        } catch let error {
+            print("Failed to created captured image pipeline state, error \(error)")
         }
+        
+        
+        let draw2DVertexDescriptor = MTLVertexDescriptor()
+        
+        // Positions.
+        draw2DVertexDescriptor.attributes[0].format = .float4
+        draw2DVertexDescriptor.attributes[0].offset = 0
+        draw2DVertexDescriptor.attributes[0].bufferIndex = 0
+        
+        
+        // Buffer Layout
+        draw2DVertexDescriptor.layouts[0].stride = 16
+        draw2DVertexDescriptor.layouts[0].stepRate = 1
+        draw2DVertexDescriptor.layouts[0].stepFunction = .perVertex
+        
+        // Create a pipeline state for rendering the captured image
+        let draw2DPipelineStateDescriptor = MTLRenderPipelineDescriptor()
+        draw2DPipelineStateDescriptor.label = "2DImagePipeline"
+        draw2DPipelineStateDescriptor.sampleCount = renderDestination.sampleCount
+        draw2DPipelineStateDescriptor.vertexFunction = draw2DVertexFunction
+        draw2DPipelineStateDescriptor.fragmentFunction = draw2DFragmentFunction
+        draw2DPipelineStateDescriptor.vertexDescriptor = draw2DVertexDescriptor
+        draw2DPipelineStateDescriptor.colorAttachments[0].pixelFormat = renderDestination.colorPixelFormat
+        
+        
+        do {
+            try draw2DPipelineState = device.makeRenderPipelineState(descriptor: draw2DPipelineStateDescriptor)
+        } catch let error {
+            print("Failed to create 2d image pipeline state, error \(error)")
+        }
+        
+        
+        let colorProcessingPipelineStateDescriptor = MTLRenderPipelineDescriptor()
+        colorProcessingPipelineStateDescriptor.label = "ColorProcessingPipelineState"
+        colorProcessingPipelineStateDescriptor.sampleCount = renderDestination.sampleCount
+        colorProcessingPipelineStateDescriptor.vertexFunction = colorProcessingVertexFunction
+        colorProcessingPipelineStateDescriptor.fragmentFunction = colorProcessingFragmentFunction
+        colorProcessingPipelineStateDescriptor.vertexDescriptor = imagePlaneVertexDescriptor
+        
+        colorProcessingPipelineStateDescriptor.colorAttachments[0].pixelFormat = renderDestination.colorPixelFormat
+        colorProcessingPipelineStateDescriptor.colorAttachments[0].isBlendingEnabled = false
+        
+        //            colorProcessingPipelineStateDescriptor.colorAttachments[0].rgbBlendOperation = MTLBlendOperation.add
+        //            colorProcessingPipelineStateDescriptor.colorAttachments[0].alphaBlendOperation = MTLBlendOperation.add
+        //            colorProcessingPipelineStateDescriptor.colorAttachments[0].sourceRGBBlendFactor = MTLBlendFactor.one
+        //            colorProcessingPipelineStateDescriptor.colorAttachments[0].sourceAlphaBlendFactor = MTLBlendFactor.sourceAlpha
+        //            colorProcessingPipelineStateDescriptor.colorAttachments[0].destinationRGBBlendFactor = MTLBlendFactor.oneMinusSourceAlpha
+        //            colorProcessingPipelineStateDescriptor.colorAttachments[0].destinationAlphaBlendFactor = MTLBlendFactor.oneMinusSourceAlpha
+        
+        //        colorProcessingPipelineStateDescriptor.colorAttachments[0].sourceRGBBlendFactor = MTLBlendFactor.one
+        //        colorProcessingPipelineStateDescriptor.colorAttachments[0].sourceAlphaBlendFactor = MTLBlendFactor.one
+        //        colorProcessingPipelineStateDescriptor.colorAttachments[0].destinationRGBBlendFactor = MTLBlendFactor.oneMinusSourceAlpha
+        //        colorProcessingPipelineStateDescriptor.colorAttachments[0].destinationAlphaBlendFactor = MTLBlendFactor.destinationAlpha
+        
+        do {
+            try colorProcessingPipelineState = device.makeRenderPipelineState(descriptor: colorProcessingPipelineStateDescriptor)
+        } catch let error {
+            print("Failed to create overlay image pipeline state, error \(error)")
+        }
+        
+        
+        // Create a pipeline state for rendering the captured image
+        let compositePipelineStateDescriptor = MTLRenderPipelineDescriptor()
+        compositePipelineStateDescriptor.label = "CompositeImagePipeline"
+        compositePipelineStateDescriptor.sampleCount = renderDestination.sampleCount
+        compositePipelineStateDescriptor.vertexFunction = compositeVertexFunction
+        compositePipelineStateDescriptor.fragmentFunction = compositeFragmentFunction
+        compositePipelineStateDescriptor.vertexDescriptor = imagePlaneVertexDescriptor
+        compositePipelineStateDescriptor.colorAttachments[0].pixelFormat = renderDestination.colorPixelFormat
+        // compositePipelineStateDescriptor.colorAttachments[1].pixelFormat = renderDestination.colorPixelFormat
+        //compositePipelineStateDescriptor.colorAttachments[0].isBlendingEnabled = false
+        
+        do {
+            try compositePipelineState = device.makeRenderPipelineState(descriptor: compositePipelineStateDescriptor)
+        } catch let error {
+            print("Failed to created captured image pipeline state, error \(error)")
+        }
+        
+        
+        
+        let textureUrl = Bundle.main.url(forResource: "SkinSmoothingTexture", withExtension: "png", subdirectory: "Models.scnassets")
+        
+        do {
+            try faceMaskTexture = textureLoader.newTexture(URL: textureUrl!, options: nil)
+        } catch let error {
+            print("Failed to created captured image pipeline state, error \(error)")
+            faceMaskTexture = nil
+        }
+        
+        
+        let faceVertexDataCount = 1220 * MemoryLayout<float4>.size
+        faceVertexBuffer = device.makeBuffer(length: faceVertexDataCount, options: .storageModeShared)
+        faceVertexBuffer.label = "faceVertexBuffer"
+        
+        let faceTexCoordCount = 1220 *  MemoryLayout<float2>.size
+        faceTexCoordBuffer = device.makeBuffer(length: faceTexCoordCount, options: .storageModeShared)
+        faceTexCoordBuffer.label = "faceTexCoordBuffer"
+        
+        let faceIndexCount = kFaceIndexCount *  MemoryLayout<UInt16>.size
+        faceIndexBuffer = device.makeBuffer(length: faceIndexCount, options: .storageModeShared)
+        faceIndexBuffer.label = "faceIndexBuffer"
+        
+        // later Eye .....
+        
+        geometryVertexDescriptor = MTLVertexDescriptor()
+        
+        geometryVertexDescriptor.attributes[0].format = .float3
+        geometryVertexDescriptor.attributes[0].offset = 0
+        geometryVertexDescriptor.attributes[0].bufferIndex = 0
+        
+        geometryVertexDescriptor.attributes[1].format = .float2
+        geometryVertexDescriptor.attributes[1].offset = 0
+        geometryVertexDescriptor.attributes[1].bufferIndex = 1
+        
+        geometryVertexDescriptor.layouts[0].stride = 16
+        geometryVertexDescriptor.layouts[0].stepRate = 1
+        geometryVertexDescriptor.layouts[0].stepFunction = .perVertex
+        
+        geometryVertexDescriptor.layouts[1].stride = 8
+        geometryVertexDescriptor.layouts[1].stepRate = 1
+        geometryVertexDescriptor.layouts[1].stepFunction = .perVertex
+        
+        
+        let skinSmoothingVertexFunction = defaultLibrary.makeFunction(name: "retouchVertexFunction")!
+        let skinSmoothingFragmentFunction = defaultLibrary.makeFunction(name: "retouchFragmentFunction")!
+        
+        // Create a reusable pipeline state for rendering anchor geometry
+        let skinSmoothingPipelineStateDescriptor = MTLRenderPipelineDescriptor()
+        skinSmoothingPipelineStateDescriptor.label = "SkinSmoothingPipeline"
+        skinSmoothingPipelineStateDescriptor.sampleCount = renderDestination.sampleCount
+        skinSmoothingPipelineStateDescriptor.vertexDescriptor = geometryVertexDescriptor
+        skinSmoothingPipelineStateDescriptor.vertexFunction = skinSmoothingVertexFunction
+        skinSmoothingPipelineStateDescriptor.fragmentFunction = skinSmoothingFragmentFunction
+        skinSmoothingPipelineStateDescriptor.colorAttachments[0].pixelFormat = renderDestination.colorPixelFormat
+        skinSmoothingPipelineStateDescriptor.colorAttachments[0].isBlendingEnabled = false
+        //        skinSmoothingPipelineStateDescriptor.depthAttachmentPixelFormat = MTLPixelFormat.depth32Float_stencil8
+        //        skinSmoothingPipelineStateDescriptor.stencilAttachmentPixelFormat = MTLPixelFormat.depth32Float_stencil8
+        
+        //        skinSmoothingPipelineStateDescriptor.colorAttachments[0].rgbBlendOperation = MTLBlendOperation.add
+        //        skinSmoothingPipelineStateDescriptor.colorAttachments[0].alphaBlendOperation = MTLBlendOperation.add
+        //        skinSmoothingPipelineStateDescriptor.colorAttachments[0].sourceRGBBlendFactor = MTLBlendFactor.one
+        //        skinSmoothingPipelineStateDescriptor.colorAttachments[0].sourceAlphaBlendFactor = MTLBlendFactor.one
+        //        skinSmoothingPipelineStateDescriptor.colorAttachments[0].destinationRGBBlendFactor = MTLBlendFactor.zero
+        //        skinSmoothingPipelineStateDescriptor.colorAttachments[0].destinationAlphaBlendFactor = MTLBlendFactor.zero
+        
+        do {
+            try skinSmoothingPipelineState = device.makeRenderPipelineState(descriptor: skinSmoothingPipelineStateDescriptor)
+        } catch let error {
+            print("Failed to created anchor geometry pipeline state, error \(error)")
+        }
+        
+        do {
+            try lutComputePipelineState = device.makeComputePipelineState(function: lutKernelFunction!)
+        } catch let error {
+            print("Failed to created lut compute kernel function, error \(error)")
+        }
+        
+        
+        //        let skinSmoothingStencilStateDescriptor = MTLStencilDescriptor()
+        //        skinSmoothingStencilStateDescriptor.writeMask = 0xFF
+        //        skinSmoothingStencilStateDescriptor.stencilCompareFunction = .always
+        //       let skinSmoothingDepthStateDescriptor = MTLDepthStencilDescriptor()
+        ////        skinSmoothingDepthStateDescriptor.depthCompareFunction = .always
+        //        skinSmoothingDepthStateDescriptor.isDepthWriteEnabled = true
+        ////        skinSmoothingDepthStateDescriptor.frontFaceStencil = skinSmoothingStencilStateDescriptor
+        ////        skinSmoothingDepthStateDescriptor.backFaceStencil = skinSmoothingStencilStateDescriptor
+        ////
+        //         skinSmoothingDepthState = device.makeDepthStencilState(descriptor: skinSmoothingDepthStateDescriptor)
+        ////
+        
+        updateTextures()
+        
+        // self.sobelFilter = MPSImageSobel(device:self.device)
+        
+        
+        // Create the command queue
+        commandQueue = device.makeCommandQueue()
     }
     
+    func loadAssets() {
+        
+    }
     func updateSharedUniforms(frame: ARFrame) {
         // Update the shared uniforms of the frame
         
@@ -640,8 +1214,11 @@ class Renderer: NSObject, ARSessionDelegate  {
             return
         }
         
-        capturedImageTextureY = createTexture(fromPixelBuffer: pixelBuffer, pixelFormat:.r8Unorm, planeIndex:0)
-        capturedImageTextureCbCr = createTexture(fromPixelBuffer: pixelBuffer, pixelFormat:.rg8Unorm, planeIndex:1)
+        //capturedImageTextureY = createTexture(fromPixelBuffer: pixelBuffer, pixelFormat:.r8Unorm, planeIndex:0)
+        //capturedImageTextureCbCr = createTexture(fromPixelBuffer: pixelBuffer, pixelFormat:.rg8Unorm, planeIndex:1)
+        capturedImageTextureY = CVMetalTextureGetTexture(createTexture(fromPixelBuffer: pixelBuffer, pixelFormat:.r8Unorm, planeIndex:0)!)
+        capturedImageTextureCbCr = CVMetalTextureGetTexture(createTexture(fromPixelBuffer: pixelBuffer, pixelFormat:.rg8Unorm, planeIndex:1)!)
+        
     }
     
     func createTexture(fromPixelBuffer pixelBuffer: CVPixelBuffer, pixelFormat: MTLPixelFormat, planeIndex: Int) -> CVMetalTexture? {
@@ -671,7 +1248,7 @@ class Renderer: NSObject, ARSessionDelegate  {
             vertexData[textureCoordIndex + 1] = Float(transformedCoord.y)
         }
     }
-    
+    //origin from xcode
     func drawCapturedImage(renderEncoder: MTLRenderCommandEncoder) {
         guard let textureY = capturedImageTextureY, let textureCbCr = capturedImageTextureCbCr else {
             return
@@ -689,8 +1266,10 @@ class Renderer: NSObject, ARSessionDelegate  {
         renderEncoder.setVertexBuffer(imagePlaneVertexBuffer, offset: 0, index: Int(kBufferIndexMeshPositions.rawValue))
         
         // Set any textures read/sampled from our render pipeline
-        renderEncoder.setFragmentTexture(CVMetalTextureGetTexture(textureY), index: Int(kTextureIndexY.rawValue))
-        renderEncoder.setFragmentTexture(CVMetalTextureGetTexture(textureCbCr), index: Int(kTextureIndexCbCr.rawValue))
+        renderEncoder.setFragmentTexture(textureY, index: Int(kTextureIndexY.rawValue))
+        //        renderEncoder.setFragmentTexture(CVMetalTextureGetTexture(textureCbCr, index: Int(kTextureIndexCbCr.rawValue))
+        
+        renderEncoder.setFragmentTexture(textureCbCr, index: Int(kTextureIndexCbCr.rawValue))
         
         // Draw each submesh of our mesh
         renderEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
@@ -743,7 +1322,7 @@ class Renderer: NSObject, ARSessionDelegate  {
         capturedImageRenderTextureBuffer.label = "capturedImageRenderTextureBuffer"
         
         skinSmoothingTextureBuffers = [MTLTexture]()
-
+        
         
         for size : CGFloat in smoothingPassSizes {
             
@@ -764,6 +1343,265 @@ class Renderer: NSObject, ARSessionDelegate  {
         skinSmoothingDepthBuffer = device.makeTexture(descriptor: textureDescriptor)
     }
     
-
+    
+    func updateBufferStates() {
+        // Update the location(s) to which we'll write to in our dynamically changing Metal buffers for
+        //   the current frame (i.e. update our slot in the ring buffer used for the current frame)
+        
+        uniformBufferIndex = (uniformBufferIndex + 1) % kMaxBuffersInFlight
+        
+        sharedUniformBufferOffset = kAlignedSharedUniformsSize * uniformBufferIndex
+        
+        sharedUniformBufferAddress = sharedUniformBuffer.contents().advanced(by: sharedUniformBufferOffset)
+        
+    }
+    
+    
+    func renderCapturedImage(commandBuffer : MTLCommandBuffer) {
+        guard let textureY = capturedImageTextureY, let textureCbCr = capturedImageTextureCbCr else {
+            return
+        }
+        
+        let capturedImagePassDescriptor = MTLRenderPassDescriptor()
+        
+        capturedImagePassDescriptor.colorAttachments[0].texture = capturedImageRenderTextureBuffer
+        capturedImagePassDescriptor.colorAttachments[0].loadAction = MTLLoadAction.dontCare;
+        capturedImagePassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.0, 0.0, 0.0, 0.0);
+        capturedImagePassDescriptor.colorAttachments[0].storeAction =  MTLStoreAction.store
+        capturedImagePassDescriptor.colorAttachments[0].resolveTexture = renderDestination.currentRenderPassDescriptor?.colorAttachments[0].resolveTexture
+        capturedImagePassDescriptor.stencilAttachment =  renderDestination.currentRenderPassDescriptor?.stencilAttachment
+        capturedImagePassDescriptor.depthAttachment =  renderDestination.currentRenderPassDescriptor?.depthAttachment
+        
+        if let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: capturedImagePassDescriptor) {
+            
+            renderEncoder.pushDebugGroup("RenderCapturedImage")
+            
+            // Set render command encoder state
+            renderEncoder.setCullMode(.none)
+            renderEncoder.setRenderPipelineState(capturedImagePipelineState)
+            renderEncoder.setDepthStencilState(capturedImageDepthState)
+            
+            // Set mesh's vertex buffers
+            renderEncoder.setVertexBuffer(imagePlaneVertexBuffer, offset: 0, index: Int(kBufferIndexMeshPositions.rawValue))
+            
+            // Set any textures read/sampled from our render pipeline
+            renderEncoder.setFragmentTexture(textureY as! MTLTexture, index: Int(kTextureIndexY.rawValue))
+            renderEncoder.setFragmentTexture(textureCbCr as! MTLTexture, index: Int(kTextureIndexCbCr.rawValue))
+            
+            // Draw each submesh of our mesh
+            renderEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
+            
+            renderEncoder.popDebugGroup()
+            
+            
+            renderEncoder.endEncoding()
+            
+        }
+        
+    }
+    
+    
+    func createSmoothingPassParameters( passIndex: UInt32, sizeIndex: Int) -> (viewport : MTLViewport, parameters: SmoothingParameters) {
+        
+        let width : Double = Double(self.viewport.width * smoothingPassSizes[sizeIndex]).rounded(.up)
+        
+        let height : Double = Double(self.viewport.height * smoothingPassSizes[sizeIndex]).rounded(.up)
+        
+        let renderViewport = MTLViewport(originX:0,originY: 0,width: width,height: height,znear:0.0,zfar:1.0)
+        
+        var parameters = SmoothingParameters()
+        parameters.skinSmoothingFactor = kSkinSmoothingFactor
+        parameters.viewMatrix = self.lastCamera!.viewMatrix(for: .portrait)
+        parameters.modelMatrix = faceContentNode!.simdTransform
+        parameters.passIndex = passIndex
+        parameters.imageSize = vector2( Float(renderViewport.width), Float(renderViewport.height) )
+        parameters.renderSize = vector2( Float(renderViewport.width), Float(renderViewport.height) )
+        parameters.projectionMatrix = self.lastCamera!.projectionMatrix(for: .portrait, viewportSize: CGSize(width:renderViewport.width,height:renderViewport.height), zNear: 0.001, zFar: 1000)
+        parameters.inverseResolution = simd_recip( vector_float2( Float(renderViewport.width), Float(renderViewport.height) ) )
+        
+        //  print("renderViewport \(renderViewport) for passIndex \(passIndex)")
+        return (renderViewport, parameters)
+    }
+    func renderSkinSmoothing( commandBuffer : MTLCommandBuffer, renderPassDescriptor : MTLRenderPassDescriptor )
+    {
+        
+        commandBuffer.pushDebugGroup("SkinSmoothing")
+        
+        let clearColor = MTLClearColorMake(0.0,0.0,0.0, 0.0)
+        
+        
+        faceVertexBuffer.contents().copyMemory(from: faceGeometry!.vertices, byteCount: 1220 * MemoryLayout<vector_float3>.size)
+        
+        faceTexCoordBuffer.contents().copyMemory(from: faceGeometry!.textureCoordinates, byteCount: 1220 * MemoryLayout<vector_float2>.size)
+        
+        faceIndexBuffer.contents().copyMemory(from: faceGeometry!.triangleIndices, byteCount: kFaceIndexCount * 2 )
+        
+        let textures = [capturedImageRenderTextureBuffer,
+                        faceMaskTexture,
+                        skinSmoothingTextureBuffers[1],
+                        skinSmoothingTextureBuffers[2],
+                        skinSmoothingTextureBuffers[3],
+                        skinSmoothingTextureBuffers[4]
+        ]
+        
+        // var passIndex : UInt32 = 0
+        
+        for ( passIndex, (bufferIndex,clearBuffer)) in smoothingPassInstructions.enumerated() {
+            
+            let renderSmoothingPassDescriptor = MTLRenderPassDescriptor()
+            
+            renderSmoothingPassDescriptor.colorAttachments[0].texture =  skinSmoothingTextureBuffers[bufferIndex]
+            
+            renderSmoothingPassDescriptor.colorAttachments[0].loadAction = clearBuffer ? MTLLoadAction.clear : MTLLoadAction.load
+            renderSmoothingPassDescriptor.colorAttachments[0].clearColor = clearColor
+            renderSmoothingPassDescriptor.colorAttachments[0].storeAction =  MTLStoreAction.store
+            
+            
+            
+            let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderSmoothingPassDescriptor)!
+            
+            renderEncoder.pushDebugGroup("Pass \(passIndex)")
+            
+            var passParameters = createSmoothingPassParameters(passIndex:UInt32(passIndex),sizeIndex:bufferIndex)
+            
+            renderEncoder.setViewport(passParameters.viewport)
+            renderEncoder.setRenderPipelineState(skinSmoothingPipelineState)
+            renderEncoder.setVertexBytes(&passParameters.parameters, length: MemoryLayout<SmoothingParameters>.size, index: 2)
+            renderEncoder.setFragmentBytes(&passParameters.parameters, length: MemoryLayout<SmoothingParameters>.size, index: 2)
+            renderEncoder.setVertexBuffer(faceVertexBuffer, offset: 0, index: 0)
+            renderEncoder.setVertexBuffer(faceTexCoordBuffer, offset: 0, index: 1)
+            renderEncoder.setFragmentTextures(textures,  range: 0..<6 )
+            renderEncoder.drawIndexedPrimitives(type: MTLPrimitiveType.triangle, indexCount: kFaceIndexCount, indexType: MTLIndexType.uint16, indexBuffer: faceIndexBuffer, indexBufferOffset: 0, instanceCount: 1)
+            
+            
+            renderEncoder.popDebugGroup()
+            
+            renderEncoder.endEncoding()
+        }
+        
+        
+        
+        commandBuffer.popDebugGroup()
+        
+    }
+    
+    func renderImageComposite( commandBuffer : MTLCommandBuffer, destinationTexture : MTLTexture, compositeTexture : MTLTexture ) {
+        
+        let renderPassDescriptor = MTLRenderPassDescriptor()
+        
+        renderPassDescriptor.colorAttachments[0].texture = destinationTexture
+        renderPassDescriptor.colorAttachments[0].loadAction = MTLLoadAction.load
+        renderPassDescriptor.colorAttachments[0].storeAction =  MTLStoreAction.store
+        renderPassDescriptor.colorAttachments[0].resolveTexture = renderDestination.currentRenderPassDescriptor?.colorAttachments[0].resolveTexture
+        
+        
+        if let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) {
+            
+            renderEncoder.pushDebugGroup("DrawCompositeImage")
+            
+            let renderViewport = MTLViewport(originX:0,originY: 0,width: Double( viewport.width ), height: Double( viewport.height ), znear:0.0,zfar:1.0)
+            
+            renderEncoder.setViewport(renderViewport)
+            
+            renderEncoder.setRenderPipelineState(compositePipelineState)
+            
+            renderEncoder.setVertexBuffer(imagePlaneVertexBuffer, offset: 0, index: Int(kBufferIndexMeshPositions.rawValue))
+            
+            renderEncoder.setFragmentTexture(compositeTexture, index: 0)
+            
+            renderEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
+            
+            renderEncoder.popDebugGroup()
+            
+            renderEncoder.endEncoding()
+            
+        }
+        
+        
+    }
+    func renderColorProcessing( commandBuffer : MTLCommandBuffer,  lutTexture : MTLTexture?  ) {
+        
+        let renderPassDescriptor = MTLRenderPassDescriptor()
+        
+        renderPassDescriptor.colorAttachments[0].texture = renderDestination.currentRenderPassDescriptor?.colorAttachments[0].texture
+        renderPassDescriptor.colorAttachments[0].loadAction = MTLLoadAction.load
+        renderPassDescriptor.colorAttachments[0].storeAction =  MTLStoreAction.store
+        //   renderPassDescriptor.colorAttachments[0].resolveTexture = renderDestination.currentRenderPassDescriptor?.colorAttachments[0].resolveTexture
+        
+        
+        if let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) {
+            
+            renderEncoder.pushDebugGroup("ColorProcessing")
+            
+            renderEncoder.setCullMode(.none)
+            
+            renderEncoder.setRenderPipelineState(colorProcessingPipelineState)
+            
+            renderEncoder.setVertexBuffer(imagePlaneVertexBuffer, offset: 0, index: Int(kBufferIndexMeshPositions.rawValue))
+            
+            if let lut = lutTexture {
+                renderEncoder.setFragmentTexture( lut, index: 0)
+            }
+            
+            var parameters = ColorProcessingParameters()
+            parameters.lutIntensity = self.colorProcessingParameters.lutIntensity
+            parameters.saturationIntensity = self.colorProcessingParameters.saturationIntensity
+            parameters.contrastIntensity = self.colorProcessingParameters.contrastIntensity
+            
+            renderEncoder.setFragmentBytes(&parameters, length: MemoryLayout<ColorProcessingParameters>.size, index: 0)
+            
+            renderEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
+            
+            renderEncoder.popDebugGroup()
+            
+            renderEncoder.endEncoding()
+            
+        }
+        
+    }
+    func renderCVPixelBuffer( commandBuffer : MTLCommandBuffer, destinationTexture : MTLTexture, sourceTexture : MTLTexture ) {
+        
+        //        let origin : MTLOrigin = MTLOriginMake(0, 0, 0)
+        //        let size = MTLSizeMake(Int(1280), Int(720), 1)
+        let clearColor = MTLClearColorMake(0.0,0.0,0.0, 0.0)
+        //
+        let cvImagePassDescriptor = MTLRenderPassDescriptor()
+        
+        
+        cvImagePassDescriptor.colorAttachments[0].texture = destinationTexture
+        cvImagePassDescriptor.colorAttachments[0].loadAction = MTLLoadAction.dontCare
+        cvImagePassDescriptor.colorAttachments[0].clearColor = clearColor
+        cvImagePassDescriptor.colorAttachments[0].storeAction =  MTLStoreAction.store
+        
+        if let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: cvImagePassDescriptor) {
+            
+            renderEncoder.pushDebugGroup("DrawCVImage")
+            
+            // Set render command encoder state
+            renderEncoder.setCullMode(.none)
+            
+            let renderViewport = MTLViewport(originX:0,originY: 0,width: 1280,height: 720,znear:0.0,zfar:1.0)
+            
+            renderEncoder.setViewport(renderViewport)
+            
+            renderEncoder.setRenderPipelineState(cvPipelineState)
+            
+            // Set mesh's vertex buffers
+            renderEncoder.setVertexBuffer(imagePlaneVertexBuffer, offset: 0, index: Int(kBufferIndexMeshPositions.rawValue))
+            
+            // Set any textures read/sampled from our render pipeline
+            renderEncoder.setFragmentTexture(sourceTexture, index: 0)
+            
+            // Draw each submesh of our mesh
+            //????
+            //renderEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
+            
+            renderEncoder.popDebugGroup()
+            
+            
+            renderEncoder.endEncoding()
+            
+        }
+    }
     
 }

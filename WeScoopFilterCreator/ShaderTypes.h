@@ -59,6 +59,11 @@ typedef struct {
     matrix_float4x4 modelMatrix;
 } InstanceUniforms;
 
+typedef enum PostprocessParameterIndices {
+    kLUTEnabled    = 0,
+    kContrastEnabled     = 1,
+    kSaturationEnabled     = 2
+} PostprocessParameterIndices;
 
 
 typedef struct {
@@ -66,4 +71,17 @@ typedef struct {
     float saturationIntensity;
     float lutIntensity;
 } ColorProcessingParameters;
+
+typedef struct {
+    unsigned int passIndex;
+    float skinSmoothingFactor;
+    vector_float2 renderSize;
+    vector_float2 imageSize;
+    vector_float2 inverseResolution;
+    matrix_float4x4 projectionMatrix;
+    matrix_float4x4 modelViewProjectionMatrix;
+    matrix_float4x4 viewMatrix;
+    matrix_float4x4 modelMatrix;
+    
+}  SmoothingParameters;
 #endif /* ShaderTypes_h */

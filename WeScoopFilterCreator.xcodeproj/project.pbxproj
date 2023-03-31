@@ -23,6 +23,10 @@
 		984E760229D58F2900C6B7F2 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 984E760129D58F2900C6B7F2 /* Models.scnassets */; };
 		984E760629D58F8600C6B7F2 /* SceneKit Asset Catalog.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 984E760529D58F8600C6B7F2 /* SceneKit Asset Catalog.scnassets */; };
 		984E760829D5920600C6B7F2 /* Aviator.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 984E760729D5920600C6B7F2 /* Aviator.scnassets */; };
+		984E760A29D5BB2A00C6B7F2 /* RenderPixelBufferConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E760929D5BB2A00C6B7F2 /* RenderPixelBufferConsumer.swift */; };
+		984E760D29D6CF7200C6B7F2 /* ShaderCommon.metal in Sources */ = {isa = PBXBuildFile; fileRef = 984E760C29D6CF7200C6B7F2 /* ShaderCommon.metal */; };
+		984E760F29D6D19600C6B7F2 /* Retouch.metal in Sources */ = {isa = PBXBuildFile; fileRef = 984E760E29D6D19600C6B7F2 /* Retouch.metal */; };
+		984E761129D6D1E900C6B7F2 /* LUT.metal in Sources */ = {isa = PBXBuildFile; fileRef = 984E761029D6D1E900C6B7F2 /* LUT.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +68,11 @@
 		984E760129D58F2900C6B7F2 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
 		984E760529D58F8600C6B7F2 /* SceneKit Asset Catalog.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = "SceneKit Asset Catalog.scnassets"; sourceTree = "<group>"; };
 		984E760729D5920600C6B7F2 /* Aviator.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Aviator.scnassets; sourceTree = "<group>"; };
+		984E760929D5BB2A00C6B7F2 /* RenderPixelBufferConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderPixelBufferConsumer.swift; sourceTree = "<group>"; };
+		984E760B29D6CF4D00C6B7F2 /* ShaderCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderCommon.h; sourceTree = "<group>"; };
+		984E760C29D6CF7200C6B7F2 /* ShaderCommon.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ShaderCommon.metal; sourceTree = "<group>"; };
+		984E760E29D6D19600C6B7F2 /* Retouch.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Retouch.metal; sourceTree = "<group>"; };
+		984E761029D6D1E900C6B7F2 /* LUT.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = LUT.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +129,12 @@
 				984E75B029D4299400C6B7F2 /* AppDelegate.swift */,
 				984E75B229D4299400C6B7F2 /* Shaders.metal */,
 				984E75B429D4299400C6B7F2 /* ShaderTypes.h */,
+				984E760C29D6CF7200C6B7F2 /* ShaderCommon.metal */,
+				984E760B29D6CF4D00C6B7F2 /* ShaderCommon.h */,
+				984E760E29D6D19600C6B7F2 /* Retouch.metal */,
+				984E761029D6D1E900C6B7F2 /* LUT.metal */,
 				984E75B529D4299400C6B7F2 /* Renderer.swift */,
+				984E760929D5BB2A00C6B7F2 /* RenderPixelBufferConsumer.swift */,
 				984E75B729D4299400C6B7F2 /* ViewController.swift */,
 				984E75FA29D4401F00C6B7F2 /* VirtualFaceContent.swift */,
 				984E75FC29D58BE500C6B7F2 /* Overlay.swift */,
@@ -309,11 +323,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				984E75B329D4299400C6B7F2 /* Shaders.metal in Sources */,
+				984E760D29D6CF7200C6B7F2 /* ShaderCommon.metal in Sources */,
 				984E75FB29D4401F00C6B7F2 /* VirtualFaceContent.swift in Sources */,
+				984E760A29D5BB2A00C6B7F2 /* RenderPixelBufferConsumer.swift in Sources */,
 				984E75B629D4299400C6B7F2 /* Renderer.swift in Sources */,
 				984E75B829D4299400C6B7F2 /* ViewController.swift in Sources */,
 				984E75FD29D58BE500C6B7F2 /* Overlay.swift in Sources */,
+				984E761129D6D1E900C6B7F2 /* LUT.metal in Sources */,
 				984E75B129D4299400C6B7F2 /* AppDelegate.swift in Sources */,
+				984E760F29D6D19600C6B7F2 /* Retouch.metal in Sources */,
 				984E75FF29D58D3C00C6B7F2 /* MaskInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
