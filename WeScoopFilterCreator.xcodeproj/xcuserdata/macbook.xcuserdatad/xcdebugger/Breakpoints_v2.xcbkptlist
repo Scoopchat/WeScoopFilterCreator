@@ -1,0 +1,3185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "72BB0B7D-C999-41E0-937B-AB6A7F2851AD"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C0DE30EF-6C75-4126-855A-E76E0E2D4977"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "loadReferenceNode()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "C0DE30EF-6C75-4126-855A-E76E0E2D4977 - 54b688a9ba91108"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadReferenceNode() -&gt; __C.SCNNode"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "257"
+                  endingLineNumber = "257"
+                  offsetFromSymbolStart = "1276">
+               </Location>
+               <Location
+                  uuid = "C0DE30EF-6C75-4126-855A-E76E0E2D4977 - 54b688a9ba91108"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadReferenceNode() -&gt; __C.SCNNode"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "257"
+                  endingLineNumber = "257"
+                  offsetFromSymbolStart = "520">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "74A765CB-AC31-4042-ACD8-C223F0F25DEC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "loadReferenceNode()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "74A765CB-AC31-4042-ACD8-C223F0F25DEC - 54b688a9ba912c2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadReferenceNode() -&gt; __C.SCNNode"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "263"
+                  endingLineNumber = "263"
+                  offsetFromSymbolStart = "2520">
+               </Location>
+               <Location
+                  uuid = "74A765CB-AC31-4042-ACD8-C223F0F25DEC - 54b688a9ba91284"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadReferenceNode() -&gt; __C.SCNNode"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "261"
+                  endingLineNumber = "261"
+                  offsetFromSymbolStart = "1276">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5D6A8F79-57F9-4C75-BF85-EBE08BFA6F1F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
+            landmarkName = "loadReferenceNode()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "5D6A8F79-57F9-4C75-BF85-EBE08BFA6F1F - 54b688a9ba912c2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadReferenceNode() -&gt; __C.SCNNode"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "263"
+                  endingLineNumber = "263"
+                  offsetFromSymbolStart = "2520">
+               </Location>
+               <Location
+                  uuid = "5D6A8F79-57F9-4C75-BF85-EBE08BFA6F1F - 54b688a9ba912c2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadReferenceNode() -&gt; __C.SCNNode"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "263"
+                  endingLineNumber = "263"
+                  offsetFromSymbolStart = "1992">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D6859AB2-996B-41B8-A1EB-0FEF1735C8D0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
+            landmarkName = "loadReferenceNode()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "D6859AB2-996B-41B8-A1EB-0FEF1735C8D0 - 54b688a9ba91221"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadReferenceNode() -&gt; __C.SCNNode"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "264"
+                  endingLineNumber = "264"
+                  offsetFromSymbolStart = "2900">
+               </Location>
+               <Location
+                  uuid = "D6859AB2-996B-41B8-A1EB-0FEF1735C8D0 - 54b688a9ba91221"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadReferenceNode() -&gt; __C.SCNNode"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "264"
+                  endingLineNumber = "264"
+                  offsetFromSymbolStart = "2456">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4128961C-18F0-429E-953A-E25729D92322"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
+            landmarkName = "loadReferenceNode()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "4128961C-18F0-429E-953A-E25729D92322 - 54b688a9ba913fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadReferenceNode() -&gt; __C.SCNNode"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "270"
+                  endingLineNumber = "270"
+                  offsetFromSymbolStart = "3020">
+               </Location>
+               <Location
+                  uuid = "4128961C-18F0-429E-953A-E25729D92322 - 54b688a9ba9125e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadReferenceNode() -&gt; __C.SCNNode"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "267"
+                  endingLineNumber = "267"
+                  offsetFromSymbolStart = "2520">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "69F7FDA9-D3D8-4370-A4B0-8DD76B081460"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
+            landmarkName = "loadReferenceNode()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "69F7FDA9-D3D8-4370-A4B0-8DD76B081460 - 54b688a9ba913fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadReferenceNode() -&gt; __C.SCNNode"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "270"
+                  endingLineNumber = "270"
+                  offsetFromSymbolStart = "3020">
+               </Location>
+               <Location
+                  uuid = "69F7FDA9-D3D8-4370-A4B0-8DD76B081460 - 54b688a9ba9139c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadReferenceNode() -&gt; __C.SCNNode"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "269"
+                  endingLineNumber = "269"
+                  offsetFromSymbolStart = "2908">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "386AC555-5E95-4F38-8918-217E9ED33845"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "loadReferenceNode()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "386AC555-5E95-4F38-8918-217E9ED33845 - 54b688a9ba91339"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadReferenceNode() -&gt; __C.SCNNode"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "272"
+                  endingLineNumber = "272"
+                  offsetFromSymbolStart = "3048">
+               </Location>
+               <Location
+                  uuid = "386AC555-5E95-4F38-8918-217E9ED33845 - 54b688a9ba91377"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadReferenceNode() -&gt; __C.SCNNode"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "274"
+                  endingLineNumber = "274"
+                  offsetFromSymbolStart = "3020">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "24E9ED3B-0247-4921-A23C-218DE781A777"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "loadSceneKitScene(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "987EAC1D-54F5-43B1-833A-35590775FEE0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "loadSceneKitScene(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1BFE3A5F-1827-4E0A-8957-508CCCBC617A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "1BFE3A5F-1827-4E0A-8957-508CCCBC617A - 31cf37be131b5072"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "2384">
+               </Location>
+               <Location
+                  uuid = "1BFE3A5F-1827-4E0A-8957-508CCCBC617A - 31cf37be131b5072"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "2272">
+               </Location>
+               <Location
+                  uuid = "1BFE3A5F-1827-4E0A-8957-508CCCBC617A - 31cf37be131b5072"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "2216">
+               </Location>
+               <Location
+                  uuid = "1BFE3A5F-1827-4E0A-8957-508CCCBC617A - 31cf37be131b5072"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "2104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E90E624C-0BD4-4C68-9F12-2127C45BA7DA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "loadSceneKitScene(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6E83733A-EB2B-40E0-AF14-DEE7D01561F7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "loadSceneKitScene(named:subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "6E83733A-EB2B-40E0-AF14-DEE7D01561F7 - 568fc321f24ade23"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadSceneKitScene(named: Swift.String, subdirectory: Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;__C.SCNNode&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "748">
+               </Location>
+               <Location
+                  uuid = "6E83733A-EB2B-40E0-AF14-DEE7D01561F7 - 568fc321f24ade23"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadSceneKitScene(named: Swift.String, subdirectory: Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;__C.SCNNode&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "804">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE8C8322-281A-4E23-A4A9-64E87C6C6ECA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "loadSceneKitScene(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "36492954-05FD-4CF2-9814-BC36DFA4B906"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "loadSceneKitScene(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1E0A9101-F0EB-42D2-95C2-C0105FED7B79"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "findResourceURL(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BAA575CB-4AC4-4500-8B66-68B7D36F0B47"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "findResourceURL(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "215AF423-4B7C-45CB-8E1D-043E92CF987F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "findResourceURL(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B0A27E96-CD56-49AF-AEAC-7DFDF7FE91AC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "findResourceURL(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A8D7439D-F867-4BA8-A699-28DE9733E716"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "findResourceURL(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5FA4CB7C-E718-4C6D-957D-B193C7CCBD9C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "findResourceURL(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2AE0FD25-13C5-413C-9533-0011CE1141DA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "findResourceURL(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8D8052F5-F467-44B2-B749-032C6281DB22"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/MaskInfo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "getMaskCacheDirectoryURL()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5541E2D6-9B93-4482-A877-8ECAB327A7F4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "loadSceneKitScene(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "446AF062-9C32-4F77-80E8-99AB4A2BD7CC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "loadSceneKitScene(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BDF73146-4F92-4F3C-9EBE-06297A029B91"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "loadSceneKitScene(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A67A07C6-0516-4AD9-9E05-5192A7EF0FFD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "loadSceneKitScene(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "02A4DA85-CC67-4FAE-AB44-C557EF2F2C47"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "loadSceneKitScene(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "21796792-60E4-4C9E-B42B-E15AE3E63EE7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/MaskInfo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "getMaskCacheDirectoryURL()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0048472E-5426-4861-AEE0-002C5681653E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/MaskInfo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "getMaskCacheDirectoryURL()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "07F0A2FE-B579-4461-BDED-1170793047EA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/MaskInfo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "getMaskCacheDirectoryURL()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "372C1C63-57C1-4AEA-B96A-567253586856"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/MaskInfo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "getMaskCacheDirectoryURL()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9CCBEC58-2FE0-483F-A45F-3155318D94A9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/MaskInfo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "getMaskCacheDirectoryURL()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5F05AD20-D98A-4288-99D1-EC71DF1A9004"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/MaskInfo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "getMaskCacheDirectoryURL()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5F05AD20-D98A-4288-99D1-EC71DF1A9004 - 281ac60c6d599110"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static WeScoopFilterCreator.MaskInfo.getMaskCacheDirectoryURL() -&gt; Foundation.URL"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/MaskInfo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "2384">
+               </Location>
+               <Location
+                  uuid = "5F05AD20-D98A-4288-99D1-EC71DF1A9004 - 281ac60c6d599110"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static WeScoopFilterCreator.MaskInfo.getMaskCacheDirectoryURL() -&gt; Foundation.URL"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/MaskInfo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "3028">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "99446AA1-E397-4894-9ADD-F754C3CDA637"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/MaskInfo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "getMaskCacheDirectoryURL()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F8AD6F17-637D-4D9B-B0BD-147B40CE6A87"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/MaskInfo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "getMaskCacheDirectoryURL()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EA3E1708-620A-4BE0-BF77-A723E1372065"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/MaskInfo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "getMaskCacheDirectoryURL()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E66905B1-0153-4CC7-92D9-C5D3CC2307B9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "E66905B1-0153-4CC7-92D9-C5D3CC2307B9 - 31cf37be131b5011"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "2384">
+               </Location>
+               <Location
+                  uuid = "E66905B1-0153-4CC7-92D9-C5D3CC2307B9 - 31cf37be131b5011"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "2372">
+               </Location>
+               <Location
+                  uuid = "E66905B1-0153-4CC7-92D9-C5D3CC2307B9 - 31cf37be131b5011"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "2480">
+               </Location>
+               <Location
+                  uuid = "E66905B1-0153-4CC7-92D9-C5D3CC2307B9 - 31cf37be131b5011"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "2484">
+               </Location>
+               <Location
+                  uuid = "E66905B1-0153-4CC7-92D9-C5D3CC2307B9 - 31cf37be131b5011"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "2596">
+               </Location>
+               <Location
+                  uuid = "E66905B1-0153-4CC7-92D9-C5D3CC2307B9 - 31cf37be131b5011"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "2652">
+               </Location>
+               <Location
+                  uuid = "E66905B1-0153-4CC7-92D9-C5D3CC2307B9 - 31cf37be131b5011"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "2624">
+               </Location>
+               <Location
+                  uuid = "E66905B1-0153-4CC7-92D9-C5D3CC2307B9 - 31cf37be131b5011"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "2664">
+               </Location>
+               <Location
+                  uuid = "E66905B1-0153-4CC7-92D9-C5D3CC2307B9 - 31cf37be131b5011"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "2552">
+               </Location>
+               <Location
+                  uuid = "E66905B1-0153-4CC7-92D9-C5D3CC2307B9 - 31cf37be131b5011"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "2496">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A87B1F1F-4EE6-4837-BCBF-253EAD95F44D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "887D0458-6781-4083-AE4A-0CE0E2E539F3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "887D0458-6781-4083-AE4A-0CE0E2E539F3 - 31cf37be131b5edf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "3524">
+               </Location>
+               <Location
+                  uuid = "887D0458-6781-4083-AE4A-0CE0E2E539F3 - 31cf37be131b5138"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "3156">
+               </Location>
+               <Location
+                  uuid = "887D0458-6781-4083-AE4A-0CE0E2E539F3 - 31cf37be131b5138"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "3128">
+               </Location>
+               <Location
+                  uuid = "887D0458-6781-4083-AE4A-0CE0E2E539F3 - 31cf37be131b5138"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "3168">
+               </Location>
+               <Location
+                  uuid = "887D0458-6781-4083-AE4A-0CE0E2E539F3 - 31cf37be131b5138"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "3056">
+               </Location>
+               <Location
+                  uuid = "887D0458-6781-4083-AE4A-0CE0E2E539F3 - 31cf37be131b5138"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "2692">
+               </Location>
+               <Location
+                  uuid = "887D0458-6781-4083-AE4A-0CE0E2E539F3 - 31cf37be131b5138"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "2580">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "337E2B7E-2ECD-4FCC-9667-A0BBD121C3CB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "337E2B7E-2ECD-4FCC-9667-A0BBD121C3CB - 31cf37be131b5edf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "3524">
+               </Location>
+               <Location
+                  uuid = "337E2B7E-2ECD-4FCC-9667-A0BBD121C3CB - 31cf37be131b5edf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "3436">
+               </Location>
+               <Location
+                  uuid = "337E2B7E-2ECD-4FCC-9667-A0BBD121C3CB - 31cf37be131b5edf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "3408">
+               </Location>
+               <Location
+                  uuid = "337E2B7E-2ECD-4FCC-9667-A0BBD121C3CB - 31cf37be131b5edf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "3448">
+               </Location>
+               <Location
+                  uuid = "337E2B7E-2ECD-4FCC-9667-A0BBD121C3CB - 31cf37be131b5edf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "3336">
+               </Location>
+               <Location
+                  uuid = "337E2B7E-2ECD-4FCC-9667-A0BBD121C3CB - 31cf37be131b5edf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "2972">
+               </Location>
+               <Location
+                  uuid = "337E2B7E-2ECD-4FCC-9667-A0BBD121C3CB - 31cf37be131b5edf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "2860">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "587E10F3-1003-470B-AF5D-365D00B5AC85"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BC07C9B1-C7A1-4981-BEF7-F156EF4A0DE5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C3FC4F14-6A89-466E-9296-708787069A6D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "C3FC4F14-6A89-466E-9296-708787069A6D - fa3d7407c10f4bfd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.URL, Swift.Error) -&gt; Swift.Bool in WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "C3FC4F14-6A89-466E-9296-708787069A6D - 31cf37be131b5c4c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "233"
+                  endingLineNumber = "233"
+                  offsetFromSymbolStart = "4924">
+               </Location>
+               <Location
+                  uuid = "C3FC4F14-6A89-466E-9296-708787069A6D - 31cf37be131b5c4c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "233"
+                  endingLineNumber = "233"
+                  offsetFromSymbolStart = "4896">
+               </Location>
+               <Location
+                  uuid = "C3FC4F14-6A89-466E-9296-708787069A6D - 31cf37be131b5c4c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "233"
+                  endingLineNumber = "233"
+                  offsetFromSymbolStart = "4936">
+               </Location>
+               <Location
+                  uuid = "C3FC4F14-6A89-466E-9296-708787069A6D - 31cf37be131b5c4c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "233"
+                  endingLineNumber = "233"
+                  offsetFromSymbolStart = "4168">
+               </Location>
+               <Location
+                  uuid = "C3FC4F14-6A89-466E-9296-708787069A6D - 31cf37be131b5c4c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "233"
+                  endingLineNumber = "233"
+                  offsetFromSymbolStart = "3788">
+               </Location>
+               <Location
+                  uuid = "C3FC4F14-6A89-466E-9296-708787069A6D - 31cf37be131b5c4c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "233"
+                  endingLineNumber = "233"
+                  offsetFromSymbolStart = "3248">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C5E90035-4752-40DE-92A7-48458C4AC25B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "16E08CE9-6926-48C1-9B77-A08912344EDD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "16E08CE9-6926-48C1-9B77-A08912344EDD - 31cf37be131b5d54"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "5104">
+               </Location>
+               <Location
+                  uuid = "16E08CE9-6926-48C1-9B77-A08912344EDD - 31cf37be131b5d54"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "4972">
+               </Location>
+               <Location
+                  uuid = "16E08CE9-6926-48C1-9B77-A08912344EDD - 31cf37be131b5d54"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "4944">
+               </Location>
+               <Location
+                  uuid = "16E08CE9-6926-48C1-9B77-A08912344EDD - 31cf37be131b5d54"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "4984">
+               </Location>
+               <Location
+                  uuid = "16E08CE9-6926-48C1-9B77-A08912344EDD - 31cf37be131b5d54"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "4216">
+               </Location>
+               <Location
+                  uuid = "16E08CE9-6926-48C1-9B77-A08912344EDD - 31cf37be131b5d54"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "3836">
+               </Location>
+               <Location
+                  uuid = "16E08CE9-6926-48C1-9B77-A08912344EDD - 31cf37be131b5d54"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "3296">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98386EF8-DABD-4C9C-A033-0A4D4A4FD198"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "98386EF8-DABD-4C9C-A033-0A4D4A4FD198 - 31cf37be131b5cef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "230"
+                  endingLineNumber = "230"
+                  offsetFromSymbolStart = "3824">
+               </Location>
+               <Location
+                  uuid = "98386EF8-DABD-4C9C-A033-0A4D4A4FD198 - 31cf37be131b5cef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "230"
+                  endingLineNumber = "230"
+                  offsetFromSymbolStart = "3812">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F3DD173-7E2F-4B70-AB8C-742AE2F880BF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "7F3DD173-7E2F-4B70-AB8C-742AE2F880BF - 31cf37be131b5a9e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "247"
+                  endingLineNumber = "247"
+                  offsetFromSymbolStart = "5344">
+               </Location>
+               <Location
+                  uuid = "7F3DD173-7E2F-4B70-AB8C-742AE2F880BF - 31cf37be131b5aff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "246"
+                  endingLineNumber = "246"
+                  offsetFromSymbolStart = "5568">
+               </Location>
+               <Location
+                  uuid = "7F3DD173-7E2F-4B70-AB8C-742AE2F880BF - 31cf37be131b5aff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "246"
+                  endingLineNumber = "246"
+                  offsetFromSymbolStart = "5540">
+               </Location>
+               <Location
+                  uuid = "7F3DD173-7E2F-4B70-AB8C-742AE2F880BF - 31cf37be131b5aff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "246"
+                  endingLineNumber = "246"
+                  offsetFromSymbolStart = "5580">
+               </Location>
+               <Location
+                  uuid = "7F3DD173-7E2F-4B70-AB8C-742AE2F880BF - 31cf37be131b5aff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "246"
+                  endingLineNumber = "246"
+                  offsetFromSymbolStart = "4812">
+               </Location>
+               <Location
+                  uuid = "7F3DD173-7E2F-4B70-AB8C-742AE2F880BF - 31cf37be131b5aff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "246"
+                  endingLineNumber = "246"
+                  offsetFromSymbolStart = "4432">
+               </Location>
+               <Location
+                  uuid = "7F3DD173-7E2F-4B70-AB8C-742AE2F880BF - 31cf37be131b5aff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "246"
+                  endingLineNumber = "246"
+                  offsetFromSymbolStart = "3892">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B2724E2-BDD1-4F90-8C5B-68C149A1A8E4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "4B2724E2-BDD1-4F90-8C5B-68C149A1A8E4 - 31cf37be131b5df7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "238"
+                  endingLineNumber = "238"
+                  offsetFromSymbolStart = "4652">
+               </Location>
+               <Location
+                  uuid = "4B2724E2-BDD1-4F90-8C5B-68C149A1A8E4 - fa3d7407c10f4a79"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.URL, Swift.Error) -&gt; Swift.Bool in WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "238"
+                  endingLineNumber = "238"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3BB3343C-2CC8-4B9A-B281-A8BBA36100BB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "3BB3343C-2CC8-4B9A-B281-A8BBA36100BB - 54b688a9ba9118c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadReferenceNode() -&gt; __C.SCNNode"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "253"
+                  endingLineNumber = "253"
+                  offsetFromSymbolStart = "520">
+               </Location>
+               <Location
+                  uuid = "3BB3343C-2CC8-4B9A-B281-A8BBA36100BB - 31cf37be131b5a22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "251"
+                  endingLineNumber = "251"
+                  offsetFromSymbolStart = "5740">
+               </Location>
+               <Location
+                  uuid = "3BB3343C-2CC8-4B9A-B281-A8BBA36100BB - 31cf37be131b5a22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "251"
+                  endingLineNumber = "251"
+                  offsetFromSymbolStart = "5712">
+               </Location>
+               <Location
+                  uuid = "3BB3343C-2CC8-4B9A-B281-A8BBA36100BB - 31cf37be131b5a22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "251"
+                  endingLineNumber = "251"
+                  offsetFromSymbolStart = "5752">
+               </Location>
+               <Location
+                  uuid = "3BB3343C-2CC8-4B9A-B281-A8BBA36100BB - 31cf37be131b5a22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "251"
+                  endingLineNumber = "251"
+                  offsetFromSymbolStart = "4984">
+               </Location>
+               <Location
+                  uuid = "3BB3343C-2CC8-4B9A-B281-A8BBA36100BB - 31cf37be131b5a22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "251"
+                  endingLineNumber = "251"
+                  offsetFromSymbolStart = "4604">
+               </Location>
+               <Location
+                  uuid = "3BB3343C-2CC8-4B9A-B281-A8BBA36100BB - 31cf37be131b5a22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "251"
+                  endingLineNumber = "251"
+                  offsetFromSymbolStart = "4064">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA703545-4C37-4A04-8700-AE4FFDBF5CDD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "BA703545-4C37-4A04-8700-AE4FFDBF5CDD - 31cf37be131b5d54"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "4724">
+               </Location>
+               <Location
+                  uuid = "BA703545-4C37-4A04-8700-AE4FFDBF5CDD - 31cf37be131b5dd0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "237"
+                  endingLineNumber = "237"
+                  offsetFromSymbolStart = "4440">
+               </Location>
+               <Location
+                  uuid = "BA703545-4C37-4A04-8700-AE4FFDBF5CDD - 31cf37be131b5d96"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "239"
+                  endingLineNumber = "239"
+                  offsetFromSymbolStart = "4988">
+               </Location>
+               <Location
+                  uuid = "BA703545-4C37-4A04-8700-AE4FFDBF5CDD - 31cf37be131b5d1a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "243"
+                  endingLineNumber = "243"
+                  offsetFromSymbolStart = "4628">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A2D48C2-6BB8-4832-87B1-86BFA13018F4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "7A2D48C2-6BB8-4832-87B1-86BFA13018F4 - 31cf37be131b5d54"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "4724">
+               </Location>
+               <Location
+                  uuid = "7A2D48C2-6BB8-4832-87B1-86BFA13018F4 - 31cf37be131b5df7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "238"
+                  endingLineNumber = "238"
+                  offsetFromSymbolStart = "4484">
+               </Location>
+               <Location
+                  uuid = "7A2D48C2-6BB8-4832-87B1-86BFA13018F4 - 31cf37be131b5db5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "240"
+                  endingLineNumber = "240"
+                  offsetFromSymbolStart = "5032">
+               </Location>
+               <Location
+                  uuid = "7A2D48C2-6BB8-4832-87B1-86BFA13018F4 - 31cf37be131b5d39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "4672">
+               </Location>
+               <Location
+                  uuid = "7A2D48C2-6BB8-4832-87B1-86BFA13018F4 - 31cf37be131b5d39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "4292">
+               </Location>
+               <Location
+                  uuid = "7A2D48C2-6BB8-4832-87B1-86BFA13018F4 - 31cf37be131b5d39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "3752">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "169D8E37-D684-4E23-9137-A0E6904909D2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "loadSceneKitScene(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "803F7D24-2865-4ECD-8DF9-7EFFB3CDF450"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "loadSceneKitScene(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "79DD9B60-4650-446A-95B2-C532FAB9BE37"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/MaskInfo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "getMaskCacheDirectoryURL()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F1A04BFC-9633-4F87-839B-7D1FDFB61377"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "F1A04BFC-9633-4F87-839B-7D1FDFB61377 - 31cf37be131b5072"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "2092">
+               </Location>
+               <Location
+                  uuid = "F1A04BFC-9633-4F87-839B-7D1FDFB61377 - 31cf37be131b5072"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "2200">
+               </Location>
+               <Location
+                  uuid = "F1A04BFC-9633-4F87-839B-7D1FDFB61377 - 31cf37be131b5072"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "2204">
+               </Location>
+               <Location
+                  uuid = "F1A04BFC-9633-4F87-839B-7D1FDFB61377 - 31cf37be131b5072"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "2316">
+               </Location>
+               <Location
+                  uuid = "F1A04BFC-9633-4F87-839B-7D1FDFB61377 - 31cf37be131b5072"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "2372">
+               </Location>
+               <Location
+                  uuid = "F1A04BFC-9633-4F87-839B-7D1FDFB61377 - 31cf37be131b5072"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "2344">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "393BE43D-EE01-4A99-B8C7-45F8F5212761"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "393BE43D-EE01-4A99-B8C7-45F8F5212761 - 31cf37be131b5f86"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
+                  offsetFromSymbolStart = "4152">
+               </Location>
+               <Location
+                  uuid = "393BE43D-EE01-4A99-B8C7-45F8F5212761 - 31cf37be131b5e21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "220"
+                  endingLineNumber = "220"
+                  offsetFromSymbolStart = "4300">
+               </Location>
+               <Location
+                  uuid = "393BE43D-EE01-4A99-B8C7-45F8F5212761 - 31cf37be131b5e21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "220"
+                  endingLineNumber = "220"
+                  offsetFromSymbolStart = "4272">
+               </Location>
+               <Location
+                  uuid = "393BE43D-EE01-4A99-B8C7-45F8F5212761 - 31cf37be131b5e21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "220"
+                  endingLineNumber = "220"
+                  offsetFromSymbolStart = "4312">
+               </Location>
+               <Location
+                  uuid = "393BE43D-EE01-4A99-B8C7-45F8F5212761 - 31cf37be131b5f0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "227"
+                  endingLineNumber = "227"
+                  offsetFromSymbolStart = "3784">
+               </Location>
+               <Location
+                  uuid = "393BE43D-EE01-4A99-B8C7-45F8F5212761 - 31cf37be131b5f0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "227"
+                  endingLineNumber = "227"
+                  offsetFromSymbolStart = "3420">
+               </Location>
+               <Location
+                  uuid = "393BE43D-EE01-4A99-B8C7-45F8F5212761 - 31cf37be131b5f0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "227"
+                  endingLineNumber = "227"
+                  offsetFromSymbolStart = "2884">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "820C0A12-7A18-4A17-9C2F-A81834386872"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "820C0A12-7A18-4A17-9C2F-A81834386872 - 31cf37be131b5f86"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
+                  offsetFromSymbolStart = "4152">
+               </Location>
+               <Location
+                  uuid = "820C0A12-7A18-4A17-9C2F-A81834386872 - 31cf37be131b5f86"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
+                  offsetFromSymbolStart = "4416">
+               </Location>
+               <Location
+                  uuid = "820C0A12-7A18-4A17-9C2F-A81834386872 - 31cf37be131b5f86"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
+                  offsetFromSymbolStart = "4388">
+               </Location>
+               <Location
+                  uuid = "820C0A12-7A18-4A17-9C2F-A81834386872 - 31cf37be131b5f86"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
+                  offsetFromSymbolStart = "4428">
+               </Location>
+               <Location
+                  uuid = "820C0A12-7A18-4A17-9C2F-A81834386872 - 31cf37be131b5f0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "227"
+                  endingLineNumber = "227"
+                  offsetFromSymbolStart = "3784">
+               </Location>
+               <Location
+                  uuid = "820C0A12-7A18-4A17-9C2F-A81834386872 - 31cf37be131b5f0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "227"
+                  endingLineNumber = "227"
+                  offsetFromSymbolStart = "3420">
+               </Location>
+               <Location
+                  uuid = "820C0A12-7A18-4A17-9C2F-A81834386872 - 31cf37be131b5f0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "227"
+                  endingLineNumber = "227"
+                  offsetFromSymbolStart = "2884">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98165BA3-052D-4349-A466-9623B2A488E6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "54F074DB-FCAD-4EB5-839D-AB787F9AAB71"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/MaskInfo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "synchronizeMaskContent(info:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "092760BB-85F8-4EED-A4F3-5DB12C2060C1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "findResourceURL(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "100D121F-2646-4680-985F-7F35E3EDE035"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "findResourceURL(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49FFB7B7-DCC3-455D-BD44-9E727EC0C32A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "findResourceURL(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4BD553D7-A9F7-45F5-AF20-1F6889265F0E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "4BD553D7-A9F7-45F5-AF20-1F6889265F0E - 9aef6242bf5fa1d1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 1 of WeScoopFilterCreator.loadSceneKitScene(named: Swift.String, subdirectory: Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;__C.SCNNode&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "4BD553D7-A9F7-45F5-AF20-1F6889265F0E - 568fc321f24adf84"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.loadSceneKitScene(named: Swift.String, subdirectory: Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;__C.SCNNode&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "676">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9F1E7D6-237A-417D-8A7E-804C85AED55D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "F9F1E7D6-237A-417D-8A7E-804C85AED55D - 31cf37be131b515b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "210"
+                  endingLineNumber = "210"
+                  offsetFromSymbolStart = "3072">
+               </Location>
+               <Location
+                  uuid = "F9F1E7D6-237A-417D-8A7E-804C85AED55D - 31cf37be131b515b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "210"
+                  endingLineNumber = "210"
+                  offsetFromSymbolStart = "3124">
+               </Location>
+               <Location
+                  uuid = "F9F1E7D6-237A-417D-8A7E-804C85AED55D - 31cf37be131b515b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "210"
+                  endingLineNumber = "210"
+                  offsetFromSymbolStart = "3096">
+               </Location>
+               <Location
+                  uuid = "F9F1E7D6-237A-417D-8A7E-804C85AED55D - 31cf37be131b515b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "210"
+                  endingLineNumber = "210"
+                  offsetFromSymbolStart = "3136">
+               </Location>
+               <Location
+                  uuid = "F9F1E7D6-237A-417D-8A7E-804C85AED55D - 31cf37be131b515b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "210"
+                  endingLineNumber = "210"
+                  offsetFromSymbolStart = "3024">
+               </Location>
+               <Location
+                  uuid = "F9F1E7D6-237A-417D-8A7E-804C85AED55D - 31cf37be131b5138"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "2692">
+               </Location>
+               <Location
+                  uuid = "F9F1E7D6-237A-417D-8A7E-804C85AED55D - 31cf37be131b5138"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "2580">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE353762-FDA4-4FD3-8C55-EF24084B1B89"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "DE353762-FDA4-4FD3-8C55-EF24084B1B89 - 31cf37be131b51b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "209"
+                  endingLineNumber = "209"
+                  offsetFromSymbolStart = "3016">
+               </Location>
+               <Location
+                  uuid = "DE353762-FDA4-4FD3-8C55-EF24084B1B89 - 31cf37be131b51b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "209"
+                  endingLineNumber = "209"
+                  offsetFromSymbolStart = "2988">
+               </Location>
+               <Location
+                  uuid = "DE353762-FDA4-4FD3-8C55-EF24084B1B89 - 31cf37be131b51b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "209"
+                  endingLineNumber = "209"
+                  offsetFromSymbolStart = "3028">
+               </Location>
+               <Location
+                  uuid = "DE353762-FDA4-4FD3-8C55-EF24084B1B89 - 31cf37be131b51b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "209"
+                  endingLineNumber = "209"
+                  offsetFromSymbolStart = "2916">
+               </Location>
+               <Location
+                  uuid = "DE353762-FDA4-4FD3-8C55-EF24084B1B89 - 31cf37be131b5138"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "2692">
+               </Location>
+               <Location
+                  uuid = "DE353762-FDA4-4FD3-8C55-EF24084B1B89 - 31cf37be131b5138"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "2580">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6E5ED6F5-26A0-426A-9A06-4696D82BFDB2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "356C5C42-2F3E-45A6-9709-6E22F8EE9BA1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/Overlay.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "init(named:subdirectory:device:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "930F3D4A-D77C-4EAD-A6C5-1021C7C5B837"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/Overlay.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "init(named:subdirectory:device:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7EA8F4E3-473E-497D-A195-246950D83529"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/Overlay.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "init(named:subdirectory:device:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7EA8F4E3-473E-497D-A195-246950D83529 - 8f294f52e6252477"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.Overlay.init(named: Swift.String, subdirectory: Swift.Optional&lt;Swift.String&gt;, device: __C.MTLDevice) -&gt; WeScoopFilterCreator.Overlay"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/Overlay.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "2136">
+               </Location>
+               <Location
+                  uuid = "7EA8F4E3-473E-497D-A195-246950D83529 - 8f294f52e6252477"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.Overlay.init(named: Swift.String, subdirectory: Swift.Optional&lt;Swift.String&gt;, device: __C.MTLDevice) -&gt; WeScoopFilterCreator.Overlay"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/Overlay.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "2492">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51F070A0-8DB5-40B2-8BBD-0CFB09E18626"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/Overlay.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "init(named:subdirectory:device:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "60943444-5C9C-4882-B951-5FDF1D43E642"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "loadSceneKitScene(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4FE018B0-C91B-4881-B0DB-5EC5059DFDB7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "loadSceneKitScene(named:subdirectory:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "424FA306-C923-4525-BBD8-EAA22A5CADD8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/VirtualFaceContent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "findSCNFilePath(subdirectory:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "424FA306-C923-4525-BBD8-EAA22A5CADD8 - 31cf37be131b5328"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "1428">
+               </Location>
+               <Location
+                  uuid = "424FA306-C923-4525-BBD8-EAA22A5CADD8 - 31cf37be131b5328"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "1308">
+               </Location>
+               <Location
+                  uuid = "424FA306-C923-4525-BBD8-EAA22A5CADD8 - 31cf37be131b5328"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "1252">
+               </Location>
+               <Location
+                  uuid = "424FA306-C923-4525-BBD8-EAA22A5CADD8 - 31cf37be131b5328"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeScoopFilterCreator.findSCNFilePath(subdirectory: Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "WeScoopFilterCreator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/dump_from_bureau/Documents/WeScoopFilterCreator/WeScoopFilterCreator/VirtualFaceContent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "1140">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ABBF32B5-B27D-4961-A453-3224CE3B18FA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeScoopFilterCreator/Overlay.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "init(named:subdirectory:device:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

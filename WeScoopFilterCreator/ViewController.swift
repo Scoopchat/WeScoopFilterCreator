@@ -41,19 +41,22 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
             mtkView.device = MTLCreateSystemDefaultDevice()
             mtkView.backgroundColor = UIColor.clear
             mtkView.delegate = self
+            mtkView.framebufferOnly = false
+
            // mtkView.isHidden = true
             guard mtkView.device != nil else {
                 print("Metal is not supported on this device")
                 return
             }
             self.device = mtkView.device!
+            
             // Configure the renderer to draw to the view
             //....
             
            // let faceNode = Overlay(named: "Models",subdirectory: "Models.scnassets", device: self.device)
             
           //  let faceNode = FaceMask(named: "mask",subdirectory: "Bowie2.scnassets", device: self.device)
-           let faceNode = Overlay(named: "Aviator",subdirectory: "Aviator.scnassets", device: self.device)
+           let faceNode = Overlay(named: "Aviator",subdirectory: "TEST", device: self.device)
 
             currentFaceNodeName = faceNode.name
             

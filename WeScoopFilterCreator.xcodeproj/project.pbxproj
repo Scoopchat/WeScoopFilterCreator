@@ -40,6 +40,16 @@
 		984E762D29D6F05900C6B7F2 /* geo2.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 984E762C29D6F05900C6B7F2 /* geo2.scnassets */; };
 		984E763029D6F25E00C6B7F2 /* reducedIndices.bin in Resources */ = {isa = PBXBuildFile; fileRef = 984E762E29D6F25D00C6B7F2 /* reducedIndices.bin */; };
 		984E763129D6F25E00C6B7F2 /* model_eye in Resources */ = {isa = PBXBuildFile; fileRef = 984E762F29D6F25D00C6B7F2 /* model_eye */; };
+		FAC5315629E6E3C5000BC701 /* Aviator_scnassets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC5315529E6E3C5000BC701 /* Aviator_scnassets.scnassets */; };
+		FAC5318E29E6E8CA000BC701 /* aviator_makeup.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC5318729E6E8CA000BC701 /* aviator_makeup.png */; };
+		FAC5318F29E6E8CA000BC701 /* aviator5.dae in Resources */ = {isa = PBXBuildFile; fileRef = FAC5318829E6E8CA000BC701 /* aviator5.dae */; };
+		FAC5319029E6E8CA000BC701 /* FW-G-StarsSPEC.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC5318929E6E8CA000BC701 /* FW-G-StarsSPEC.png */; };
+		FAC5319129E6E8CA000BC701 /* Aviator.scn in Resources */ = {isa = PBXBuildFile; fileRef = FAC5318A29E6E8CA000BC701 /* Aviator.scn */; };
+		FAC5319229E6E8CA000BC701 /* FW-G-StarsGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC5318B29E6E8CA000BC701 /* FW-G-StarsGreen.png */; };
+		FAC5319329E6E8CA000BC701 /* FW-G-StarsNORMAL.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC5318C29E6E8CA000BC701 /* FW-G-StarsNORMAL.png */; };
+		FAC5319429E6E8CA000BC701 /* aviator.dae in Resources */ = {isa = PBXBuildFile; fileRef = FAC5318D29E6E8CA000BC701 /* aviator.dae */; };
+		FAC5319729E6EA1B000BC701 /* TEST in Resources */ = {isa = PBXBuildFile; fileRef = FAC5319629E6EA1B000BC701 /* TEST */; };
+		FAC5319929E6EADB000BC701 /* Models_scnassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC5319829E6EADB000BC701 /* Models_scnassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +109,16 @@
 		984E762C29D6F05900C6B7F2 /* geo2.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = geo2.scnassets; sourceTree = "<group>"; };
 		984E762E29D6F25D00C6B7F2 /* reducedIndices.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = reducedIndices.bin; sourceTree = "<group>"; };
 		984E762F29D6F25D00C6B7F2 /* model_eye */ = {isa = PBXFileReference; lastKnownFileType = folder; path = model_eye; sourceTree = "<group>"; };
+		FAC5315529E6E3C5000BC701 /* Aviator_scnassets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Aviator_scnassets.scnassets; sourceTree = "<group>"; };
+		FAC5318729E6E8CA000BC701 /* aviator_makeup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aviator_makeup.png; sourceTree = "<group>"; };
+		FAC5318829E6E8CA000BC701 /* aviator5.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = aviator5.dae; sourceTree = "<group>"; };
+		FAC5318929E6E8CA000BC701 /* FW-G-StarsSPEC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FW-G-StarsSPEC.png"; sourceTree = "<group>"; };
+		FAC5318A29E6E8CA000BC701 /* Aviator.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Aviator.scn; sourceTree = "<group>"; };
+		FAC5318B29E6E8CA000BC701 /* FW-G-StarsGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FW-G-StarsGreen.png"; sourceTree = "<group>"; };
+		FAC5318C29E6E8CA000BC701 /* FW-G-StarsNORMAL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FW-G-StarsNORMAL.png"; sourceTree = "<group>"; };
+		FAC5318D29E6E8CA000BC701 /* aviator.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = aviator.dae; sourceTree = "<group>"; };
+		FAC5319629E6EA1B000BC701 /* TEST */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TEST; sourceTree = "<group>"; };
+		FAC5319829E6EADB000BC701 /* Models_scnassets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models_scnassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +169,13 @@
 		984E75AF29D4299400C6B7F2 /* WeScoopFilterCreator */ = {
 			isa = PBXGroup;
 			children = (
+				FAC5319829E6EADB000BC701 /* Models_scnassets */,
+				FAC5319629E6EA1B000BC701 /* TEST */,
+				FAC5319529E6E979000BC701 /* Aviator2 */,
+				FAC5318629E6E8CA000BC701 /* Aviator */,
+				FAC5315529E6E3C5000BC701 /* Aviator_scnassets.scnassets */,
+				984E760729D5920600C6B7F2 /* Aviator.scnassets */,
+				984E760129D58F2900C6B7F2 /* Models.scnassets */,
 				984E761929D6EB5500C6B7F2 /* Resources */,
 				984E761429D6DB4800C6B7F2 /* RenderDestinationProvider.swift */,
 				984E75B529D4299400C6B7F2 /* Renderer.swift */,
@@ -212,8 +239,6 @@
 			children = (
 				984E762C29D6F05900C6B7F2 /* geo2.scnassets */,
 				984E762829D6EFA900C6B7F2 /* Bowie2.scnassets */,
-				984E760729D5920600C6B7F2 /* Aviator.scnassets */,
-				984E760129D58F2900C6B7F2 /* Models.scnassets */,
 				984E760529D58F8600C6B7F2 /* SceneKit Asset Catalog.scnassets */,
 			);
 			path = WeScoopEffects;
@@ -233,6 +258,27 @@
 				984E761E29D6EB6700C6B7F2 /* makeupFragment.scnmodifier */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		FAC5318629E6E8CA000BC701 /* Aviator */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5318729E6E8CA000BC701 /* aviator_makeup.png */,
+				FAC5318829E6E8CA000BC701 /* aviator5.dae */,
+				FAC5318929E6E8CA000BC701 /* FW-G-StarsSPEC.png */,
+				FAC5318A29E6E8CA000BC701 /* Aviator.scn */,
+				FAC5318B29E6E8CA000BC701 /* FW-G-StarsGreen.png */,
+				FAC5318C29E6E8CA000BC701 /* FW-G-StarsNORMAL.png */,
+				FAC5318D29E6E8CA000BC701 /* aviator.dae */,
+			);
+			path = Aviator;
+			sourceTree = "<group>";
+		};
+		FAC5319529E6E979000BC701 /* Aviator2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Aviator2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,22 +386,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				984E762329D6EB6700C6B7F2 /* daz3duv.plist in Resources */,
+				FAC5318E29E6E8CA000BC701 /* aviator_makeup.png in Resources */,
 				984E760829D5920600C6B7F2 /* Aviator.scnassets in Resources */,
 				984E75C029D4299500C6B7F2 /* LaunchScreen.storyboard in Resources */,
+				FAC5319229E6E8CA000BC701 /* FW-G-StarsGreen.png in Resources */,
 				984E762929D6EFA900C6B7F2 /* Bowie2.scnassets in Resources */,
 				984E763129D6F25E00C6B7F2 /* model_eye in Resources */,
 				984E763029D6F25E00C6B7F2 /* reducedIndices.bin in Resources */,
+				FAC5315629E6E3C5000BC701 /* Aviator_scnassets.scnassets in Resources */,
 				984E762529D6EB6700C6B7F2 /* makeupFragment.scnmodifier in Resources */,
+				FAC5319429E6E8CA000BC701 /* aviator.dae in Resources */,
 				984E760229D58F2900C6B7F2 /* Models.scnassets in Resources */,
+				FAC5319329E6E8CA000BC701 /* FW-G-StarsNORMAL.png in Resources */,
 				984E762729D6EB6700C6B7F2 /* daz3duv2.plist in Resources */,
+				FAC5319729E6EA1B000BC701 /* TEST in Resources */,
 				984E762129D6EB6700C6B7F2 /* displacementFragment.scnmodifier in Resources */,
 				984E762229D6EB6700C6B7F2 /* defaultCoords.plist in Resources */,
 				984E75BD29D4299500C6B7F2 /* Assets.xcassets in Resources */,
 				984E762629D6EB6700C6B7F2 /* displacementGeometry.scnmodifier in Resources */,
+				FAC5319129E6E8CA000BC701 /* Aviator.scn in Resources */,
+				FAC5319929E6EADB000BC701 /* Models_scnassets in Resources */,
+				FAC5318F29E6E8CA000BC701 /* aviator5.dae in Resources */,
 				984E760629D58F8600C6B7F2 /* SceneKit Asset Catalog.scnassets in Resources */,
 				984E75BB29D4299400C6B7F2 /* Main.storyboard in Resources */,
 				984E762D29D6F05900C6B7F2 /* geo2.scnassets in Resources */,
 				984E762429D6EB6700C6B7F2 /* alternateCoords.plist in Resources */,
+				FAC5319029E6E8CA000BC701 /* FW-G-StarsSPEC.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

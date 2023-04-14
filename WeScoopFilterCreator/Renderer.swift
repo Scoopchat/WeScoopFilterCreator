@@ -454,7 +454,7 @@ class Renderer: NSObject, ARSessionDelegate  {
             
             
               if (renderTargetTexture0 != nil){
-                  renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: capturedImageTextureY!, noiseTextureSource: capturedImageTextureY!)
+                 // renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: capturedImageTextureY!, noiseTextureSource: capturedImageTextureY!)
               }
             //  if (renderTargetTexture1 != nil){
             //     // renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: capturedImageTextureCbCr2!, noiseTextureSource: renderTargetTexture1!)
@@ -480,7 +480,9 @@ class Renderer: NSObject, ARSessionDelegate  {
                 
                 if lastCamera != nil && faceGeometry != nil && faceContentNode != nil && isTracking  && !isSwappingMasks{
                     renderSkinSmoothing(commandBuffer: commandBuffer, renderPassDescriptor: renderPassDescriptor)
-                    renderImageComposite( commandBuffer: commandBuffer, destinationTexture:renderPassDescriptor.colorAttachments[0].texture!, compositeTexture: skinSmoothingTextureBuffers[0]   )
+                  //  renderImageComposite( commandBuffer: commandBuffer, destinationTexture:renderPassDescriptor.colorAttachments[0].texture!, compositeTexture: skinSmoothingTextureBuffers[0]   )
+                 //  renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: renderPassDescriptor.colorAttachments[0].texture!, noiseTextureSource: skinSmoothingTextureBuffers[0] )
+
                     
                 }
                 else {
@@ -490,21 +492,30 @@ class Renderer: NSObject, ARSessionDelegate  {
                 
                 
                 if isTracking && !isSwappingMasks {
-                    renderImageComposite( commandBuffer: commandBuffer,destinationTexture: capturedImageRenderTextureBuffer, compositeTexture: skinSmoothingTextureBuffers[0]   )
-                    faceContentNode?.updateCameraTexture(withCameraTexture: capturedImageRenderTextureBuffer )
+                   // renderImageComposite( commandBuffer: commandBuffer,destinationTexture: capturedImageRenderTextureBuffer, compositeTexture: skinSmoothingTextureBuffers[0]   )
+                   // faceContentNode?.updateCameraTexture(withCameraTexture: capturedImageRenderTextureBuffer )
                 }
                 
+               // renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: renderPassDescriptor.colorAttachments[0].texture!, noiseTextureSource: capturedImageRenderTextureBuffer!)
+
+                
+
                 
                 if !isSwappingMasks {
                     let renderScenePassDescriptor = MTLRenderPassDescriptor()
                     
-                    renderScenePassDescriptor.colorAttachments[0].texture =  renderPassDescriptor.colorAttachments[0].texture
+                    renderScenePassDescriptor.colorAttachments[0].texture =
+                    renderPassDescriptor.colorAttachments[0].texture
                     renderScenePassDescriptor.colorAttachments[0].resolveTexture =  renderPassDescriptor.colorAttachments[0].resolveTexture;
                     renderScenePassDescriptor.colorAttachments[0].loadAction = MTLLoadAction.load;
                     renderScenePassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.0, 0.0, 0.0, 0.0);
                     renderScenePassDescriptor.colorAttachments[0].storeAction =  renderPassDescriptor.colorAttachments[0].storeAction;
                     renderScenePassDescriptor.depthAttachment = renderPassDescriptor.depthAttachment;
                     renderScenePassDescriptor.stencilAttachment = renderPassDescriptor.stencilAttachment;
+                    
+                    
+                    
+                    
                     
                     
                     sceneRenderer.render(atTime: CACurrentMediaTime(), viewport: viewport, commandBuffer: commandBuffer, passDescriptor: renderScenePassDescriptor)
@@ -516,6 +527,7 @@ class Renderer: NSObject, ARSessionDelegate  {
                         renderColorProcessing( commandBuffer: commandBuffer, lutTexture: faceContentNode?.lutTextures[LUTType.world]!)
                     }
                     
+                  //  renderColorProcessing( commandBuffer: commandBuffer, lutTexture: renderPassDescriptor.colorAttachments[0].texture!)
                 }
                 
                 
@@ -526,9 +538,6 @@ class Renderer: NSObject, ARSessionDelegate  {
                 //
                 //               }
                 
-                if faceContentNode?.lutTextures[LUTType.world] != nil || ( self.colorProcessingParameters.contrastIntensity != 0.0 && self.colorProcessingParameters.saturationIntensity != 1.0 ) {
-                    renderColorProcessing( commandBuffer: commandBuffer, lutTexture: faceContentNode?.lutTextures[LUTType.world]!)
-                }
                 
                 
                 // if faceContentNode?.lutTextures[LUTType.world] != nil || ( self.colorProcessingParameters.contrastIntensity != 0.0 && //self.colorProcessingParameters.saturationIntensity != 1.0 ) {
@@ -600,6 +609,8 @@ class Renderer: NSObject, ARSessionDelegate  {
                 //....................................
                 
                 if let currentDrawable = renderDestination.currentDrawable {
+                   
+                    renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: currentDrawable.texture, noiseTextureSource: currentDrawable.texture)
                     commandBuffer.present(currentDrawable)
                 }
             }

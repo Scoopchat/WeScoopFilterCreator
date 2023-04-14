@@ -230,7 +230,7 @@ kernel void lutKernel2( texture2d<float, access::read_write> outputImage  [[text
     float  blue = 0;
 
    // int param = 6;
-    int param_2 = 2;
+    int param_2 = 3;
     float summ= 0 ;//(param+1)*(param+1);
     int w = outputImage.get_width();
     int h = outputImage.get_height();

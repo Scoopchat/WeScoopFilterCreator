@@ -190,8 +190,8 @@ func loadSceneKitScene(named: String, subdirectory: String? = "Models.scnassets"
 
 private func findSCNFilePath( subdirectory : String ) -> URL? {
     
-    let keys = [URLResourceKey.isDirectoryKey, URLResourceKey.localizedNameKey]
-    let options: FileManager.DirectoryEnumerationOptions = [.skipsPackageDescendants, .skipsSubdirectoryDescendants, .skipsHiddenFiles]
+    let keys = [URLResourceKey.isDirectoryKey, URLResourceKey.localizedNameKey]//URLResourceKey.isDirectoryKey,
+    let options: FileManager.DirectoryEnumerationOptions = [.skipsPackageDescendants, .skipsSubdirectoryDescendants,.skipsHiddenFiles, /*.skipsHiddenFiles, */]
     let fileManager = FileManager.default
     
     var url : URL? = MaskInfo.getMaskCacheDirectoryURL().appendingPathComponent( subdirectory   )
@@ -205,10 +205,25 @@ private func findSCNFilePath( subdirectory : String ) -> URL? {
     } else {
         
         url = Bundle.main.bundleURL.appendingPathComponent( subdirectory )
-        
+     // let  url00 = Bundle.main.bundleURL.appendingPathComponent( "Aviator.scn" )
+      //  if fileManager.fileExists(atPath: url00.relativePath) {
+       //     resourceURL = url
+      //  }
+
         if fileManager.fileExists(atPath: url!.relativePath) {
             resourceURL = url
         }
+       // let url0 = Bundle.main.url(forResource: "Aviator", withExtension: "scn", subdirectory: "Aviator.scnassets")
+
+       /* let pathA = url!.appendingPathComponent( "tmp.scn", isDirectory:false )
+        print(pathA.relativePath)
+        if fileManager.fileExists(atPath: pathA.relativePath) {
+           // let pathURL = file as! URL
+           // let path = url!.relativePath.appending("Avatar.scn")
+            return pathA
+        }
+       */
+
     }
     
     if resourceURL == nil {
@@ -241,7 +256,9 @@ private func findSCNFilePath( subdirectory : String ) -> URL? {
 func loadReferenceNode() -> SCNNode {
     if referenceNode == nil {
         
-        let url = Bundle.main.url(forResource: "reference", withExtension: "scn", subdirectory: "Models.scnassets")
+        let url0 = Bundle.main.url(forResource: "Aviator", withExtension: "scn", subdirectory: "Aviator.scnassets")
+
+        let url = Bundle.main.url(forResource: "reference", withExtension: "scn", subdirectory: "Models_scnassets")
         if (url == nil){
             print("not valid url \(url)")
             return SCNNode();

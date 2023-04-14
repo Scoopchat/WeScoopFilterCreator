@@ -67,7 +67,7 @@ class Overlay: SCNNode,VirtualFaceContent {
         return MTKTextureLoader(device:self.device)
     }()
  
-    init(named : String, subdirectory: String? = "Models.scnassets", device : MTLDevice) {
+    init(named : String, subdirectory: String? = "Models_scnassets", device : MTLDevice) {
         
         self.device = device
         
@@ -130,9 +130,9 @@ class Overlay: SCNNode,VirtualFaceContent {
         
         let referenceNode = loadReferenceNode()
         
-        let occluderReference = referenceNode.childNode(withName: "occluder", recursively: true)!
+        let occluderReference = referenceNode.childNode(withName: "occluder", recursively: true)
         
-        let occluder = occluderReference.clone()
+        let occluder = occluderReference!.clone()
  
         addChildNode(occluder)
         
