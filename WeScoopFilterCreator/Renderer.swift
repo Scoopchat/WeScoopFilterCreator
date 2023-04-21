@@ -426,10 +426,10 @@ class Renderer: NSObject, ARSessionDelegate  {
             
             
             
-            if let outputTexture = createTexture(fromPixelBuffer: outputPixelBuffer!, pixelFormat: .bgra8Unorm, planeIndex: 0)
-            {
-                renderTargetTexture0 =    CVMetalTextureGetTexture(outputTexture)
-            }
+           // if let outputTexture = createTexture(fromPixelBuffer: outputPixelBuffer!, pixelFormat: .bgra8Unorm, planeIndex: 0)
+           // {
+           //     renderTargetTexture0 =    CVMetalTextureGetTexture(outputTexture)
+           // }
             // if let outputTexture = createTexture(fromPixelBuffer: outputPixelBuffer!, pixelFormat: .bgra8Unorm, planeIndex: 1)
             // {
             //     renderTargetTexture1 =    CVMetalTextureGetTexture(outputTexture)
@@ -453,9 +453,9 @@ class Renderer: NSObject, ARSessionDelegate  {
             
             
             
-              if (renderTargetTexture0 != nil){
+             // if (renderTargetTexture0 != nil){
                  // renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: capturedImageTextureY!, noiseTextureSource: capturedImageTextureY!)
-              }
+            //  }
             //  if (renderTargetTexture1 != nil){
             //     // renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: capturedImageTextureCbCr2!, noiseTextureSource: renderTargetTexture1!)
             //  }
@@ -480,7 +480,7 @@ class Renderer: NSObject, ARSessionDelegate  {
                 
                 if lastCamera != nil && faceGeometry != nil && faceContentNode != nil && isTracking  && !isSwappingMasks{
                     renderSkinSmoothing(commandBuffer: commandBuffer, renderPassDescriptor: renderPassDescriptor)
-                  //  renderImageComposite( commandBuffer: commandBuffer, destinationTexture:renderPassDescriptor.colorAttachments[0].texture!, compositeTexture: skinSmoothingTextureBuffers[0]   )
+                  // renderImageComposite( commandBuffer: commandBuffer, destinationTexture:renderPassDescriptor.colorAttachments[0].texture!, compositeTexture: skinSmoothingTextureBuffers[0]   )
                  //  renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: renderPassDescriptor.colorAttachments[0].texture!, noiseTextureSource: skinSmoothingTextureBuffers[0] )
 
                     
@@ -492,8 +492,8 @@ class Renderer: NSObject, ARSessionDelegate  {
                 
                 
                 if isTracking && !isSwappingMasks {
-                   // renderImageComposite( commandBuffer: commandBuffer,destinationTexture: capturedImageRenderTextureBuffer, compositeTexture: skinSmoothingTextureBuffers[0]   )
-                   // faceContentNode?.updateCameraTexture(withCameraTexture: capturedImageRenderTextureBuffer )
+                    renderImageComposite( commandBuffer: commandBuffer,destinationTexture: capturedImageRenderTextureBuffer, compositeTexture: skinSmoothingTextureBuffers[0]   )
+                    faceContentNode?.updateCameraTexture(withCameraTexture: capturedImageRenderTextureBuffer )
                 }
                 
                // renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: renderPassDescriptor.colorAttachments[0].texture!, noiseTextureSource: capturedImageRenderTextureBuffer!)
@@ -566,7 +566,7 @@ class Renderer: NSObject, ARSessionDelegate  {
                  //}
                  }*/
                 //...................................
-                if pixelBufferConsumer != nil {
+                /*if pixelBufferConsumer != nil {
                     
                     renderCVPixelBuffer(commandBuffer: commandBuffer, destinationTexture: renderTargetTexture0!, sourceTexture: renderPassDescriptor.colorAttachments[0].texture!)
                     
@@ -601,7 +601,7 @@ class Renderer: NSObject, ARSessionDelegate  {
                         }
                         
                     }
-                }
+                }*/
                 
                 
                 
@@ -610,7 +610,7 @@ class Renderer: NSObject, ARSessionDelegate  {
                 
                 if let currentDrawable = renderDestination.currentDrawable {
                    
-                    renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: currentDrawable.texture, noiseTextureSource: currentDrawable.texture)
+                    //renderCVPixelBuffer22(commandBuffer: commandBuffer, destinationTexture: currentDrawable.texture, noiseTextureSource: currentDrawable.texture)
                     commandBuffer.present(currentDrawable)
                 }
             }

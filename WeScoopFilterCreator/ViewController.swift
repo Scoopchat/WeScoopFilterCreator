@@ -42,7 +42,7 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
             mtkView.backgroundColor = UIColor.clear
             mtkView.delegate = self
             mtkView.framebufferOnly = false
-
+            mtkView.preferredFramesPerSecond = 30
            // mtkView.isHidden = true
             guard mtkView.device != nil else {
                 print("Metal is not supported on this device")
@@ -67,7 +67,7 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
             //....
             //renderer = Renderer(session: session, metalDevice: view.device!, renderDestination: view)
             renderer = Renderer(session: session, metalDevice: mtkView.device!, renderDestination: mtkView, sceneKitScene: scene)
-
+print(view.bounds.size)
             renderer.drawRectResized(size: view.bounds.size)
             renderer.faceContentNode = faceNode
 
