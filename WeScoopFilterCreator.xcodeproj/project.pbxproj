@@ -40,6 +40,11 @@
 		984E762D29D6F05900C6B7F2 /* geo2.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 984E762C29D6F05900C6B7F2 /* geo2.scnassets */; };
 		984E763029D6F25E00C6B7F2 /* reducedIndices.bin in Resources */ = {isa = PBXBuildFile; fileRef = 984E762E29D6F25D00C6B7F2 /* reducedIndices.bin */; };
 		984E763129D6F25E00C6B7F2 /* model_eye in Resources */ = {isa = PBXBuildFile; fileRef = 984E762F29D6F25D00C6B7F2 /* model_eye */; };
+		FA4CEE2229F2AE4F00179D1E /* 3DMasks in Resources */ = {isa = PBXBuildFile; fileRef = FA4CEE1D29F2AE4E00179D1E /* 3DMasks */; };
+		FA4CEE2329F2AE4F00179D1E /* lookup_amatorka.png in Resources */ = {isa = PBXBuildFile; fileRef = FA4CEE1E29F2AE4E00179D1E /* lookup_amatorka.png */; };
+		FA4CEE2429F2AE4F00179D1E /* lookup_soft_elegance_2.png in Resources */ = {isa = PBXBuildFile; fileRef = FA4CEE1F29F2AE4E00179D1E /* lookup_soft_elegance_2.png */; };
+		FA4CEE2529F2AE4F00179D1E /* lookup.png in Resources */ = {isa = PBXBuildFile; fileRef = FA4CEE2029F2AE4F00179D1E /* lookup.png */; };
+		FA4CEE2629F2AE4F00179D1E /* lookup_soft_elegance_1.png in Resources */ = {isa = PBXBuildFile; fileRef = FA4CEE2129F2AE4F00179D1E /* lookup_soft_elegance_1.png */; };
 		FAC5315629E6E3C5000BC701 /* Aviator_scnassets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC5315529E6E3C5000BC701 /* Aviator_scnassets.scnassets */; };
 		FAC5318E29E6E8CA000BC701 /* aviator_makeup.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC5318729E6E8CA000BC701 /* aviator_makeup.png */; };
 		FAC5318F29E6E8CA000BC701 /* aviator5.dae in Resources */ = {isa = PBXBuildFile; fileRef = FAC5318829E6E8CA000BC701 /* aviator5.dae */; };
@@ -109,6 +114,11 @@
 		984E762C29D6F05900C6B7F2 /* geo2.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = geo2.scnassets; sourceTree = "<group>"; };
 		984E762E29D6F25D00C6B7F2 /* reducedIndices.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = reducedIndices.bin; sourceTree = "<group>"; };
 		984E762F29D6F25D00C6B7F2 /* model_eye */ = {isa = PBXFileReference; lastKnownFileType = folder; path = model_eye; sourceTree = "<group>"; };
+		FA4CEE1D29F2AE4E00179D1E /* 3DMasks */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 3DMasks; sourceTree = "<group>"; };
+		FA4CEE1E29F2AE4E00179D1E /* lookup_amatorka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_amatorka.png; sourceTree = "<group>"; };
+		FA4CEE1F29F2AE4E00179D1E /* lookup_soft_elegance_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_soft_elegance_2.png; sourceTree = "<group>"; };
+		FA4CEE2029F2AE4F00179D1E /* lookup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup.png; sourceTree = "<group>"; };
+		FA4CEE2129F2AE4F00179D1E /* lookup_soft_elegance_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_soft_elegance_1.png; sourceTree = "<group>"; };
 		FAC5315529E6E3C5000BC701 /* Aviator_scnassets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Aviator_scnassets.scnassets; sourceTree = "<group>"; };
 		FAC5318729E6E8CA000BC701 /* aviator_makeup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aviator_makeup.png; sourceTree = "<group>"; };
 		FAC5318829E6E8CA000BC701 /* aviator5.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = aviator5.dae; sourceTree = "<group>"; };
@@ -169,6 +179,11 @@
 		984E75AF29D4299400C6B7F2 /* WeScoopFilterCreator */ = {
 			isa = PBXGroup;
 			children = (
+				FA4CEE1D29F2AE4E00179D1E /* 3DMasks */,
+				FA4CEE1E29F2AE4E00179D1E /* lookup_amatorka.png */,
+				FA4CEE2129F2AE4F00179D1E /* lookup_soft_elegance_1.png */,
+				FA4CEE1F29F2AE4E00179D1E /* lookup_soft_elegance_2.png */,
+				FA4CEE2029F2AE4F00179D1E /* lookup.png */,
 				FAC5319829E6EADB000BC701 /* Models_scnassets */,
 				FAC5319629E6EA1B000BC701 /* TEST */,
 				FAC5319529E6E979000BC701 /* Aviator2 */,
@@ -387,8 +402,10 @@
 			files = (
 				984E762329D6EB6700C6B7F2 /* daz3duv.plist in Resources */,
 				FAC5318E29E6E8CA000BC701 /* aviator_makeup.png in Resources */,
+				FA4CEE2429F2AE4F00179D1E /* lookup_soft_elegance_2.png in Resources */,
 				984E760829D5920600C6B7F2 /* Aviator.scnassets in Resources */,
 				984E75C029D4299500C6B7F2 /* LaunchScreen.storyboard in Resources */,
+				FA4CEE2629F2AE4F00179D1E /* lookup_soft_elegance_1.png in Resources */,
 				FAC5319229E6E8CA000BC701 /* FW-G-StarsGreen.png in Resources */,
 				984E762929D6EFA900C6B7F2 /* Bowie2.scnassets in Resources */,
 				984E763129D6F25E00C6B7F2 /* model_eye in Resources */,
@@ -402,14 +419,17 @@
 				FAC5319729E6EA1B000BC701 /* TEST in Resources */,
 				984E762129D6EB6700C6B7F2 /* displacementFragment.scnmodifier in Resources */,
 				984E762229D6EB6700C6B7F2 /* defaultCoords.plist in Resources */,
+				FA4CEE2229F2AE4F00179D1E /* 3DMasks in Resources */,
 				984E75BD29D4299500C6B7F2 /* Assets.xcassets in Resources */,
 				984E762629D6EB6700C6B7F2 /* displacementGeometry.scnmodifier in Resources */,
+				FA4CEE2529F2AE4F00179D1E /* lookup.png in Resources */,
 				FAC5319129E6E8CA000BC701 /* Aviator.scn in Resources */,
 				FAC5319929E6EADB000BC701 /* Models_scnassets in Resources */,
 				FAC5318F29E6E8CA000BC701 /* aviator5.dae in Resources */,
 				984E760629D58F8600C6B7F2 /* SceneKit Asset Catalog.scnassets in Resources */,
 				984E75BB29D4299400C6B7F2 /* Main.storyboard in Resources */,
 				984E762D29D6F05900C6B7F2 /* geo2.scnassets in Resources */,
+				FA4CEE2329F2AE4F00179D1E /* lookup_amatorka.png in Resources */,
 				984E762429D6EB6700C6B7F2 /* alternateCoords.plist in Resources */,
 				FAC5319029E6E8CA000BC701 /* FW-G-StarsSPEC.png in Resources */,
 			);
