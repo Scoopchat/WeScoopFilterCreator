@@ -10,7 +10,8 @@ import Metal
 import MetalKit
 import ARKit
 
-
+var MODEL_FILE_NAME = "Aviator"
+var FOLDER_NAME = "TEST"
 class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
     
     var session: ARSession!
@@ -56,7 +57,7 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
            // let faceNode = Overlay(named: "Models",subdirectory: "Models.scnassets", device: self.device)
             
           //  let faceNode = FaceMask(named: "mask",subdirectory: "Bowie2.scnassets", device: self.device)
-           let faceNode = Overlay(named: "Aviator",subdirectory: "TEST", device: self.device)
+           let faceNode = Overlay(named: "\(MODEL_FILE_NAME)",subdirectory: "\(FOLDER_NAME)", device: self.device)
 
             currentFaceNodeName = faceNode.name
             
