@@ -455,8 +455,9 @@ func load3DTexture(  named resourceName : String, subdirectory: String? = "Model
     vImagePermuteChannels_ARGB8888(&buffer, &buffer, map, 0)
     
     let texture = device.makeTexture(descriptor: descriptor)
+    //(descriptor: descriptor)
     
-    let region = MTLRegionMake3D(0, 0, 0, Int(height), Int(height),  Int(height))
+    let region = MTLRegionMake3D(0, 0, 0, Int(height), Int(height),  Int(1))
     
     texture?.replace(region: region,
                      mipmapLevel: 0,
