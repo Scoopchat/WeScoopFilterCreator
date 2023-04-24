@@ -1480,7 +1480,7 @@ class Renderer :NSObject, ARSessionDelegate{
         
        // let lutcmg = getCGImage(from: UIImage(named: "lookup_soft_elegance_1" ) ?? UIImage())
        // textureLut = getMTLTexture(from: lutcmg!)
-        textureLut = load2DTexture(named: "main_lut.png", subdirectory: "TEST", device: device)
+        textureLut = load2DTexture(named: "main_lut.png", subdirectory: "\(FOLDER_NAME)", device: device)
         // Create the command queue
         commandQueue = device.makeCommandQueue()
     }
