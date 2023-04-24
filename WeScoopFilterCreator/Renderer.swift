@@ -574,7 +574,7 @@ class Renderer :NSObject, ARSessionDelegate{
                     
                     
                     if faceContentNode?.lutTextures[LUTType.world] != nil || ( self.colorProcessingParameters.contrastIntensity != 0.0 && self.colorProcessingParameters.saturationIntensity != 1.0 ) {
-                        renderColorProcessing( commandBuffer: commandBuffer, lutTexture: faceContentNode?.lutTextures[LUTType.world]!)
+                        //renderColorProcessing( commandBuffer: commandBuffer, lutTexture: faceContentNode?.lutTextures[LUTType.world]!)
                     }
                     
                 }
@@ -582,22 +582,24 @@ class Renderer :NSObject, ARSessionDelegate{
                 
                 //                if let lutTexture = faceContentNode?.lookUpTables()?[LUTType.world] {
                 //
-                //                    renderLUT(commandBuffer: commandBuffer, destinationTexture: renderPassDescriptor.colorAttachments[0].texture!, lutTexture: lutTexture, stencilTexture: renderPassDescriptor.depthAttachment.texture!, lutType: LUTType.world)
                 //
                 //
                 //                }
                 
                 if faceContentNode?.lutTextures[LUTType.world] != nil || ( self.colorProcessingParameters.contrastIntensity != 0.0 && self.colorProcessingParameters.saturationIntensity != 1.0 ) {
-                    renderColorProcessing( commandBuffer: commandBuffer, lutTexture: faceContentNode?.lutTextures[LUTType.world]!)
+                   // renderColorProcessing( commandBuffer: commandBuffer, lutTexture: faceContentNode?.lutTextures[LUTType.world]!)
                 }
                 
-                
+                //renderColorProcessing
                 
                 if renderTargetTexture != nil {
-                    renderCVPixelBuffer(commandBuffer: commandBuffer, destinationTexture: renderTargetTexture!, sourceTexture: renderPassDescriptor.colorAttachments[0].texture!)
+                    //renderCVPixelBuffer(commandBuffer: commandBuffer, destinationTexture: renderTargetTexture!, sourceTexture: renderPassDescriptor.colorAttachments[0].texture!)
                    // renderLastFilter(commandBuffer: commandBuffer, destinationTexture:renderPassDescriptor.colorAttachments[0].texture!)
 
                     if (self.textureLut != nil){
+                       // renderColorProcessing( commandBuffer: commandBuffer, lutTexture: textureLut,destinationTexture:  renderTargetTexture!)
+                        //renderLUT(commandBuffer: commandBuffer, destinationTexture: renderTargetTexture!, lutTexture: textureLut!)
+                            
                         //renderLastFilter(commandBuffer: commandBuffer, destinationTexture: currentDrawable.texture)
                        // renderCVPixelBufferLastFilter(commandBuffer: commandBuffer, destinationTexture: renderTargetTexture!, noiseTextureSource: textureLut!)
 
@@ -623,7 +625,14 @@ class Renderer :NSObject, ARSessionDelegate{
                         //self.delegateWriteFrame?.writeFrame(forTexture: currentDrawable.texture)
 
                   //  }
-                    
+                    if (self.textureLut != nil){
+                        //renderLastFilter(commandBuffer: commandBuffer, destinationTexture: currentDrawable.texture)
+                        // renderCVPixelBufferLastFilter(commandBuffer: commandBuffer, destinationTexture: renderTargetTexture!, noiseTextureSource: textureLut!)
+                        renderCVPixelBufferLastFilter(commandBuffer: commandBuffer, destinationTexture: currentDrawable.texture, noiseTextureSource: textureLut!)
+
+                        
+                    }
+
                     commandBuffer.present(currentDrawable)
                 }
             }
@@ -632,6 +641,36 @@ class Renderer :NSObject, ARSessionDelegate{
             commandBuffer.commit()
         }
     }
+    
+    
+    func renderLUT( commandBuffer : MTLCommandBuffer, destinationTexture : MTLTexture, lutTexture : MTLTexture ) {
+
+        if let computeEncoder = commandBuffer.makeComputeCommandEncoder() {
+        
+             computeEncoder.setComputePipelineState(lutComputePipelineState)
+            
+            var intensity : Float =  Float(0.9)
+            
+            computeEncoder.setTexture(destinationTexture, index: 0)
+            computeEncoder.setTexture(lutTexture, index: 1)
+            computeEncoder.setBytes( &intensity, length: MemoryLayout<Float>.size, index: 0)
+            
+            let threadsPerGrid = MTLSize(width: destinationTexture.width,
+                                         height: destinationTexture.height,
+                                         depth: 1)
+            
+            let w = lutComputePipelineState.threadExecutionWidth
+            
+            let threadsPerThreadgroup = MTLSizeMake(w, lutComputePipelineState.maxTotalThreadsPerThreadgroup / w, 1)
+
+            computeEncoder.dispatchThreads(threadsPerGrid,
+                                                  threadsPerThreadgroup: threadsPerThreadgroup)
+            
+            computeEncoder.endEncoding()
+        }
+        
+    }
+
     //.......................
     fileprivate func startRecording(){
         if render_state == .idle{
@@ -1125,8 +1164,9 @@ class Renderer :NSObject, ARSessionDelegate{
         let colorProcessingVertexFunction = defaultLibrary.makeFunction(name: "colorProcessingVertexFunction")!
         let colorProcessingFragmentFunction = defaultLibrary.makeFunction(name: "colorProcessingFragmentFunction")!
         
-        let  lutKernelFunction = defaultLibrary.makeFunction(name: "lutKernel" )
-        
+        //let   = defaultLibrary.makeFunction(name: "lutKernel" )
+        let  lutKernelFunction = defaultLibrary.makeFunction(name: "lutKernel2" )
+
         
         // Create a vertex descriptor for our image plane vertex buffer
         let imagePlaneVertexDescriptor = MTLVertexDescriptor()
@@ -1372,7 +1412,7 @@ class Renderer :NSObject, ARSessionDelegate{
         
         // self.sobelFilter = MPSImageSobel(device:self.device)
         
-        let lutcmg = getCGImage(from: UIImage(named: "lookup_soft_elegance_2" ) ?? UIImage())
+        let lutcmg = getCGImage(from: UIImage(named: "lookup_soft_elegance_1" ) ?? UIImage())
         textureLut = getMTLTexture(from: lutcmg!)
 
         // Create the command queue
@@ -1410,8 +1450,7 @@ class Renderer :NSObject, ARSessionDelegate{
         //        }
     }
     
-    func
-    loadMetal_prev() {
+   /* func loadMetal_prev() {
         // Create and load our basic Metal state objects
         
         // Set the default formats needed to render
@@ -1572,7 +1611,7 @@ class Renderer :NSObject, ARSessionDelegate{
         }
         
         //....
-        let lutcmg = getCGImage(from: UIImage(named: "lookup_soft_elegance_2" ) ?? UIImage())
+        let lutcmg = getCGImage(from: UIImage(named: "lookup_soft_elegance_1" ) ?? UIImage())
         textureLut = getMTLTexture(from: lutcmg!)
         
         
@@ -1582,7 +1621,7 @@ class Renderer :NSObject, ARSessionDelegate{
         // Create the command queue
         commandQueue = device.makeCommandQueue()
     }
-    
+   */
     
     func getUIImage(from ciimg: CIImage) {
         // func toUIImage() -> UIImage? {
@@ -2301,14 +2340,15 @@ class Renderer :NSObject, ARSessionDelegate{
         
         
     }
-    func renderColorProcessing( commandBuffer : MTLCommandBuffer,  lutTexture : MTLTexture?  ) {
+    func renderColorProcessing( commandBuffer : MTLCommandBuffer,  lutTexture : MTLTexture? ,destinationTexture : MTLTexture?  ) {
         
         let renderPassDescriptor = MTLRenderPassDescriptor()
         
-        renderPassDescriptor.colorAttachments[0].texture = renderDestination.currentRenderPassDescriptor?.colorAttachments[0].texture
+        renderPassDescriptor.colorAttachments[0].texture = destinationTexture!
+        renderDestination.currentRenderPassDescriptor?.colorAttachments[0].texture
         renderPassDescriptor.colorAttachments[0].loadAction = MTLLoadAction.load
         renderPassDescriptor.colorAttachments[0].storeAction =  MTLStoreAction.store
-        //   renderPassDescriptor.colorAttachments[0].resolveTexture = renderDestination.currentRenderPassDescriptor?.colorAttachments[0].resolveTexture
+        //   renderPassDescriptor.colorAttachments[0].resoflutTexturelveTexture = renderDestination.currentRenderPassDescriptor?.colorAttachments[0].resolveTexture
         
         
         if let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) {
@@ -2330,9 +2370,9 @@ class Renderer :NSObject, ARSessionDelegate{
             parameters.saturationIntensity = self.colorProcessingParameters.saturationIntensity
             parameters.contrastIntensity = self.colorProcessingParameters.contrastIntensity
             
-            renderEncoder.setFragmentBytes(&parameters, length: MemoryLayout<ColorProcessingParameters>.size, index: 0)
+            //renderEncoder.setFragmentBytes(&parameters, length: MemoryLayout<ColorProcessingParameters>.size, index: 0)
             
-            renderEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
+            renderEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 1, vertexCount: 4)
             
             renderEncoder.popDebugGroup()
             
